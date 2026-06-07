@@ -1,0 +1,169 @@
+.work-section {
+  position: relative;
+}
+
+/* Filter tabs styling */
+.filter-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.filter-tab-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  color: hsl(var(--text-muted));
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.filter-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.filter-tab-btn.active {
+  background: hsla(var(--primary) / 0.1);
+  border-color: hsla(var(--primary) / 0.3);
+  color: hsl(var(--primary));
+  box-shadow: 0 0 15px hsla(var(--primary) / 0.1);
+}
+
+/* Apps grid layout */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.app-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.75rem;
+}
+
+/* iOS squircle standard (approx 22.37% border radius) */
+.app-icon-img {
+  width: 76px;
+  height: 76px;
+  border-radius: 22%;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.app-icon-img.web-logo {
+  object-fit: contain;
+  background-color: #d7d7d7;
+  padding: 6px;
+}
+
+.app-icon-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 22%;
+  border: 1px solid;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.app-badge-wrap {
+  margin-top: 0.25rem;
+}
+
+.app-category-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: hsl(var(--text-dim));
+}
+
+.app-card-body {
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
+
+.app-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.app-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: hsl(var(--text-muted));
+}
+
+.app-card-footer {
+  margin-top: auto;
+}
+
+.app-store-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 12px;
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition-normal);
+}
+
+.app-store-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .filter-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .filter-tabs::-webkit-scrollbar {
+    display: none; /* Safari/Chrome */
+  }
+}
+
+@media (max-width: 480px) {
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+}

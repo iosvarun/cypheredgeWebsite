@@ -1,0 +1,224 @@
+.about-section {
+  position: relative;
+  background: radial-gradient(80% 50% at 50% 100%, hsla(var(--secondary) / 0.03) 0%, transparent 100%);
+}
+
+.about-grid-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.about-narrative {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.narrative-paragraph {
+  font-size: 1.05rem;
+  color: hsl(var(--text-muted));
+  margin-bottom: 1.25rem;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: white;
+}
+
+.highlight-icon {
+  color: hsl(var(--accent));
+}
+
+/* Engineering Mandate Glass panel */
+.about-visual {
+  padding: 3rem;
+}
+
+.visual-block-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 1rem;
+}
+
+.visual-block-header h3 {
+  font-size: 1.35rem;
+  color: white;
+}
+
+.visual-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.v-bullet h4 {
+  font-size: 1rem;
+  color: hsl(var(--accent));
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.v-bullet p {
+  font-size: 0.9rem;
+  color: hsl(var(--text-muted));
+}
+
+/* Founders Section */
+.founders-section-wrap {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 5rem;
+}
+
+.founders-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.founders-header h3 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.founders-header p {
+  font-size: 1rem;
+  color: hsl(var(--text-dim));
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.founder-card {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+}
+
+.founder-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-color: hsl(var(--bg-deep));
+}
+
+.founder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+  transition: transform var(--transition-slow);
+}
+
+.founder-card:hover .founder-img {
+  transform: scale(1.06);
+}
+
+.founder-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(10, 10, 22, 0.95), transparent);
+}
+
+.founder-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-name {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.founder-role {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: hsl(var(--primary));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.founder-bio {
+  font-size: 0.95rem;
+  color: hsl(var(--text-muted));
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.founder-socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.social-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: hsl(var(--text-muted));
+  transition: var(--transition-fast);
+}
+
+.social-link-btn:hover {
+  background: hsla(var(--primary) / 0.15);
+  border-color: hsl(var(--primary));
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px hsla(var(--primary) / 0.2);
+}
+
+@media (max-width: 900px) {
+  .about-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .about-visual {
+    padding: 2.25rem;
+  }
+  
+  .founders-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+}
