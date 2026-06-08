@@ -21,10 +21,6 @@ export default function Footer() {
             <p className="footer-slogan">
               Engineering high-fidelity B2B custom systems, native iOS/Android applications, and production-ready AI agent solutions.
             </p>
-            <div className="system-status">
-              <span className="status-dot"></span>
-              <span className="status-text">All systems operational</span>
-            </div>
           </div>
 
           {/* Quick Links */}
