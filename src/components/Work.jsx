@@ -8,6 +8,7 @@ const APPS = [
     category: "Utility & Social",
     iconPath: "/assets/ic_directMessage.png",
     urlString: "https://apps.apple.com/us/app/direct-message-for-whatsapp/id1557291502",
+    urlStringAndroid: "https://play.google.com/store/apps/details?id=com.directChat.app",
     fallbackTint: "#1FB14A",
     fallbackSymbol: MessageSquare,
     description: "Send direct messages on WhatsApp without saving contact numbers to your address book. Protect your privacy and send messages instantly.",
