@@ -40,6 +40,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -92,8 +94,8 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   z-index: -2;
   overflow: hidden;
   pointer-events: none;
@@ -141,8 +143,8 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   z-index: -1;
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
