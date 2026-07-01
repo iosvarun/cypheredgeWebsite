@@ -12,7 +12,10 @@ const APPS = [
     fallbackTint: "#1FB14A",
     fallbackSymbol: MessageSquare,
     description: "Send direct messages on WhatsApp without saving contact numbers to your address book. Protect your privacy and send messages instantly.",
-    badge: "Social Utility"
+    badge: "Social Utility",
+    aboutUrl: "#wadirectmessage/aboutus",
+    privacyUrl: "#wadirectmessage/privacypolicy",
+    termsUrl: "#wadirectmessage/termscondition"
   },
   {
     name: "WhatsBackup",
@@ -22,7 +25,10 @@ const APPS = [
     fallbackTint: "#1FB14A",
     fallbackSymbol: Lock,
     description: "Securely backup and manage your chats and media. Never lose important conversations with streamlined backup automation.",
-    badge: "Security Utility"
+    badge: "Security Utility",
+    aboutUrl: "#whatsbackup/aboutus",
+    privacyUrl: "#whatsbackup/privacypolicy",
+    termsUrl: "#whatsbackup/termscondition"
   },
   {
     name: "Digital Dukaan",
@@ -46,7 +52,10 @@ const APPS = [
     fallbackTint: "#8B5CF6",
     fallbackSymbol: ArrowDownCircle,
     description: "Advanced media compressor tool that reduces photo and video file sizes up to 90% without sacrificing image resolution or quality.",
-    badge: "Media Utility"
+    badge: "Media Utility",
+    aboutUrl: "#shrinklab/aboutus",
+    privacyUrl: "#shrinklab/privacypolicy",
+    termsUrl: "#shrinklab/termscondition"
   },
   {
     name: "Truth or Dare",
@@ -56,7 +65,10 @@ const APPS = [
     fallbackTint: "#EF4444",
     fallbackSymbol: Gamepad2,
     description: "A fun and interactive party game featuring multiple modes (Classic, Teen, Dirty) with seamless spinning mechanics and modern UI.",
-    badge: "Casual Game"
+    badge: "Casual Game",
+    aboutUrl: "#truthordare/aboutus",
+    privacyUrl: "#truthordare/privacypolicy",
+    termsUrl: "#truthordare/termscondition"
   },
   {
     name: "Gym Workout",
@@ -66,7 +78,10 @@ const APPS = [
     fallbackTint: "#16A34A",
     fallbackSymbol: Dumbbell,
     description: "Your comprehensive fitness club coach. Track workouts, count sets, plan custom routines, and maintain nutrition logs.",
-    badge: "Fitness Coach"
+    badge: "Fitness Coach",
+    aboutUrl: "#gymworkout/aboutus",
+    privacyUrl: "#gymworkout/privacypolicy",
+    termsUrl: "#gymworkout/termscondition"
   },
   {
     name: "PDF Pulse",
@@ -76,7 +91,10 @@ const APPS = [
     fallbackTint: "#F97316",
     fallbackSymbol: FileText,
     description: "A pocket PDF toolkit and document scanner. Merge, split, sign, lock, unlock, and convert files on the go with secure local processing.",
-    badge: "Office Tool"
+    badge: "Office Tool",
+    aboutUrl: "#pdfpulse/aboutus",
+    privacyUrl: "#pdfpulse/privacypolicy",
+    termsUrl: "#pdfpulse/termscondition"
   },
   {
     name: "Nyayaconnect",
@@ -86,7 +104,10 @@ const APPS = [
     fallbackTint: "#3B82F6",
     fallbackSymbol: Scale,
     description: "Empowering citizens with legal access, simplified documentation templates, legal consultation tools, and judicial resources in India.",
-    badge: "Civic Tech"
+    badge: "Civic Tech",
+    aboutUrl: "#nyayaconnect/aboutus",
+    privacyUrl: "#nyayaconnect/privacypolicy",
+    termsUrl: "#nyayaconnect/termscondition"
   },
   {
     name: "Aurikaa Jewels",
@@ -97,7 +118,10 @@ const APPS = [
     fallbackSymbol: ShoppingBag,
     description: "A premium B2C e-commerce platform for luxury imitation and American Diamond jewelry, complete with secure payment gateways, cart flows, and real-time inventory management.",
     badge: "E-Commerce",
-    isWeb: true
+    isWeb: true,
+    aboutUrl: "#aurikaajewels/aboutus",
+    privacyUrl: "#aurikaajewels/privacypolicy",
+    termsUrl: "#aurikaajewels/termscondition"
   }
 ];
 
@@ -215,14 +239,8 @@ export default function Work() {
                       {app.aboutUrl && (
                         <a href={app.aboutUrl} className="app-doc-link">About Us</a>
                       )}
-                      {app.aboutUrl && (app.privacyUrl || app.termsUrl) && (
-                        <span className="doc-link-separator">•</span>
-                      )}
                       {app.privacyUrl && (
                         <a href={app.privacyUrl} className="app-doc-link">Privacy Policy</a>
-                      )}
-                      {app.privacyUrl && app.termsUrl && (
-                        <span className="doc-link-separator">•</span>
                       )}
                       {app.termsUrl && (
                         <a href={app.termsUrl} className="app-doc-link">Terms & Conditions</a>

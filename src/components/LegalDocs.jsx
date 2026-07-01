@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowLeft, Shield, FileText, Info } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import { APP_DETAILS } from '../data/appDetails';
 import './LegalDocs.css';
 
 export default function LegalDocs({ path }) {
@@ -8,100 +9,100 @@ export default function LegalDocs({ path }) {
     window.location.hash = '#home';
   };
 
+  // Split path to resolve app-specific documentation
+  const pathParts = path.split('/');
+  const isAppDoc = pathParts.length === 2;
+  const appSlug = isAppDoc ? pathParts[0] : null;
+  const docType = isAppDoc ? pathParts[1] : null;
+
+  const appData = appSlug ? APP_DETAILS[appSlug] : null;
+
   // Content rendering based on route path
   const renderDocContent = () => {
-    switch (path) {
-      case 'digitaldukaan/termscondition':
+    // If it's an app-specific doc and we have the details in the database
+    if (appData) {
+      if (docType === 'aboutus') {
+        const about = appData.about;
         return (
           <div className="doc-content">
-            <h2>Terms & Conditions</h2>
+            <h2>About {appData.name}</h2>
+            <p className="intro">{about.intro}</p>
+            
             <div className="doc-section">
-              <h3>1. Use of the App</h3>
-              <p>Digital Dukaan helps merchants manage products, inventory, customers, sales, and business records. You agree to use the app only for lawful purposes.</p>
+              <h3>What You Can Do</h3>
+              <ul>
+                {about.features.map((f, i) => <li key={i}>{f}</li>)}
+              </ul>
             </div>
+            
             <div className="doc-section">
-              <h3>2. Account</h3>
-              <p>Cloud Backup & Sync requires sign-in using your verified mobile number through Firebase Authentication. You are responsible for maintaining the security of your account.</p>
+              <h3>Why Choose {appData.name}</h3>
+              <ul>
+                {about.whyChoose.map((w, i) => <li key={i}>{w}</li>)}
+              </ul>
             </div>
+            
             <div className="doc-section">
-              <h3>3. Your Data</h3>
-              <p>You own the business data you create. If Cloud Backup is enabled, your data is securely stored using Google Firebase services so it can be synchronized across your devices.</p>
+              <h3>Our Vision</h3>
+              <p>{about.vision}</p>
             </div>
+            
             <div className="doc-section">
-              <h3>4. Security</h3>
-              <p>We use reasonable security measures to protect your information, but no online service can guarantee complete security.</p>
+              <h3>Perfect For</h3>
+              <div className="perfect-grid">
+                {about.perfectFor.map((p, i) => <span key={i}>{p}</span>)}
+              </div>
             </div>
+            
             <div className="doc-section">
-              <h3>5. Availability</h3>
-              <p>We may update, improve, or discontinue features at any time. We do not guarantee uninterrupted availability of the app.</p>
-            </div>
-            <div className="doc-section">
-              <h3>6. Limitation of Liability</h3>
-              <p>Digital Dukaan is provided "as is." We are not responsible for any loss of data, profits, or business resulting from the use of the application.</p>
-            </div>
-            <div className="doc-section">
-              <h3>7. Changes</h3>
-              <p>These Terms may be updated from time to time. Continued use of the app means you accept the revised Terms.</p>
-            </div>
-            <div className="doc-section">
-              <h3>8. Contact</h3>
-              <p>For any questions, please contact:</p>
-              <p className="contact-email">Email: <a href="mailto:techcypheredge@gmail.com">techcypheredge@gmail.com</a></p>
+              <h3>Our Commitment</h3>
+              <p>{about.commitment}</p>
             </div>
           </div>
         );
+      }
 
-      case 'digitaldukaan/privacypolicy':
+      if (docType === 'privacypolicy') {
+        const privacy = appData.privacy;
         return (
           <div className="doc-content">
             <h2>Privacy Policy</h2>
-            <p className="intro">At Digital Dukaan, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information we collect, how we use it, and how we keep it secure.</p>
+            <p className="intro">At {appData.name}, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information we collect, how we use it, and how we keep it secure.</p>
             
             <div className="doc-section">
               <h3>Information We Collect</h3>
               <ul>
-                <li>Mobile phone number (for secure login using Firebase Authentication)</li>
-                <li>Shop information (shop name, business details, language preferences)</li>
-                <li>Products, inventory, sales records, customer information, and transaction history entered by you</li>
-                <li>Cloud backup data (if you enable Cloud Backup & Sync)</li>
-                <li>Basic device information and crash reports to improve app performance</li>
+                {privacy.collected.map((c, i) => <li key={i}>{c}</li>)}
               </ul>
             </div>
             
             <div className="doc-section">
               <h3>How We Use Your Information</h3>
               <ul>
-                <li>Verify your identity and secure your account</li>
-                <li>Store and synchronize your business data</li>
-                <li>Restore your data on a new device</li>
-                <li>Improve app performance and security</li>
-                <li>Provide customer support</li>
+                {privacy.usage.map((u, i) => <li key={i}>{u}</li>)}
               </ul>
             </div>
             
             <div className="doc-section">
               <h3>Data Security</h3>
-              <p>Your data is securely stored using Google Firebase services. We use secure authentication and encrypted communication to protect your information. Only you can access your business data after signing in with your verified mobile number.</p>
+              <p>{privacy.security}</p>
             </div>
             
             <div className="doc-section">
               <h3>Data Sharing</h3>
-              <p>We do not sell, rent, or share your personal information with advertisers or third parties for marketing purposes. Your information may be processed by trusted service providers such as Google Firebase solely to provide authentication, cloud storage, and related services.</p>
+              <p>{privacy.sharing}</p>
             </div>
             
             <div className="doc-section">
               <h3>Your Choices</h3>
               <ul>
-                <li>Update your business information at any time</li>
-                <li>Enable or disable Cloud Backup</li>
-                <li>Sign out of your account</li>
-                <li>Request deletion of your account and cloud data by contacting us</li>
+                {privacy.choices.map((c, i) => <li key={i}>{c}</li>)}
               </ul>
             </div>
             
             <div className="doc-section">
               <h3>Children's Privacy</h3>
-              <p>Digital Dukaan is intended for business owners and is not designed for children under the age of 13.</p>
+              <p>{privacy.children}</p>
             </div>
             
             <div className="doc-section">
@@ -112,66 +113,58 @@ export default function LegalDocs({ path }) {
             <div className="doc-section">
               <h3>Contact Us</h3>
               <p>If you have any questions regarding this Privacy Policy, please contact us:</p>
-              <p className="contact-email">Email: <a href="mailto:techcypheredge@gmail.com">techcypheredge@gmail.com</a></p>
+              <p className="contact-email">Email: <a href={`mailto:${appData.email}`}>{appData.email}</a></p>
             </div>
           </div>
         );
+      }
 
-      case 'digitaldukaan/aboutus':
+      if (docType === 'termscondition') {
+        const terms = appData.terms;
         return (
           <div className="doc-content">
-            <h2>About Digital Dukaan</h2>
-            <p className="intro">Digital Dukaan is a simple, secure, and easy-to-use business management application designed for shop owners, retailers, wholesalers, and small businesses. It helps you manage your business digitally, save time, reduce paperwork, and keep your business records organized.</p>
+            <h2>Terms & Conditions</h2>
             
             <div className="doc-section">
-              <h3>What You Can Do</h3>
-              <ul>
-                <li>Create and manage your shop profile</li>
-                <li>Add and organize products</li>
-                <li>Manage inventory efficiently</li>
-                <li>Record and track daily sales</li>
-                <li>Manage customer information</li>
-                <li>Securely back up and restore your data using Cloud Backup & Sync</li>
-                <li>Access your business anytime with secure mobile number login</li>
-              </ul>
+              <h3>1. Use of the App</h3>
+              <p>{terms.use}</p>
             </div>
-            
             <div className="doc-section">
-              <h3>Why Choose Digital Dukaan</h3>
-              <ul>
-                <li>Simple and user-friendly interface</li>
-                <li>Reduces manual paperwork</li>
-                <li>Keeps business records secure and organized</li>
-                <li>Access your data across devices</li>
-                <li>Helps you focus on growing your business</li>
-              </ul>
+              <h3>2. Account</h3>
+              <p>{terms.account}</p>
             </div>
-            
             <div className="doc-section">
-              <h3>Our Vision</h3>
-              <p>To empower every small business with simple, affordable, and reliable digital tools that make business management easier for everyone.</p>
+              <h3>3. Your Data</h3>
+              <p>{terms.data}</p>
             </div>
-            
             <div className="doc-section">
-              <h3>Perfect For</h3>
-              <div className="perfect-grid">
-                <span>Grocery & Kirana Stores</span>
-                <span>Clothing & Fashion Shops</span>
-                <span>Electronics & Mobile Stores</span>
-                <span>Medical & Pharmacy Shops</span>
-                <span>Restaurants & Cafés</span>
-                <span>Service Providers</span>
-                <span>Small & Medium Businesses</span>
-              </div>
+              <h3>4. Security</h3>
+              <p>{terms.security}</p>
             </div>
-            
             <div className="doc-section">
-              <h3>Our Commitment</h3>
-              <p>We are committed to providing a secure, reliable, and user-friendly platform while continuously improving Digital Dukaan with new features.</p>
+              <h3>5. Availability</h3>
+              <p>{terms.availability}</p>
+            </div>
+            <div className="doc-section">
+              <h3>6. Limitation of Liability</h3>
+              <p>{terms.liability}</p>
+            </div>
+            <div className="doc-section">
+              <h3>7. Changes</h3>
+              <p>These Terms may be updated from time to time. Continued use of the app means you accept the revised Terms.</p>
+            </div>
+            <div className="doc-section">
+              <h3>8. Contact</h3>
+              <p>For any questions, please contact:</p>
+              <p className="contact-email">Email: <a href={`mailto:${appData.email}`}>{appData.email}</a></p>
             </div>
           </div>
         );
+      }
+    }
 
+    // Default to company level policies
+    switch (path) {
       case 'privacypolicy':
         return (
           <div className="doc-content">

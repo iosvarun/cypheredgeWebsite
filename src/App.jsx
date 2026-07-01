@@ -23,16 +23,25 @@ export default function App() {
   // Normalize hash (remove starting '#' and optional '/')
   const path = currentHash.replace(/^#\/?/, '');
 
-  // Define valid legal document routes
-  const validDocRoutes = [
-    'digitaldukaan/aboutus',
-    'digitaldukaan/privacypolicy',
-    'digitaldukaan/termscondition',
-    'privacypolicy',
-    'termsandcondition'
+  // Define valid legal document routes dynamically for all apps
+  const appSlugs = [
+    'digitaldukaan',
+    'wadirectmessage',
+    'whatsbackup',
+    'shrinklab',
+    'truthordare',
+    'gymworkout',
+    'pdfpulse',
+    'nyayaconnect',
+    'aurikaajewels'
   ];
 
-  const isDocPage = validDocRoutes.includes(path);
+  const isDocPage = ['privacypolicy', 'termsandcondition'].includes(path) ||
+    appSlugs.some(slug => [
+      `${slug}/aboutus`,
+      `${slug}/privacypolicy`,
+      `${slug}/termscondition`
+    ].includes(path));
 
   if (isDocPage) {
     return <LegalDocs path={path} />;
