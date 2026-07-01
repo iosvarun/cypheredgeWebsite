@@ -6,7 +6,7 @@ const APPS = [
   {
     name: "WA Direct Message",
     category: "Utility & Social",
-    iconPath: "/assets/media__1779223833556.png",
+    iconPath: "/assets/ic_directMessage.png",
     urlString: "https://apps.apple.com/us/app/direct-message-for-whatsapp/id1557291502",
     fallbackTint: "#1FB14A",
     fallbackSymbol: MessageSquare,
@@ -24,14 +24,15 @@ const APPS = [
     badge: "Security Utility"
   },
   {
-    name: "Nyayaconnect",
-    category: "Legal & Enterprise",
-    iconPath: "/assets/media__1780777474356.png", // Gavel icon
-    urlString: "https://apps.apple.com/us/app/nyayaconnect/id6752890135",
+    name: "Digital Dukaan",
+    category: "Utility & Social",
+    iconPath: "/assets/ic_digitalDukaan.png",
+    urlString: "https://apps.apple.com/us/app/digital-dukaan-pos/id6782678932",
+    urlStringAndroid: "https://play.google.com/store/apps/details?id=com.digitaldukaan.android.app",
     fallbackTint: "#3B82F6",
-    fallbackSymbol: Scale,
-    description: "Empowering citizens with legal access, simplified documentation templates, legal consultation tools, and judicial resources in India.",
-    badge: "Civic Tech"
+    fallbackSymbol: ShoppingBag,
+    description: "A simple, secure, and intuitive business management application designed for shop owners, retailers, and wholesalers to manage inventory, track daily sales, and sync records with cloud backup.",
+    badge: "Business Utility"
   },
   {
     name: "ShrinkLab",
@@ -72,6 +73,16 @@ const APPS = [
     fallbackSymbol: FileText,
     description: "A pocket PDF toolkit and document scanner. Merge, split, sign, lock, unlock, and convert files on the go with secure local processing.",
     badge: "Office Tool"
+  },
+  {
+    name: "Nyayaconnect",
+    category: "Legal & Enterprise",
+    iconPath: "/assets/media__1780777474356.png", // Gavel icon
+    urlString: "https://apps.apple.com/us/app/nyayaconnect/id6752890135",
+    fallbackTint: "#3B82F6",
+    fallbackSymbol: Scale,
+    description: "Empowering citizens with legal access, simplified documentation templates, legal consultation tools, and judicial resources in India.",
+    badge: "Civic Tech"
   },
   {
     name: "Aurikaa Jewels",
@@ -153,18 +164,47 @@ export default function Work() {
                 </div>
 
                 <div className="app-card-footer">
-                  <a 
-                    href={app.urlString} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="app-store-btn"
-                    style={{ 
-                      background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`
-                    }}
-                  >
-                    <span>{app.isWeb ? 'Visit Website' : 'Get App'}</span>
-                    <ExternalLink size={16} />
-                  </a>
+                  {app.urlStringAndroid ? (
+                    <div className="app-store-btns">
+                      <a 
+                        href={app.urlString} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="app-store-btn half-btn"
+                        style={{ 
+                          background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`
+                        }}
+                      >
+                        <span>iOS App</span>
+                        <ExternalLink size={16} />
+                      </a>
+                      <a 
+                        href={app.urlStringAndroid} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="app-store-btn half-btn"
+                        style={{ 
+                          background: `linear-gradient(90deg, #10B981 0%, #1e1b4b 120%)` // Play Store Green
+                        }}
+                      >
+                        <span>Android</span>
+                        <ExternalLink size={16} />
+                      </a>
+                    </div>
+                  ) : (
+                    <a 
+                      href={app.urlString} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="app-store-btn"
+                      style={{ 
+                        background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`
+                      }}
+                    >
+                      <span>{app.isWeb ? 'Visit Website' : 'Get App'}</span>
+                      <ExternalLink size={16} />
+                    </a>
+                  )}
                 </div>
               </div>
             );
