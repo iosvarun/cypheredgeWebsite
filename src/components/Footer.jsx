@@ -38,7 +38,7 @@ export default function Footer() {
             <h4>Products</h4>
             <ul>
               <li><a href="https://apps.apple.com/us/app/direct-message-for-whatsapp/id1557291502" target="_blank" rel="noopener noreferrer">WA Direct Message</a></li>
-              <li><a href="https://apps.apple.com/us/app/nyayaconnect/id6752890135" target="_blank" rel="noopener noreferrer">Nyayaconnect</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.digitaldukaan.android.app" target="_blank" rel="noopener noreferrer">Digital Dukaan</a></li>
               <li><a href="https://apps.apple.com/us/app/gym-workout-fitness-club-lab/id6757446446" target="_blank" rel="noopener noreferrer">Gym Workout</a></li>
               <li><a href="https://apps.apple.com/us/app/whatsbackup/id6768908196" target="_blank" rel="noopener noreferrer">WhatsBackup</a></li>
             </ul>

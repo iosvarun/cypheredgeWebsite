@@ -33,7 +33,10 @@ const APPS = [
     fallbackTint: "#3B82F6",
     fallbackSymbol: ShoppingBag,
     description: "A simple, secure, and intuitive business management application designed for shop owners, retailers, and wholesalers to manage inventory, track daily sales, and sync records with cloud backup.",
-    badge: "Business Utility"
+    badge: "Business Utility",
+    aboutUrl: "#digitaldukaan/aboutus",
+    privacyUrl: "#digitaldukaan/privacypolicy",
+    termsUrl: "#digitaldukaan/termscondition"
   },
   {
     name: "ShrinkLab",
@@ -205,6 +208,26 @@ export default function Work() {
                       <span>{app.isWeb ? 'Visit Website' : 'Get App'}</span>
                       <ExternalLink size={16} />
                     </a>
+                  )}
+
+                  {(app.aboutUrl || app.privacyUrl || app.termsUrl) && (
+                    <div className="app-doc-links">
+                      {app.aboutUrl && (
+                        <a href={app.aboutUrl} className="app-doc-link">About Us</a>
+                      )}
+                      {app.aboutUrl && (app.privacyUrl || app.termsUrl) && (
+                        <span className="doc-link-separator">•</span>
+                      )}
+                      {app.privacyUrl && (
+                        <a href={app.privacyUrl} className="app-doc-link">Privacy Policy</a>
+                      )}
+                      {app.privacyUrl && app.termsUrl && (
+                        <span className="doc-link-separator">•</span>
+                      )}
+                      {app.termsUrl && (
+                        <a href={app.termsUrl} className="app-doc-link">Terms & Conditions</a>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>

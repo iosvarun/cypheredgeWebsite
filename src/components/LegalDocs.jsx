@@ -14,10 +14,6 @@ export default function LegalDocs({ path }) {
       case 'digitaldukaan/termscondition':
         return (
           <div className="doc-content">
-            <div className="doc-meta">
-              <span className="badge">Digital Dukaan</span>
-              <span className="date">Effective Date: June 29, 2026</span>
-            </div>
             <h2>Terms & Conditions</h2>
             <div className="doc-section">
               <h3>1. Use of the App</h3>
@@ -50,7 +46,7 @@ export default function LegalDocs({ path }) {
             <div className="doc-section">
               <h3>8. Contact</h3>
               <p>For any questions, please contact:</p>
-              <p className="contact-email">Email: <a href="mailto:utilityapps@gmail.com">utilityapps@gmail.com</a></p>
+              <p className="contact-email">Email: <a href="mailto:techcypheredge@gmail.com">techcypheredge@gmail.com</a></p>
             </div>
           </div>
         );
@@ -58,10 +54,6 @@ export default function LegalDocs({ path }) {
       case 'digitaldukaan/privacypolicy':
         return (
           <div className="doc-content">
-            <div className="doc-meta">
-              <span className="badge">Digital Dukaan</span>
-              <span className="date">Effective Date: June 29, 2026</span>
-            </div>
             <h2>Privacy Policy</h2>
             <p className="intro">At Digital Dukaan, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information we collect, how we use it, and how we keep it secure.</p>
             
@@ -120,7 +112,7 @@ export default function LegalDocs({ path }) {
             <div className="doc-section">
               <h3>Contact Us</h3>
               <p>If you have any questions regarding this Privacy Policy, please contact us:</p>
-              <p className="contact-email">Email: <a href="mailto:utilityapps@gmail.com">utilityapps@gmail.com</a></p>
+              <p className="contact-email">Email: <a href="mailto:techcypheredge@gmail.com">techcypheredge@gmail.com</a></p>
             </div>
           </div>
         );
@@ -128,10 +120,6 @@ export default function LegalDocs({ path }) {
       case 'digitaldukaan/aboutus':
         return (
           <div className="doc-content">
-            <div className="doc-meta">
-              <span className="badge animate-pulse-glow">Digital Dukaan</span>
-              <span className="date">Effective Date: June 29, 2026</span>
-            </div>
             <h2>About Digital Dukaan</h2>
             <p className="intro">Digital Dukaan is a simple, secure, and easy-to-use business management application designed for shop owners, retailers, wholesalers, and small businesses. It helps you manage your business digitally, save time, reduce paperwork, and keep your business records organized.</p>
             
@@ -226,7 +214,7 @@ export default function LegalDocs({ path }) {
             <div className="doc-section">
               <h3>5. Contact Us</h3>
               <p>If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:</p>
-              <p className="contact-email">Email: <a href="mailto:utilityapps@gmail.com">utilityapps@gmail.com</a></p>
+              <p className="contact-email">Email: <a href="mailto:techcypheredge@gmail.com">techcypheredge@gmail.com</a></p>
             </div>
           </div>
         );
@@ -268,7 +256,7 @@ export default function LegalDocs({ path }) {
             <div className="doc-section">
               <h3>6. Contact Us</h3>
               <p>For any questions or support regarding our Terms & Conditions, please reach out to us:</p>
-              <p className="contact-email">Email: <a href="mailto:utilityapps@gmail.com">utilityapps@gmail.com</a></p>
+              <p className="contact-email">Email: <a href="mailto:techcypheredge@gmail.com">techcypheredge@gmail.com</a></p>
             </div>
           </div>
         );
