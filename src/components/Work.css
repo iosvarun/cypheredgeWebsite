@@ -1,5 +1,6 @@
 .work-section {
   position: relative;
+  overflow: hidden;
 }
 
 /* Filter tabs styling */

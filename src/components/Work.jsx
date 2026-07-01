@@ -200,7 +200,10 @@ export default function Work() {
                         rel="noopener noreferrer" 
                         className="app-store-btn half-btn"
                         style={{ 
-                          background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`
+                          background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`,
+                          border: 'none',
+                          textDecoration: 'none',
+                          outline: 'none'
                         }}
                       >
                         <svg viewBox="0 0 384 512" width="14" height="14" fill="currentColor">
@@ -214,7 +217,10 @@ export default function Work() {
                         rel="noopener noreferrer" 
                         className="app-store-btn half-btn"
                         style={{ 
-                          background: `linear-gradient(90deg, #10B981 0%, #1e1b4b 120%)` // Play Store Green
+                          background: `linear-gradient(90deg, #10B981 0%, #1e1b4b 120%)`, // Play Store Green
+                          border: 'none',
+                          textDecoration: 'none',
+                          outline: 'none'
                         }}
                       >
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
@@ -230,7 +236,10 @@ export default function Work() {
                       rel="noopener noreferrer" 
                       className="app-store-btn"
                       style={{ 
-                        background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`
+                        background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`,
+                        border: 'none',
+                        textDecoration: 'none',
+                        outline: 'none'
                       }}
                     >
                       {app.isWeb ? (
