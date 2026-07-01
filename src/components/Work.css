@@ -148,9 +148,8 @@
   font-weight: 600;
   font-size: 0.95rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: none;
   text-decoration: none;
-  background-clip: padding-box;
   outline: none;
   transition: var(--transition-normal);
 }
