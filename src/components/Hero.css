@@ -5,6 +5,8 @@
   padding-top: 10rem;
   padding-bottom: 6rem;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-wrapper {
@@ -12,11 +14,14 @@
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: 4rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .accent-glow-icon {

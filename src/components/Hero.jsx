@@ -81,67 +81,79 @@ export default function Hero() {
     <section id="home" className="hero-section">
       <div 
         className="container hero-wrapper"
-        style={{
-          gridTemplateColumns: isMobile ? '1fr' : '1.1fr 0.9fr',
-          textAlign: isMobile ? 'center' : 'left',
-          gap: isMobile ? '3rem' : '4rem'
-        }}
+        style={isMobile ? {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          gap: '2rem',
+          width: '100%',
+          maxWidth: '100%',
+          boxSizing: 'border-box'
+        } : {}}
       >
         <div 
           className="hero-content"
-          style={{
-            alignItems: isMobile ? 'center' : 'flex-start',
-            textAlign: isMobile ? 'center' : 'left',
-            width: '100%'
-          }}
+          style={isMobile ? {
+            alignItems: 'center',
+            textAlign: 'center',
+            width: '100%',
+            maxWidth: '100%',
+            boxSizing: 'border-box'
+          } : {}}
         >
           <h1 
             className="hero-title"
-            style={{
-              fontSize: isMobile ? (isTiny ? '2.1rem' : '2.8rem') : '4rem',
-              textAlign: isMobile ? 'center' : 'left',
-              wordWrap: 'break-word',
+            style={isMobile ? {
+              fontSize: isTiny ? '2rem' : '2.5rem',
+              textAlign: 'center',
+              wordBreak: 'break-word',
               overflowWrap: 'break-word',
               width: '100%',
-              marginRight: 'auto',
-              marginLeft: 'auto'
-            }}
+              maxWidth: '100%',
+              lineHeight: 1.2
+            } : {}}
           >
             We Engineer the Future of <span className="text-gradient-neon">Intelligent Software</span>
           </h1>
           
           <p 
             className="hero-subtitle"
-            style={{
-              fontSize: isMobile ? (isTiny ? '0.95rem' : '1.05rem') : '1.2rem',
-              textAlign: isMobile ? 'center' : 'left',
-              marginLeft: isMobile ? 'auto' : '0',
-              marginRight: isMobile ? 'auto' : '0',
-              maxWidth: '600px',
-              width: '100%'
-            }}
+            style={isMobile ? {
+              fontSize: isTiny ? '0.9rem' : '1rem',
+              textAlign: 'center',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              maxWidth: '100%',
+              width: '100%',
+              wordBreak: 'break-word',
+              overflowWrap: 'break-word'
+            } : {}}
           >
             CypherEdge designs premium iOS/Android mobile applications, architectures high-performance cloud backends, and implements cutting-edge AI Agent solutions. Let's convert your groundbreaking idea into reality.
           </p>
 
           <div 
             className="hero-actions"
-            style={{
-              flexDirection: isMobile ? 'column' : 'row',
-              width: isMobile ? '100%' : 'auto',
-              alignItems: isMobile ? 'center' : 'stretch',
-              justifyContent: isMobile ? 'center' : 'flex-start',
-              gap: isMobile ? '1rem' : '1.25rem'
-            }}
+            style={isMobile ? {
+              flexDirection: 'column',
+              width: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1rem'
+            } : {}}
           >
             <a 
               href="#work" 
               className="btn-glow"
-              style={{
-                width: isMobile ? '100%' : 'auto',
-                maxWidth: isMobile ? '300px' : 'none',
-                padding: isMobile ? '0.85rem 1.5rem' : '1rem 2.25rem'
-              }}
+              style={isMobile ? {
+                width: '100%',
+                maxWidth: '280px',
+                textAlign: 'center',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              } : {}}
             >
               Explore Our Work
               <ArrowRight size={18} />
@@ -149,11 +161,14 @@ export default function Hero() {
             <a 
               href="#services" 
               className="btn-secondary"
-              style={{
-                width: isMobile ? '100%' : 'auto',
-                maxWidth: isMobile ? '300px' : 'none',
-                padding: isMobile ? '0.85rem 1.5rem' : '1rem 2.25rem'
-              }}
+              style={isMobile ? {
+                width: '100%',
+                maxWidth: '280px',
+                textAlign: 'center',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              } : {}}
             >
               <Play size={16} fill="white" />
               Our Services
@@ -162,14 +177,14 @@ export default function Hero() {
 
           <div 
             className="hero-stats"
-            style={{
-              flexDirection: isMobile ? 'column' : 'row',
-              alignItems: isMobile ? 'center' : 'stretch',
-              justifyContent: isMobile ? 'center' : 'flex-start',
-              gap: isMobile ? '1.5rem' : '3rem',
+            style={isMobile ? {
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1.5rem',
               width: '100%',
-              marginTop: isMobile ? '2rem' : '0'
-            }}
+              marginTop: '1.5rem'
+            } : {}}
           >
             <div className="stat-item">
               <span className="stat-number">7+</span>
@@ -186,8 +201,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* AI Agent Console Mockup */}
-        <div className="hero-interactive">
+        {/* AI Agent Console Mockup - hidden on mobile */}
+        <div className="hero-interactive" style={isMobile ? { display: 'none' } : {}}>
           <div className="terminal-window">
             <div className="terminal-header">
               <div className="terminal-buttons">
