@@ -60,9 +60,16 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="footer-bottom">
-          <p className="copyright-text">
-            &copy; {currentYear} CypherEdge Private Limited. All rights reserved.
-          </p>
+          <div className="footer-bottom-left">
+            <p className="copyright-text">
+              &copy; {currentYear} CypherEdge Private Limited. All rights reserved.
+            </p>
+            <div className="footer-legal-links">
+              <a href="#privacypolicy" className="footer-legal-link">Privacy Policy</a>
+              <span className="separator">•</span>
+              <a href="#termsandcondition" className="footer-legal-link">Terms & Conditions</a>
+            </div>
+          </div>
           
           <button 
             onClick={handleScrollToTop} 
