@@ -16,6 +16,19 @@ export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [typingText, setTypingText] = useState('');
+  
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 1024 : false);
+  const [isTiny, setIsTiny] = useState(typeof window !== 'undefined' ? window.innerWidth <= 480 : false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+      setIsTiny(window.innerWidth <= 480);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Run simulation
   useEffect(() => {
@@ -66,83 +79,98 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero-section">
-      <style>{`
-        @media (max-width: 1024px) {
-          .hero-wrapper {
-            grid-template-columns: 1fr !important;
-            text-align: center !important;
-            gap: 3rem !important;
-          }
-          .hero-content {
-            align-items: center !important;
-            text-align: center !important;
-            width: 100% !important;
-          }
-          .hero-title {
-            font-size: 2.8rem !important;
-            text-align: center !important;
-            word-wrap: break-word !important;
-            overflow-wrap: break-word !important;
-            width: 100% !important;
-          }
-          .hero-subtitle {
-            margin-left: auto !important;
-            margin-right: auto !important;
-            text-align: center !important;
-            font-size: 1.05rem !important;
-            max-width: 600px !important;
-            width: 100% !important;
-          }
-          .hero-stats {
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            align-items: center !important;
-            width: 100% !important;
-            margin-top: 1rem !important;
-          }
-          .hero-actions {
-            flex-direction: column !important;
-            width: 100% !important;
-            align-items: center !important;
-            gap: 1rem !important;
-          }
-          .hero-actions a {
-            width: 100% !important;
-            max-width: 300px !important;
-            padding: 0.85rem 1.5rem !important;
-          }
-        }
-        @media (max-width: 480px) {
-          .hero-title {
-            font-size: 2.1rem !important;
-          }
-          .hero-subtitle {
-            font-size: 0.95rem !important;
-          }
-        }
-      `}</style>
-      <div className="container hero-wrapper">
-        <div className="hero-content">
-          <h1 className="hero-title">
+      <div 
+        className="container hero-wrapper"
+        style={{
+          gridTemplateColumns: isMobile ? '1fr' : '1.1fr 0.9fr',
+          textAlign: isMobile ? 'center' : 'left',
+          gap: isMobile ? '3rem' : '4rem'
+        }}
+      >
+        <div 
+          className="hero-content"
+          style={{
+            alignItems: isMobile ? 'center' : 'flex-start',
+            textAlign: isMobile ? 'center' : 'left',
+            width: '100%'
+          }}
+        >
+          <h1 
+            className="hero-title"
+            style={{
+              fontSize: isMobile ? (isTiny ? '2.1rem' : '2.8rem') : '4rem',
+              textAlign: isMobile ? 'center' : 'left',
+              wordWrap: 'break-word',
+              overflowWrap: 'break-word',
+              width: '100%',
+              marginRight: 'auto',
+              marginLeft: 'auto'
+            }}
+          >
             We Engineer the Future of <span className="text-gradient-neon">Intelligent Software</span>
           </h1>
           
-          <p className="hero-subtitle">
+          <p 
+            className="hero-subtitle"
+            style={{
+              fontSize: isMobile ? (isTiny ? '0.95rem' : '1.05rem') : '1.2rem',
+              textAlign: isMobile ? 'center' : 'left',
+              marginLeft: isMobile ? 'auto' : '0',
+              marginRight: isMobile ? 'auto' : '0',
+              maxWidth: '600px',
+              width: '100%'
+            }}
+          >
             CypherEdge designs premium iOS/Android mobile applications, architectures high-performance cloud backends, and implements cutting-edge AI Agent solutions. Let's convert your groundbreaking idea into reality.
           </p>
 
-          <div className="hero-actions">
-            <a href="#work" className="btn-glow">
+          <div 
+            className="hero-actions"
+            style={{
+              flexDirection: isMobile ? 'column' : 'row',
+              width: isMobile ? '100%' : 'auto',
+              alignItems: isMobile ? 'center' : 'stretch',
+              justifyContent: isMobile ? 'center' : 'flex-start',
+              gap: isMobile ? '1rem' : '1.25rem'
+            }}
+          >
+            <a 
+              href="#work" 
+              className="btn-glow"
+              style={{
+                width: isMobile ? '100%' : 'auto',
+                maxWidth: isMobile ? '300px' : 'none',
+                padding: isMobile ? '0.85rem 1.5rem' : '1rem 2.25rem'
+              }}
+            >
               Explore Our Work
               <ArrowRight size={18} />
             </a>
-            <a href="#services" className="btn-secondary">
+            <a 
+              href="#services" 
+              className="btn-secondary"
+              style={{
+                width: isMobile ? '100%' : 'auto',
+                maxWidth: isMobile ? '300px' : 'none',
+                padding: isMobile ? '0.85rem 1.5rem' : '1rem 2.25rem'
+              }}
+            >
               <Play size={16} fill="white" />
               Our Services
             </a>
           </div>
 
-          <div className="hero-stats">
+          <div 
+            className="hero-stats"
+            style={{
+              flexDirection: isMobile ? 'column' : 'row',
+              alignItems: isMobile ? 'center' : 'stretch',
+              justifyContent: isMobile ? 'center' : 'flex-start',
+              gap: isMobile ? '1.5rem' : '3rem',
+              width: '100%',
+              marginTop: isMobile ? '2rem' : '0'
+            }}
+          >
             <div className="stat-item">
               <span className="stat-number">7+</span>
               <span className="stat-label">Live App Store Products</span>
