@@ -66,6 +66,61 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero-section">
+      <style>{`
+        @media (max-width: 1024px) {
+          .hero-wrapper {
+            grid-template-columns: 1fr !important;
+            text-align: center !important;
+            gap: 3rem !important;
+          }
+          .hero-content {
+            align-items: center !important;
+            text-align: center !important;
+            width: 100% !important;
+          }
+          .hero-title {
+            font-size: 2.8rem !important;
+            text-align: center !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            width: 100% !important;
+          }
+          .hero-subtitle {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center !important;
+            font-size: 1.05rem !important;
+            max-width: 600px !important;
+            width: 100% !important;
+          }
+          .hero-stats {
+            flex-direction: column !important;
+            gap: 1.5rem !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-top: 1rem !important;
+          }
+          .hero-actions {
+            flex-direction: column !important;
+            width: 100% !important;
+            align-items: center !important;
+            gap: 1rem !important;
+          }
+          .hero-actions a {
+            width: 100% !important;
+            max-width: 300px !important;
+            padding: 0.85rem 1.5rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .hero-title {
+            font-size: 2.1rem !important;
+          }
+          .hero-subtitle {
+            font-size: 0.95rem !important;
+          }
+        }
+      `}</style>
       <div className="container hero-wrapper">
         <div className="hero-content">
           <h1 className="hero-title">

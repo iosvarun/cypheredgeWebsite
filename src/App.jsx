@@ -49,6 +49,13 @@ export default function App() {
 
   return (
     <>
+      <style>{`
+        html, body, #root, main {
+          width: 100% !important;
+          overflow-x: hidden !important;
+          position: relative !important;
+        }
+      `}</style>
 
       {/* Global Ambient Background Orbs */}
       <div className="ambient-bg">
