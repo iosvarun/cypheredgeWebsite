@@ -203,6 +203,9 @@ export default function Work() {
                           background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`,
                           border: 'none',
                           textDecoration: 'none',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: '102% 102%',
+                          backgroundPosition: 'center',
                           outline: 'none'
                         }}
                       >
@@ -220,6 +223,9 @@ export default function Work() {
                           background: `linear-gradient(90deg, #10B981 0%, #1e1b4b 120%)`, // Play Store Green
                           border: 'none',
                           textDecoration: 'none',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: '102% 102%',
+                          backgroundPosition: 'center',
                           outline: 'none'
                         }}
                       >
@@ -239,6 +245,9 @@ export default function Work() {
                         background: `linear-gradient(90deg, ${app.fallbackTint || '#3B82F6'} 0%, #1e1b4b 120%)`,
                         border: 'none',
                         textDecoration: 'none',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '102% 102%',
+                        backgroundPosition: 'center',
                         outline: 'none'
                       }}
                     >

@@ -151,6 +151,9 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
   border: none;
   text-decoration: none;
+  background-repeat: no-repeat;
+  background-size: 102% 102%;
+  background-position: center;
   outline: none;
   transition: var(--transition-normal);
 }
