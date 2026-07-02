@@ -6,102 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
-    <title>CypherEdge | Next-Gen AI Solutions & Software Development Company</title>
+    <title>CypherEdge | Next-Gen AI Solutions &amp; Software Development Company</title>
     <meta name="description" content="CypherEdge Pvt. Ltd. delivers cutting-edge software engineering, custom AI solutions (AI Agents, LLMs), high-performance iOS/Android app development, and ERP systems for enterprises." />
     <meta name="keywords" content="CypherEdge, AI solutions, AI Agents, mobile app development, iOS apps, Android apps, custom ERP, web development, software company, Akash Verma, Varun Kumar" />
     <meta name="author" content="CypherEdge Pvt. Ltd." />
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="CypherEdge | Next-Gen AI Solutions & Software Development" />
+    <meta property="og:title" content="CypherEdge | Next-Gen AI Solutions &amp; Software Development" />
     <meta property="og:description" content="Empowering enterprises with custom AI agents, robust backends, and premium iOS/Android mobile apps." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://cypheredge.onrender.com/" />
-    <meta property="og:image" content="https://cypheredge.onrender.com/assets/og_image.png" />
+    <meta property="og:url" content="https://www.cypheredge.in/" />
+    <meta property="og:image" content="https://www.cypheredge.in/assets/og_image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="CypherEdge | Next-Gen AI Solutions & Software Development" />
+    <meta name="twitter:title" content="CypherEdge | Next-Gen AI Solutions &amp; Software Development" />
     <meta name="twitter:description" content="Empowering enterprises with custom AI agents, robust backends, and premium iOS/Android mobile apps." />
-    <meta name="twitter:image" content="https://cypheredge.onrender.com/assets/og_image.png" />
-    
-    <!-- Premium Fonts -->
+    <meta name="twitter:image" content="https://www.cypheredge.in/assets/og_image.png" />
+
+    <!-- CRITICAL: Instant dark background — prevents white flash before CSS loads -->
+    <style>
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      html,body,#root{
+        background-color:#06060f;
+        color:#ffffff;
+        min-height:100vh;
+        width:100%;
+        overflow-x:hidden;
+      }
+      /* Preloader styles */
+      #app-preloader{
+        position:fixed;
+        inset:0;
+        background:#06060f;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        z-index:99999;
+        font-family:'Outfit',system-ui,sans-serif;
+        transition:opacity 0.4s ease, visibility 0.4s ease;
+      }
+      #app-preloader.fade-out{
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+      }
+      .preloader-logo{
+        width:72px;
+        height:72px;
+        animation:pl-pulse 1.8s infinite ease-in-out;
+        filter:drop-shadow(0 0 12px rgba(59,130,246,0.3));
+        margin-bottom:1.5rem;
+      }
+      .preloader-ring{
+        width:36px;
+        height:36px;
+        border:2.5px solid rgba(255,255,255,0.06);
+        border-top-color:#3b82f6;
+        border-radius:50%;
+        animation:pl-spin 0.75s linear infinite;
+        margin-bottom:0.75rem;
+      }
+      .preloader-text{
+        font-size:0.78rem;
+        color:#64748b;
+        font-weight:500;
+        letter-spacing:0.12em;
+        text-transform:uppercase;
+      }
+      @keyframes pl-pulse{
+        0%,100%{transform:scale(0.93);opacity:0.65;}
+        50%{transform:scale(1.06);opacity:1;filter:drop-shadow(0 0 22px rgba(59,130,246,0.4));}
+      }
+      @keyframes pl-spin{to{transform:rotate(360deg);}}
+    </style>
+
+    <!-- Non-blocking Google Fonts (media=print trick) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    >
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
   </head>
   <body>
-    <div id="root">
-      <!-- Premium Loading Preloader -->
-      <div id="app-preloader" style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #06060f;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 99999;
-        font-family: 'Outfit', sans-serif;
-      ">
-        <div style="
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 1.5rem;
-        ">
-          <!-- Pulsing Logo -->
-          <img src="/favicon.png" alt="Loading..." style="
-            width: 80px;
-            height: 80px;
-            animation: preloader-pulse 1.8s infinite ease-in-out;
-            filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
-          " />
-          
-          <!-- Loading Text / Spinner -->
-          <div style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-          ">
-            <div class="preloader-spinner" style="
-              width: 32px;
-              height: 32px;
-              border: 2px solid rgba(255, 255, 255, 0.05);
-              border-top-color: #3b82f6; /* primary neon blue */
-              border-radius: 50%;
-              animation: preloader-spin 0.8s linear infinite;
-            "></div>
-            <span style="
-              font-size: 0.85rem;
-              color: #94a3b8;
-              font-weight: 500;
-              letter-spacing: 0.1em;
-              text-transform: uppercase;
-              margin-top: 0.5rem;
-            ">Initializing Systems...</span>
-          </div>
-        </div>
-      </div>
-      
-      <style>
-        @keyframes preloader-pulse {
-          0% { transform: scale(0.92); opacity: 0.6; }
-          50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.25)); }
-          100% { transform: scale(0.92); opacity: 0.6; }
-        }
-        @keyframes preloader-spin {
-          to { transform: rotate(360deg); }
-        }
-      </style>
+    <!-- Preloader lives OUTSIDE #root so React render doesn't destroy it -->
+    <div id="app-preloader" aria-hidden="true">
+      <img src="/favicon.png" alt="" class="preloader-logo" />
+      <div class="preloader-ring"></div>
+      <span class="preloader-text">Loading CypherEdge...</span>
     </div>
+
+    <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('app-preloader');
+        if (preloader) {
+          preloader.classList.add('fade-out');
+          setTimeout(() => preloader.remove(), 400);
+        }
+      });
+    </script>
   </body>
 </html>
-
