@@ -9,7 +9,7 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: 4rem;
   align-items: center;
-  margin-bottom: 6rem;
+  margin-bottom: 3.5rem;
 }
 
 .about-narrative {
@@ -90,7 +90,7 @@
 /* Founders Section */
 .founders-section-wrap {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 
 .founders-header {

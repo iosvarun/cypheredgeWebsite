@@ -1,9 +1,9 @@
 .hero-section {
   display: flex;
   align-items: center;
-  min-height: 100vh;
-  padding-top: 10rem;
-  padding-bottom: 6rem;
+  min-height: 85vh;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
@@ -47,7 +47,7 @@
 .hero-actions {
   display: flex;
   gap: 1.25rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
 
