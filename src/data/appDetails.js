@@ -97,30 +97,55 @@ export const APP_DETAILS = {
       commitment: "We commit to maintaining a secure, ad-free utility that respects user privacy and stores data strictly on-device."
     },
     privacy: {
+      intro: "At WA Direct Message, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information we collect, how we use it, and how we protect your privacy.",
       collected: [
-        "Zero personal identification data is collected",
-        "We do not collect phone numbers, messages, or metadata entered into the app",
-        "Basic anonymous crash logs for performance diagnostics"
+        "We do not collect, store, or transmit phone numbers",
+        "We do not collect WhatsApp messages or message content",
+        "We do not collect contacts, photos, or personal identification information",
+        "We do not collect device location or any user-generated data",
+        "We may receive anonymous crash reports and diagnostic information provided by Apple or Google to help improve app stability — these reports do not identify you personally"
       ],
       usage: [
-        "Improve app stability and functionality using crash logs",
-        "Verify input formatting locally to construct messaging URLs"
+        "Improve application stability",
+        "Fix bugs and enhance performance",
+        "Improve the overall user experience",
+        "Message formatting and WhatsApp URL generation are performed entirely on your device"
       ],
-      security: "Since the app is 100% local, your contact entries and history never cross the internet or reach our servers. URL launch formatting runs entirely inside your sandboxed device environment.",
-      sharing: "We do not sell, rent, share, or process any of your messaging data because we do not collect or store it in the first place.",
+      subscriptionInfo: "WA Direct Message offers optional premium subscriptions through Apple's App Store. All subscription purchases, billing, renewals, cancellations, and payment processing are handled exclusively by Apple. We do not collect, store, or have access to credit card information, payment details, Apple ID credentials, or billing information. The app may verify your subscription status using Apple's StoreKit framework solely to determine whether premium features should be enabled.",
+      storage: "All app data remains stored locally on your device. We do not maintain cloud copies of message templates, scheduled messages, history, preferences, or phone numbers. You are responsible for backing up your device if you wish to preserve this information.",
+      security: "Because your data remains on your device, your information is not transmitted to or stored on our servers. All WhatsApp URL generation and message preparation occur locally within your device's secure operating system environment.",
+      sharing: "We do not sell personal information, rent user data, share user information with advertisers, process your messaging content, or store your personal information on our servers. Any diagnostic information shared with Apple or Google is governed by their respective privacy policies.",
       choices: [
-        "Clear your local history log inside the app at any time",
-        "Permissions can be managed directly in iOS/Android settings"
+        "Clear your local app history at any time",
+        "Remove stored templates within the app",
+        "Cancel your premium subscription through your Apple ID Account Settings",
+        "Manage device permissions through your iOS or Android settings"
       ],
-      children: "WA Direct Message does not collect any data and is safe for users of all ages."
+      children: "WA Direct Message does not knowingly collect personal information from children. Since no personal data is collected or stored, the app is suitable for users of all ages.",
+      thirdParty: "WA Direct Message interacts with WhatsApp (to open chats using supported deep links) and Apple App Store (for subscription purchases and payment processing). These services operate under their own Terms of Service and Privacy Policies."
     },
     terms: {
-      use: "WA Direct Message construction URLs are for lawful personal or business use. You agree not to use this utility for spamming or harassment.",
-      account: "No account registration is needed to use the application.",
-      data: "All data remains on your physical device and is subject to your own hardware backups.",
-      security: "No credentials or messaging texts are handled by our systems.",
-      availability: "Features depend on WhatsApp's public deep-link API. We do not guarantee service continuity if WhatsApp alters their URL schema.",
-      liability: "WA Direct Message is provided 'as is'. We are not liable for any issues, blocks, or data losses experienced on third-party messaging services."
+      use: "WA Direct Message is intended for lawful personal and business communication. You agree not to use the application for spam, harassment, illegal activities, or any purpose that violates applicable laws or WhatsApp's Terms of Service.",
+      account: "No account registration is required to use WA Direct Message. All app features are available directly on your device.",
+      subscriptions: {
+        description: "WA Direct Message offers optional auto-renewable subscriptions that unlock premium features.",
+        features: [
+          "Ad-Free Experience",
+          "Unlimited Custom Messages",
+          "Unlimited Scheduled Messages",
+          "Unlimited Location Sharing",
+          "Auto Paste Number"
+        ],
+        pricing: "Subscription prices are displayed in the app before purchase and may vary by region."
+      },
+      freeTrial: "Eligible new subscribers may receive a 7-day free trial. The free trial is available only to users who qualify under Apple's subscription policies. If the subscription is not canceled before the trial ends, the selected subscription will automatically renew and the applicable subscription fee will be charged through your Apple ID account.",
+      autoRenewal: "Subscriptions automatically renew unless canceled at least 24 hours before the end of the current billing period. Your Apple ID account will be charged for renewal within 24 hours before the end of the current subscription period. You can manage or cancel your subscription at any time from your Apple ID Account Settings after purchase.",
+      payments: "All subscription payments are processed by Apple through the App Store. We do not collect, process, or store your payment information. Refund requests are handled solely by Apple and are subject to Apple's refund policies.",
+      data: "All data created within WA Direct Message remains stored locally on your device unless you explicitly share it. We do not store your messages, contacts, phone numbers, or personal conversations on our servers.",
+      security: "No WhatsApp credentials, authentication tokens, or message contents are transmitted through or stored on our servers.",
+      availability: "Some features depend on WhatsApp's public deep-link functionality. We cannot guarantee uninterrupted availability if WhatsApp changes or removes its supported functionality.",
+      liability: "WA Direct Message is provided 'as is' without warranties of any kind. To the maximum extent permitted by law, we are not responsible for any damages, service interruptions, data loss, or issues resulting from the use of third-party services, including WhatsApp or the Apple App Store.",
+      changes: "We may update these Terms from time to time. Continued use of the application after changes become effective constitutes acceptance of the updated Terms."
     }
   },
   whatsbackup: {

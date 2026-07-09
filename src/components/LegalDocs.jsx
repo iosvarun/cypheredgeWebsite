@@ -67,51 +67,73 @@ export default function LegalDocs({ path }) {
         return (
           <div className="doc-content">
             <h2>Privacy Policy</h2>
-            <p className="intro">At {appData.name}, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information we collect, how we use it, and how we keep it secure.</p>
-            
+            <p className="intro">{privacy.intro || `At ${appData.name}, we respect your privacy and are committed to protecting your personal information.`}</p>
+
             <div className="doc-section">
-              <h3>Information We Collect</h3>
+              <h3>1. Information We Collect</h3>
+              <p>{appData.name} is designed with privacy in mind.</p>
               <ul>
                 {privacy.collected.map((c, i) => <li key={i}>{c}</li>)}
               </ul>
             </div>
-            
+
             <div className="doc-section">
-              <h3>How We Use Your Information</h3>
+              <h3>2. How We Use Information</h3>
               <ul>
                 {privacy.usage.map((u, i) => <li key={i}>{u}</li>)}
               </ul>
             </div>
-            
+
+            {privacy.subscriptionInfo && (
+              <div className="doc-section">
+                <h3>3. Subscription Information</h3>
+                <p>{privacy.subscriptionInfo}</p>
+              </div>
+            )}
+
+            {privacy.storage && (
+              <div className="doc-section">
+                <h3>4. Data Storage</h3>
+                <p>{privacy.storage}</p>
+              </div>
+            )}
+
             <div className="doc-section">
-              <h3>Data Security</h3>
+              <h3>{privacy.subscriptionInfo ? '5' : '3'}. Data Security</h3>
               <p>{privacy.security}</p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>Data Sharing</h3>
+              <h3>{privacy.subscriptionInfo ? '6' : '4'}. Data Sharing</h3>
               <p>{privacy.sharing}</p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>Your Choices</h3>
+              <h3>{privacy.subscriptionInfo ? '7' : '5'}. Your Choices</h3>
               <ul>
                 {privacy.choices.map((c, i) => <li key={i}>{c}</li>)}
               </ul>
             </div>
-            
+
             <div className="doc-section">
-              <h3>Children's Privacy</h3>
+              <h3>{privacy.subscriptionInfo ? '8' : '6'}. Children's Privacy</h3>
               <p>{privacy.children}</p>
             </div>
-            
+
+            {privacy.thirdParty && (
+              <div className="doc-section">
+                <h3>9. Third-Party Services</h3>
+                <p>{privacy.thirdParty}</p>
+              </div>
+            )}
+
             <div className="doc-section">
-              <h3>Changes to This Policy</h3>
-              <p>We may update this Privacy Policy from time to time. Any changes will be published within the app or on this page.</p>
+              <h3>{privacy.subscriptionInfo ? '10' : '7'}. Changes to This Privacy Policy</h3>
+              <p>We may update this Privacy Policy from time to time. Any changes will become effective when the updated policy is published within the application or on our website. Continued use of the application after changes are published constitutes acceptance of the revised Privacy Policy.</p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>Contact Us</h3>
+              <h3>{privacy.subscriptionInfo ? '11' : '8'}. Contact Us</h3>
               <p>If you have any questions regarding this Privacy Policy, please contact us:</p>
               <p className="contact-email">Email: <a href={`mailto:${appData.email}`}>{appData.email}</a></p>
             </div>
@@ -121,41 +143,82 @@ export default function LegalDocs({ path }) {
 
       if (docType === 'termscondition') {
         const terms = appData.terms;
+        const hasSubs = !!terms.subscriptions;
         return (
           <div className="doc-content">
-            <h2>Terms & Conditions</h2>
-            
+            <h2>Terms &amp; Conditions</h2>
+
             <div className="doc-section">
               <h3>1. Use of the App</h3>
               <p>{terms.use}</p>
             </div>
+
             <div className="doc-section">
               <h3>2. Account</h3>
               <p>{terms.account}</p>
             </div>
+
+            {hasSubs && (
+              <div className="doc-section">
+                <h3>3. Subscriptions</h3>
+                <p>{terms.subscriptions.description}</p>
+                <p style={{marginTop:'0.75rem', marginBottom:'0.5rem'}}>Premium subscriptions may include:</p>
+                <ul>
+                  {terms.subscriptions.features.map((f, i) => <li key={i}>{f}</li>)}
+                </ul>
+                <p style={{marginTop:'0.75rem'}}>{terms.subscriptions.pricing}</p>
+              </div>
+            )}
+
+            {terms.freeTrial && (
+              <div className="doc-section">
+                <h3>4. Free Trial</h3>
+                <p>{terms.freeTrial}</p>
+              </div>
+            )}
+
+            {terms.autoRenewal && (
+              <div className="doc-section">
+                <h3>5. Auto-Renewal</h3>
+                <p>{terms.autoRenewal}</p>
+              </div>
+            )}
+
+            {terms.payments && (
+              <div className="doc-section">
+                <h3>6. Payments &amp; Refunds</h3>
+                <p>{terms.payments}</p>
+              </div>
+            )}
+
             <div className="doc-section">
-              <h3>3. Your Data</h3>
+              <h3>{hasSubs ? '7' : '3'}. Your Data</h3>
               <p>{terms.data}</p>
             </div>
+
             <div className="doc-section">
-              <h3>4. Security</h3>
+              <h3>{hasSubs ? '8' : '4'}. Security</h3>
               <p>{terms.security}</p>
             </div>
+
             <div className="doc-section">
-              <h3>5. Availability</h3>
+              <h3>{hasSubs ? '9' : '5'}. Availability</h3>
               <p>{terms.availability}</p>
             </div>
+
             <div className="doc-section">
-              <h3>6. Limitation of Liability</h3>
+              <h3>{hasSubs ? '10' : '6'}. Limitation of Liability</h3>
               <p>{terms.liability}</p>
             </div>
+
             <div className="doc-section">
-              <h3>7. Changes</h3>
-              <p>These Terms may be updated from time to time. Continued use of the app means you accept the revised Terms.</p>
+              <h3>{hasSubs ? '11' : '7'}. Changes to These Terms</h3>
+              <p>{terms.changes || 'These Terms may be updated from time to time. Continued use of the app means you accept the revised Terms.'}</p>
             </div>
+
             <div className="doc-section">
-              <h3>8. Contact</h3>
-              <p>For any questions, please contact:</p>
+              <h3>{hasSubs ? '12' : '8'}. Contact</h3>
+              <p>If you have any questions regarding these Terms or your subscription, please contact us:</p>
               <p className="contact-email">Email: <a href={`mailto:${appData.email}`}>{appData.email}</a></p>
             </div>
           </div>
