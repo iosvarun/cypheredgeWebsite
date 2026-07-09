@@ -4,9 +4,14 @@ import { APP_DETAILS } from '../data/appDetails';
 import './LegalDocs.css';
 
 export default function LegalDocs({ path }) {
-  // Back to home helper
+  // Close the new tab and return to the main site
   const handleBackToHome = () => {
-    window.location.hash = '#home';
+    if (window.opener) {
+      window.close();
+    } else {
+      // Fallback: navigate to home if opened directly
+      window.location.href = '/';
+    }
   };
 
   // Split path to resolve app-specific documentation
@@ -324,7 +329,7 @@ export default function LegalDocs({ path }) {
             <p>The requested legal document or page could not be located on our systems.</p>
             <button className="btn-back" onClick={handleBackToHome}>
               <ArrowLeft size={16} />
-              Return to Homepage
+              Close Tab
             </button>
           </div>
         );
@@ -345,7 +350,7 @@ export default function LegalDocs({ path }) {
         <div className="container header-wrap">
           <div className="back-link" onClick={handleBackToHome}>
             <ArrowLeft size={18} />
-            <span>Back to Home</span>
+            <span>Close Tab</span>
           </div>
           <div className="brand-logo">
             <img src="/assets/logo_tagline.png" alt="CypherEdge Logo" className="header-logo-img" />

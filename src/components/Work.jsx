@@ -270,13 +270,13 @@ export default function Work() {
                   {(app.aboutUrl || app.privacyUrl || app.termsUrl) && (
                     <div className="app-doc-links">
                       {app.aboutUrl && (
-                        <a href={app.aboutUrl} className="app-doc-link">About Us</a>
+                        <a href={app.aboutUrl} className="app-doc-link" target="_blank" rel="noopener noreferrer">About Us</a>
                       )}
                       {app.privacyUrl && (
-                        <a href={app.privacyUrl} className="app-doc-link">Privacy Policy</a>
+                        <a href={app.privacyUrl} className="app-doc-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
                       )}
                       {app.termsUrl && (
-                        <a href={app.termsUrl} className="app-doc-link">Terms & Conditions</a>
+                        <a href={app.termsUrl} className="app-doc-link" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
                       )}
                     </div>
                   )}
