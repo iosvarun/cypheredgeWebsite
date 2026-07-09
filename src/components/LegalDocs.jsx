@@ -1,19 +1,8 @@
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
 import { APP_DETAILS } from '../data/appDetails';
 import './LegalDocs.css';
 
 export default function LegalDocs({ path }) {
-  // Close the new tab and return to the main site
-  const handleBackToHome = () => {
-    if (window.opener) {
-      window.close();
-    } else {
-      // Fallback: navigate to home if opened directly
-      window.location.href = '/';
-    }
-  };
-
   // Split path to resolve app-specific documentation
   const pathParts = path.split('/');
   const isAppDoc = pathParts.length === 2;
@@ -327,10 +316,6 @@ export default function LegalDocs({ path }) {
           <div className="doc-content doc-404">
             <h2>Document Not Found</h2>
             <p>The requested legal document or page could not be located on our systems.</p>
-            <button className="btn-back" onClick={handleBackToHome}>
-              <ArrowLeft size={16} />
-              Close Tab
-            </button>
           </div>
         );
     }
@@ -345,18 +330,6 @@ export default function LegalDocs({ path }) {
       </div>
       <div className="grid-overlay"></div>
 
-      {/* Header */}
-      <header className="legal-doc-header">
-        <div className="container header-wrap">
-          <div className="back-link" onClick={handleBackToHome}>
-            <ArrowLeft size={18} />
-            <span>Close Tab</span>
-          </div>
-          <div className="brand-logo">
-            <img src="/assets/logo_tagline.png" alt="CypherEdge Logo" className="header-logo-img" />
-          </div>
-        </div>
-      </header>
 
       {/* Document Body Wrapper */}
       <main className="legal-doc-main container">
