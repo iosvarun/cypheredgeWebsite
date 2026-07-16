@@ -60,7 +60,7 @@ const APPS = [
   {
     name: "Truth or Dare",
     category: "Lifestyle & Games",
-    iconPath: "/assets/media__1780777474357.png", // Heart card icon
+    iconPath: "/assets/media__1780778288892.png", // Truth or Dare icon
     urlString: "https://apps.apple.com/us/app/truth-or-dare-spin-sin/id6758266545",
     fallbackTint: "#EF4444",
     fallbackSymbol: Gamepad2,
@@ -86,7 +86,7 @@ const APPS = [
   {
     name: "PDF Pulse",
     category: "Media & Tools",
-    iconPath: "/assets/media__1780778288892.png", // PDF Pulse icon
+    iconPath: "/assets/media__1780777474357.png", // PDF Pulse icon
     urlString: "https://apps.apple.com/us/app/pdf-pulse-pdf-tools-scanner/id6758585117",
     fallbackTint: "#F97316",
     fallbackSymbol: FileText,

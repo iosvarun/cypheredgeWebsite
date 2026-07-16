@@ -7,9 +7,9 @@ const HERO_APPS = [
   { name: "WhatsBackup",       icon: "/assets/media__1780778288921.png",    color: "#1FB14A" },
   { name: "Digital Dukaan",   icon: "/assets/ic_digitalDukaan.png",        color: "#3B82F6" },
   { name: "ShrinkLab",        icon: "/assets/media__1780778288868.png",    color: "#8B5CF6" },
-  { name: "Truth or Dare",    icon: "/assets/media__1780777474357.png",    color: "#EF4444" },
+  { name: "Truth or Dare",    icon: "/assets/media__1780778288892.png",    color: "#EF4444" },
   { name: "Gym Workout",      icon: "/assets/media__1780777474338.png",    color: "#16A34A" },
-  { name: "PDF Pulse",        icon: "/assets/media__1780778288892.png",    color: "#F97316" },
+  { name: "PDF Pulse",        icon: "/assets/media__1780777474357.png",    color: "#F97316" },
   { name: "Nyayaconnect",     icon: "/assets/media__1780777474356.png",    color: "#3B82F6" },
   { name: "Aurikaa Jewels",   icon: "/assets/aurikaa_logo.png",            color: "#D97706" },
 ];
