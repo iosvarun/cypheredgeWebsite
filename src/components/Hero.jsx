@@ -3,15 +3,15 @@ import { ArrowRight, Play, Sparkles, AppWindow } from 'lucide-react';
 import './Hero.css';
 
 const HERO_APPS = [
-  { name: "WA Direct Message", icon: "/assets/ic_directMessage.png",       color: "#1FB14A" },
-  { name: "WhatsBackup",       icon: "/assets/media__1780778288921.png",    color: "#1FB14A" },
-  { name: "Digital Dukaan",   icon: "/assets/ic_digitalDukaan.png",        color: "#3B82F6" },
-  { name: "ShrinkLab",        icon: "/assets/media__1780778288868.png",    color: "#8B5CF6" },
-  { name: "Truth or Dare",    icon: "/assets/media__1780778288892.png",    color: "#EF4444" },
-  { name: "Gym Workout",      icon: "/assets/media__1780777474338.png",    color: "#16A34A" },
-  { name: "PDF Pulse",        icon: "/assets/media__1780777474357.png",    color: "#F97316" },
-  { name: "Nyayaconnect",     icon: "/assets/media__1780777474356.png",    color: "#3B82F6" },
-  { name: "Aurikaa Jewels",   icon: "/assets/aurikaa_logo.png",            color: "#D97706" },
+  { name: "WA Direct Message", icon: "/assets/ic_directMessage.png",       color: "#1FB14A", url: "https://apps.apple.com/us/app/direct-message-for-whatsapp/id1557291502" },
+  { name: "WhatsBackup",       icon: "/assets/media__1780778288921.png",   color: "#1FB14A", url: "https://apps.apple.com/us/app/whatsbackup/id6768908196" },
+  { name: "Digital Dukaan",   icon: "/assets/ic_digitalDukaan.png",        color: "#3B82F6", url: "https://apps.apple.com/us/app/digital-dukaan-pos/id6782678932" },
+  { name: "ShrinkLab",        icon: "/assets/media__1780778288868.png",    color: "#8B5CF6", url: "https://apps.apple.com/us/app/shrinklab-media-compressor/id6757521417" },
+  { name: "Truth or Dare",    icon: "/assets/media__1780778288892.png",    color: "#EF4444", url: "https://apps.apple.com/us/app/truth-or-dare-spin-sin/id6758266545" },
+  { name: "Gym Workout",      icon: "/assets/media__1780777474338.png",    color: "#16A34A", url: "https://apps.apple.com/us/app/gym-workout-fitness-club-lab/id6757446446" },
+  { name: "PDF Pulse",        icon: "/assets/media__1780777474357.png",    color: "#F97316", url: "https://apps.apple.com/us/app/pdf-pulse-pdf-tools-scanner/id6758585117" },
+  { name: "Nyayaconnect",     icon: "/assets/media__1780777474356.png",    color: "#3B82F6", url: "https://apps.apple.com/us/app/nyayaconnect/id6752890135" },
+  { name: "Aurikaa Jewels",   icon: "/assets/aurikaa_logo.png",            color: "#D97706", url: "https://www.aurikaa.co.in/" },
 ];
 
 export default function Hero() {
@@ -149,7 +149,9 @@ export default function Hero() {
               {HERO_APPS.map((app, i) => (
                 <a
                   key={i}
-                  href="#work"
+                  href={app.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="app-icon-cell"
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
