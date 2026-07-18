@@ -131,8 +131,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── RIGHT: App Showcase — hidden on mobile ── */}
-        <div className="hero-interactive" style={isMobile ? { display: 'none' } : {}}>
+        {/* ── RIGHT: App Showcase — visible on all screens ── */}
+        <div className="hero-interactive">
+
           <div className="app-showcase-panel">
 
             {/* Header */}

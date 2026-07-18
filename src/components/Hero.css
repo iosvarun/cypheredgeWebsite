@@ -260,7 +260,7 @@
   .hero-wrapper {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .hero-content {
@@ -285,6 +285,37 @@
   .hero-title {
     font-size: 3.2rem;
     text-align: center;
+  }
+
+  /* Show showcase on mobile, full width, no float */
+  .hero-interactive {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .app-showcase-panel {
+    width: 100%;
+    max-width: 100%;
+    animation: none; /* disable float on mobile */
+    border-radius: 20px;
+    padding: 1.25rem 1rem 1rem;
+  }
+
+  .app-icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem 0.4rem;
+  }
+
+  .app-icon-wrap,
+  .app-icon-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+  }
+
+  .app-icon-label {
+    font-size: 0.64rem;
+    max-width: 66px;
   }
 }
 
@@ -332,5 +363,26 @@
   .hero-subtitle {
     font-size: 0.95rem;
     text-align: center;
+  }
+
+  /* Smaller icons on small phones */
+  .app-icon-wrap,
+  .app-icon-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+  }
+
+  .app-icon-label {
+    font-size: 0.6rem;
+    max-width: 60px;
+  }
+
+  .app-icon-grid {
+    gap: 0.5rem 0.25rem;
+  }
+
+  .app-showcase-panel {
+    padding: 1rem 0.75rem 0.85rem;
   }
 }
