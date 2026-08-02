@@ -1,0 +1,92 @@
+.company-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+.pillar-card {
+  padding: 2rem;
+  background: rgba(12, 12, 28, 0.75);
+}
+
+.pillar-card h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.pillar-card p {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.text-cyan { color: #06b6d4; }
+.text-emerald { color: #10b981; }
+.text-violet { color: #8b5cf6; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mt-5 { margin-top: 3rem; }
+.text-center { text-align: center; }
+
+.leadership-section-wrap {
+  padding: 3rem;
+  background: rgba(10, 10, 24, 0.85);
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.leader-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.leader-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid #06b6d4;
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.3);
+}
+
+.leader-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.leader-role {
+  font-size: 0.85rem;
+  color: #38bdf8;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.leader-bio {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .company-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+}
