@@ -1,0 +1,101 @@
+.what-happens-next {
+  padding: 6rem 0;
+}
+
+.timeline-container {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-step {
+  display: flex;
+  gap: 2rem;
+}
+
+.timeline-badge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.timeline-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #06b6d4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+}
+
+.timeline-number {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.timeline-connector {
+  width: 2px;
+  background: rgba(6, 182, 212, 0.3);
+  flex-grow: 1;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  min-height: 40px;
+}
+
+.timeline-content {
+  padding: 2rem;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-radius: 16px;
+  background: rgba(12, 12, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.timeline-step:last-child .timeline-content {
+  margin-bottom: 0;
+}
+
+.timeline-icon-wrapper {
+  background: rgba(6, 182, 212, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-text h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.timeline-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .timeline-step {
+    gap: 1rem;
+  }
+  
+  .timeline-content {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+}

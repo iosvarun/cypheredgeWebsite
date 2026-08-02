@@ -8,7 +8,7 @@
 
 .footer-content-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
 }
@@ -195,8 +195,13 @@
   color: #ffffff;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .footer-content-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
   .footer-content-grid {
     grid-template-columns: 1fr 1fr;
   }

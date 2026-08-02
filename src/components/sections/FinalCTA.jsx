@@ -26,24 +26,33 @@ export default function FinalCTA({ onNavigate }) {
           </p>
           
           <div className="final-cta-actions">
-            <button className="btn-glow cta-btn-main" onClick={handlePrimaryCTA} aria-label="Book a Free Discovery Call">
-              Book a Free Discovery Call
-            </button>
+            <div className="cta-btn-group">
+              <button className="btn-glow cta-btn-main" onClick={handlePrimaryCTA} aria-label="Book a Free Discovery Call">
+                Book a Free Discovery Call
+              </button>
+              <p className="cta-support-text">Talk directly with our engineering team. No sales pitch.</p>
+            </div>
             
             {SITE_CONFIG?.contactEmail && (
-              <a href={`mailto:${SITE_CONFIG.contactEmail}`} className="btn-secondary cta-btn-secondary" aria-label="Email Us">
-                Email Us
-              </a>
+              <div className="cta-btn-group">
+                <a href={`mailto:${SITE_CONFIG.contactEmail}`} className="btn-secondary cta-btn-secondary" aria-label="Email Us">
+                  Email Us
+                </a>
+                <p className="cta-support-text">Receive a technical consultation within 24 hours.</p>
+              </div>
             )}
             
             {whatsappUrl && (
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="cta-link-whatsapp" aria-label="Chat on WhatsApp">
-                Chat on WhatsApp
-              </a>
+              <div className="cta-btn-group">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="cta-link-whatsapp" aria-label="Chat on WhatsApp">
+                  Chat on WhatsApp
+                </a>
+              </div>
             )}
           </div>
 
           <div className="final-cta-footer">
+            <p className="cta-scope-text">Understand project scope, architecture approach, and timeline before development begins.</p>
             <div className="nda-note">
               <Shield size={16} className="nda-icon" aria-hidden="true" />
               <span>All discussions are NDA-protected. Your ideas stay confidential.</span>

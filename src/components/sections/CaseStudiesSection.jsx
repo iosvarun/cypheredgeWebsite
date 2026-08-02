@@ -1,19 +1,19 @@
 import React from 'react';
 import { CASE_STUDIES_DATA } from '../../data/caseStudiesData';
-import { Sparkles, ArrowRight, CheckCircle2, TrendingUp } from 'lucide-react';
+import { Sparkles, ArrowRight, CheckCircle2, AlertTriangle, Lightbulb } from 'lucide-react';
 import './CaseStudiesSection.css';
 
 export default function CaseStudiesSection({ onNavigate }) {
   return (
     <section className="case-studies-section container">
       <div className="section-header-center">
-        <span className="badge-neon"><Sparkles size={13} /> Engineering Impact</span>
+        <span className="badge-neon">Business Impact</span>
         <h2 className="section-title">
-          Client Proof &amp; <br />
-          <span className="text-gradient-neon">Deep Case Studies</span>
+          How We Solved Real <br />
+          <span className="text-gradient-neon">Engineering Problems</span>
         </h2>
         <p className="section-subtitle">
-          Real metrics, real architectures, and real business outcomes engineered by CypherEdge for scale.
+          Every project starts with a business challenge. Here's how we engineered the solutions.
         </p>
       </div>
 
@@ -24,22 +24,35 @@ export default function CaseStudiesSection({ onNavigate }) {
               <div className="case-card-content">
                 <span className="case-cat-chip">{cs.category}</span>
                 <h3 className="case-title">{cs.title}</h3>
-                <p className="case-summary">{cs.summary}</p>
 
-                {/* Metrics Badges */}
-                <div className="case-metrics-row">
-                  {cs.results.map((res, i) => (
-                    <div key={i} className="case-metric-box">
-                      <span className="case-metric-num text-cyan">{res.metric}</span>
-                      <span className="case-metric-lbl">{res.label}</span>
-                    </div>
-                  ))}
+                <div className="case-challenge-block">
+                  <div className="case-block-header">
+                    <AlertTriangle size={14} />
+                    <span className="case-block-label">Challenge</span>
+                  </div>
+                  <p className="case-block-text">{cs.challenge}</p>
+                </div>
+
+                <div className="case-solution-block">
+                  <div className="case-block-header">
+                    <Lightbulb size={14} />
+                    <span className="case-block-label">Solution</span>
+                  </div>
+                  <p className="case-block-text">{cs.solution}</p>
                 </div>
 
                 <div className="case-tech-tags">
                   {cs.techStack.map((tech, idx) => (
                     <span key={idx} className="case-tag-pill">{tech}</span>
                   ))}
+                </div>
+
+                <div className="case-result-block">
+                  <div className="case-block-header">
+                    <CheckCircle2 size={14} />
+                    <span className="case-block-label">Business Result</span>
+                  </div>
+                  <p className="case-block-text">{cs.measurableOutcome}</p>
                 </div>
 
                 <button 

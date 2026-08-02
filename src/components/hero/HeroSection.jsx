@@ -23,7 +23,7 @@ export default function HeroSection({ onNavigate }) {
         </h1>
 
         <p className="hero-master-subtitle animate-fade-up">
-          CypherEdge helps startups and enterprises design, build, launch, and scale AI, SaaS, mobile, and enterprise software — with dedicated engineering teams or full product delivery.
+          From AI agents and SaaS platforms to native mobile apps and dedicated engineering teams — we engineer products that solve real business problems and scale globally.
         </p>
 
         {/* Action Buttons */}

@@ -1,38 +1,50 @@
 .trust-strip-section {
-  padding: 4rem 0;
+  padding: 5rem 0;
   background: var(--bg-card);
   border-top: 1px solid var(--border-glass);
   border-bottom: 1px solid var(--border-glass);
   text-align: center;
 }
-.trust-metrics {
+.trust-metrics-grid {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
 }
-.metric-item {
+.trust-metric-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.5rem;
 }
-.metric-value {
+.trust-metric-icon {
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  opacity: 0.7;
+}
+.trust-metric-value-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
   font-family: var(--font-display);
   font-size: 3rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
+}
+.metric-prefix, .metric-suffix {
+  font-size: 3rem;
+  font-weight: 700;
 }
 .metric-label {
   color: var(--text-muted);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  margin-top: 0.5rem;
 }
-.metric-divider {
+.trust-metric-divider {
   width: 1px;
-  height: 60px;
+  height: 50px;
   background: var(--border-glass);
 }
 .trust-logos {
@@ -68,14 +80,15 @@
   border-color: var(--primary-cyan);
 }
 @media (max-width: 768px) {
-  .trust-metrics {
-    flex-direction: column;
-    gap: 2rem;
+  .trust-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1rem;
   }
-  .metric-divider {
+  .trust-metric-divider {
     display: none;
   }
   .trust-strip-section {
-    padding: 3rem 0;
+    padding: 4rem 0;
   }
 }

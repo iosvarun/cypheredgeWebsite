@@ -37,47 +37,67 @@
   font-size: 1.7rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
   line-height: 1.3;
 }
 
-.case-summary {
-  font-size: 0.95rem;
-  color: #94a3b8;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+/* Blocks */
+.case-challenge-block {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  border-left: 3px solid rgba(251, 191, 36, 0.4);
+}
+.case-challenge-block .case-block-header {
+  color: rgba(251, 191, 36, 1);
 }
 
-.case-metrics-row {
+.case-solution-block {
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid rgba(59, 130, 246, 0.3);
+}
+.case-solution-block .case-block-header {
+  color: rgba(59, 130, 246, 1);
+}
+
+.case-result-block {
+  padding-left: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  background: rgba(16, 185, 129, 0.08);
+  border-left: 3px solid rgba(16, 185, 129, 0.4);
+}
+.case-result-block .case-block-header {
+  color: rgba(16, 185, 129, 1);
+}
+
+.case-block-header {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.case-block-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
 }
 
-.case-metric-box {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+.case-block-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
-.case-metric-num {
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
-.case-metric-lbl {
-  font-size: 0.75rem;
-  color: #64748b;
-  font-weight: 600;
-}
-
+/* Tags */
 .case-tech-tags {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .case-tag-pill {

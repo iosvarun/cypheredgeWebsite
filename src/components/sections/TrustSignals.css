@@ -1,0 +1,63 @@
+.trust-signals {
+  padding: 6rem 0;
+}
+
+.trust-signals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.trust-card {
+  padding: 2rem;
+  background: rgba(12, 12, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.trust-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(6, 182, 212, 0.5); /* brightens to cyan */
+}
+
+.trust-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.trust-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.trust-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .trust-signals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .trust-signals-grid {
+    grid-template-columns: 1fr;
+  }
+}

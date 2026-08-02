@@ -3,6 +3,7 @@ import { Mail, MapPin, Send, ShieldCheck, CheckCircle2, Clock, Calendar, Users }
 import { SITE_CONFIG, getWhatsAppUrl, getStoredUtmParams } from '../data/siteConfig';
 import { trackForm, TRACK_EVENTS } from '../utils/analytics';
 import CalendarEmbed from '../components/shared/CalendarEmbed';
+import WhatHappensNext from '../components/sections/WhatHappensNext';
 import './ContactPage.css';
 
 export default function ContactPage({ onNavigate }) {
@@ -258,6 +259,7 @@ export default function ContactPage({ onNavigate }) {
           )}
         </div>
       </div>
+      <WhatHappensNext />
     </div>
   );
 }

@@ -85,30 +85,36 @@ export default function Footer({ onNavigate }) {
           </ul>
         </div>
 
-        {/* Column 3: Industries */}
+        {/* Column 3: Products & Proof */}
         <div className="footer-col">
-          <h4 className="footer-col-title">Industries</h4>
+          <h4 className="footer-col-title">Products & Proof</h4>
           <ul className="footer-links-list">
-            <li><button onClick={() => handleLink('/industry/fintech')}>FinTech</button></li>
-            <li><button onClick={() => handleLink('/industry/healthcare')}>Healthcare</button></li>
-            <li><button onClick={() => handleLink('/industry/retail')}>Retail & E-Commerce</button></li>
-            <li><button onClick={() => handleLink('/industry/legal')}>Legal Tech</button></li>
-            <li><button onClick={() => handleLink('/industry/logistics')}>Logistics</button></li>
-            <li><button onClick={() => handleLink('/industry/education')}>Education</button></li>
+            <li><button onClick={() => handleLink('/products')}>Our Products</button></li>
+            <li><button onClick={() => handleLink('/case-studies')}>Case Studies</button></li>
+            <li><button onClick={() => handleLink('/technologies')}>Technologies</button></li>
           </ul>
         </div>
 
-        {/* Column 4: Company & Resources */}
+        {/* Column 4: Resources */}
+        <div className="footer-col">
+          <h4 className="footer-col-title">Resources</h4>
+          <ul className="footer-links-list">
+            <li><button onClick={() => handleLink('/insights')}>Insights & Blog</button></li>
+            <li><button onClick={() => handleLink('/ai-readiness')}>AI Readiness Assessment</button></li>
+            <li><button onClick={() => handleLink('/estimator')}>Project Estimator</button></li>
+            <li><button onClick={() => handleLink('/company')}>Engineering Process</button></li>
+          </ul>
+        </div>
+
+        {/* Column 5: Company */}
         <div className="footer-col">
           <h4 className="footer-col-title">Company</h4>
           <ul className="footer-links-list">
             <li><button onClick={() => handleLink('/company')}>About CypherEdge</button></li>
-            <li><button onClick={() => handleLink('/case-studies')}>Case Studies</button></li>
-            <li><button onClick={() => handleLink('/products')}>Our Products</button></li>
-            <li><button onClick={() => handleLink('/insights')}>Insights & Resources</button></li>
-            <li><button onClick={() => handleLink('/technologies')}>Technologies</button></li>
+            <li><button onClick={() => handleLink('/careers')}>Careers</button></li>
             <li><button onClick={() => handleLink('/contact')}>Contact</button></li>
-            <li><button onClick={() => handleLink('/estimator')}>Project Estimator</button></li>
+            <li><button onClick={() => handleLink('/legal')}>Privacy Policy</button></li>
+            <li><button onClick={() => handleLink('/legal')}>Terms & Conditions</button></li>
           </ul>
         </div>
       </div>
