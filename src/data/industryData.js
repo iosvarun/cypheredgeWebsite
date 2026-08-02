@@ -154,5 +154,57 @@ export const INDUSTRY_DATA = {
       { q: 'Do you support mobile-first education apps?', a: 'Yes. We build native and cross-platform mobile apps for student engagement, offline content access, and push notification-based reminders.' },
       { q: 'Can AI personalize the learning experience?', a: 'We can build recommendation engines and adaptive learning paths using AI/ML models that adjust content difficulty based on student performance data.' }
     ]
+  },
+  manufacturing: {
+    slug: 'manufacturing',
+    title: 'Technology Solutions for Manufacturing',
+    metaDescription: 'CypherEdge builds manufacturing technology — smart factory solutions, IoT integration, supply chain optimization, and industrial automation.',
+    heroHeadline: 'Digital Transformation for Manufacturing',
+    heroSubtitle: 'Smart factory solutions, IoT integration, supply chain optimization, and industrial automation powered by AI and modern engineering.',
+    problems: [
+      'Legacy system modernization',
+      'Supply chain visibility',
+      'Quality control automation',
+      'Real-time production monitoring',
+      'Predictive maintenance'
+    ],
+    solutions: [
+      { title: 'IoT Integration', description: 'Connect machines and sensors for real-time telemetry and control.' },
+      { title: 'Production Dashboards', description: 'Real-time visibility into OEE, downtime, and production metrics.' },
+      { title: 'Predictive Maintenance', description: 'AI-driven models to predict equipment failure before it happens.' },
+      { title: 'Supply Chain Sync', description: 'End-to-end visibility of raw materials and finished goods.' }
+    ],
+    relevantServices: ['custom-software-development', 'enterprise-backend-cloud', 'ai-agents-llm', 'mobile-app-engineering'],
+    faqs: [
+      { q: 'Can you integrate with existing SCADA/PLC systems?', a: 'Yes, we can build middleware to extract data from industrial systems.' },
+      { q: 'Do you build on-premise solutions?', a: 'Yes, we understand manufacturing often requires local servers for latency and security.' },
+      { q: 'How do you handle IoT device security?', a: 'We use secure MQTT, certificate-based authentication, and encrypted data pipelines.' }
+    ]
+  },
+  travel: {
+    slug: 'travel',
+    title: 'Technology Solutions for Travel & Hospitality',
+    metaDescription: 'CypherEdge builds travel technology — booking platforms, travel management systems, AI recommendations, and mobile experiences.',
+    heroHeadline: 'Technology Solutions for Travel & Hospitality',
+    heroSubtitle: 'Booking platforms, travel management systems, AI-powered recommendations, and mobile experiences for the travel industry.',
+    problems: [
+      'Complex booking workflows',
+      'Dynamic pricing',
+      'Multi-channel distribution',
+      'Personalized recommendations',
+      'Real-time availability'
+    ],
+    solutions: [
+      { title: 'Booking Platforms', description: 'Custom OTA platforms with real-time inventory and pricing.' },
+      { title: 'Travel Management', description: 'Corporate travel booking and expense management tools.' },
+      { title: 'AI Recommendations', description: 'Personalized travel itineraries and destination suggestions.' },
+      { title: 'Mobile Experiences', description: 'Companion apps for travelers with offline access to bookings.' }
+    ],
+    relevantServices: ['custom-software-development', 'mobile-app-engineering', 'saas-product-engineering', 'ai-agents-llm'],
+    faqs: [
+      { q: 'Do you integrate with GDS systems?', a: 'Yes, we integrate with Amadeus, Sabre, and Travelport.' },
+      { q: 'Can you handle high booking volume?', a: 'We build scalable cloud architectures that can handle seasonal traffic spikes.' },
+      { q: 'Do you support multi-currency payments?', a: 'Yes, we integrate global payment gateways with dynamic currency conversion.' }
+    ]
   }
 };

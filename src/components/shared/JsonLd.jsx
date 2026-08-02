@@ -8,6 +8,18 @@ export function OrganizationJsonLd() {
     url: SITE_CONFIG?.url || 'https://cypheredge.com',
     logo: `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
     email: SITE_CONFIG?.email || 'contact@cypheredge.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ahmedabad',
+      addressCountry: 'India'
+    },
+    foundingDate: '2023',
+    numberOfEmployees: {
+      '@type': 'QuantitativeValue',
+      minValue: 10,
+      maxValue: 50
+    },
+    knowsAbout: ['AI', 'Software Engineering', 'Mobile Development', 'Web Development', 'Cloud DevOps', 'Product Engineering'],
     sameAs: [
       SITE_CONFIG?.social?.linkedin,
       SITE_CONFIG?.social?.twitter,
@@ -67,6 +79,103 @@ export function FAQJsonLd({ faqs = [] }) {
         text: faq.answer
       }
     }))
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function BreadcrumbJsonLd({ items = [] }) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url
+    }))
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function ArticleJsonLd({ title, description, author, datePublished, dateModified, image, url }) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    author: {
+      '@type': 'Person',
+      name: author || 'CypherEdge Engineering'
+    },
+    datePublished: datePublished,
+    dateModified: dateModified || datePublished,
+    image: image || `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
+    url: url
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function ProductJsonLd({ name, description, image, url, rating, ratingCount }) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: name,
+    description: description,
+    image: image || `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
+    url: url,
+    applicationCategory: 'BusinessApplication',
+    aggregateRating: rating ? {
+      '@type': 'AggregateRating',
+      ratingValue: rating,
+      ratingCount: ratingCount || 1
+    } : undefined
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function LocalBusinessJsonLd() {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: SITE_CONFIG?.name || 'CypherEdge',
+    image: `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
+    '@id': SITE_CONFIG?.url || 'https://cypheredge.com',
+    url: SITE_CONFIG?.url || 'https://cypheredge.com',
+    telephone: SITE_CONFIG?.phone || '',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ahmedabad',
+      addressCountry: 'IN'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 23.0225,
+      longitude: 72.5714
+    }
   };
 
   return (

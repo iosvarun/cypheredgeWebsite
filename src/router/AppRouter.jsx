@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import WhatsAppButton from '../components/shared/WhatsAppButton';
@@ -7,24 +7,31 @@ import { trackPageView } from '../utils/analytics';
 import { captureUtmParams } from '../data/siteConfig';
 
 // Pages
-import HomePage from '../pages/HomePage';
-import ServicesPage from '../pages/ServicesPage';
-import ProductsPage from '../pages/ProductsPage';
-import TechnologiesPage from '../pages/TechnologiesPage';
-import CaseStudiesPage from '../pages/CaseStudiesPage';
-import EstimatorPage from '../pages/EstimatorPage';
-import CompanyPage from '../pages/CompanyPage';
-import CareersPage from '../pages/CareersPage';
-import ContactPage from '../pages/ContactPage';
-import LegalDocsPage from '../pages/LegalDocsPage';
+const HomePage = React.lazy(() => import('../pages/HomePage'));
+const ServicesPage = React.lazy(() => import('../pages/ServicesPage'));
+const ProductsPage = React.lazy(() => import('../pages/ProductsPage'));
+const TechnologiesPage = React.lazy(() => import('../pages/TechnologiesPage'));
+const CaseStudiesPage = React.lazy(() => import('../pages/CaseStudiesPage'));
+const EstimatorPage = React.lazy(() => import('../pages/EstimatorPage'));
+const CompanyPage = React.lazy(() => import('../pages/CompanyPage'));
+const CareersPage = React.lazy(() => import('../pages/CareersPage'));
+const ContactPage = React.lazy(() => import('../pages/ContactPage'));
+const LegalDocsPage = React.lazy(() => import('../pages/LegalDocsPage'));
 
 // New Pages
-import ITStaffingPage from '../pages/ITStaffingPage';
-import IndustryPage from '../pages/IndustryPage';
-import ComparisonPage from '../pages/ComparisonPage';
-import InsightsPage from '../pages/InsightsPage';
-import LeadMagnetPage from '../pages/LeadMagnetPage';
-import PaidLandingPage from '../pages/PaidLandingPage';
+const ITStaffingPage = React.lazy(() => import('../pages/ITStaffingPage'));
+const IndustryPage = React.lazy(() => import('../pages/IndustryPage'));
+const ComparisonPage = React.lazy(() => import('../pages/ComparisonPage'));
+const InsightsPage = React.lazy(() => import('../pages/InsightsPage'));
+const LeadMagnetPage = React.lazy(() => import('../pages/LeadMagnetPage'));
+const PaidLandingPage = React.lazy(() => import('../pages/PaidLandingPage'));
+
+// Dynamic Pages
+const ServiceDetailPage = React.lazy(() => import('../pages/ServiceDetailPage'));
+const TechnologyDetailPage = React.lazy(() => import('../pages/TechnologyDetailPage'));
+const CaseStudyDetailPage = React.lazy(() => import('../pages/CaseStudyDetailPage'));
+const ProductDetailPage = React.lazy(() => import('../pages/ProductDetailPage'));
+const BlogArticlePage = React.lazy(() => import('../pages/BlogArticlePage'));
 
 // Page title map for SEO
 const PAGE_TITLES = {
@@ -58,7 +65,32 @@ export default function AppRouter() {
 
       // Dynamic document title
       const cleanHash = hash.replace('#', '').split('/')[0];
-      document.title = PAGE_TITLES[cleanHash] || PAGE_TITLES.home;
+      const newTitle = PAGE_TITLES[cleanHash] || PAGE_TITLES.home;
+      document.title = newTitle;
+
+      // Update meta tags
+      const updateMetaTag = (name, content) => {
+        let meta = document.querySelector(`meta[name="${name}"]`);
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.name = name;
+          document.head.appendChild(meta);
+        }
+        meta.content = content;
+      };
+      
+      const updateCanonical = (url) => {
+        let link = document.querySelector('link[rel="canonical"]');
+        if (!link) {
+          link = document.createElement('link');
+          link.rel = 'canonical';
+          document.head.appendChild(link);
+        }
+        link.href = url;
+      };
+
+      updateMetaTag('description', newTitle); // Simple fallback description based on title
+      updateCanonical(`https://www.cypheredge.in/${hash === '#home' ? '' : hash}`);
 
       // Track page view
       trackPageView(hash, document.title);
@@ -115,6 +147,36 @@ export default function AppRouter() {
       return <LegalDocsPage path={cleanHash} />;
     }
 
+    // Service detail pages
+    if (cleanHash.startsWith('services/')) {
+      const slug = cleanHash.replace('services/', '');
+      return <ServiceDetailPage serviceSlug={slug} onNavigate={navigateTo} />;
+    }
+
+    // Technology detail pages
+    if (cleanHash.startsWith('technologies/')) {
+      const slug = cleanHash.replace('technologies/', '');
+      return <TechnologyDetailPage techSlug={slug} onNavigate={navigateTo} />;
+    }
+
+    // Case study detail pages
+    if (cleanHash.startsWith('case-study/')) {
+      const slug = cleanHash.replace('case-study/', '');
+      return <CaseStudyDetailPage caseStudySlug={slug} onNavigate={navigateTo} />;
+    }
+
+    // Product detail pages
+    if (cleanHash.startsWith('product/')) {
+      const slug = cleanHash.replace('product/', '');
+      return <ProductDetailPage productSlug={slug} onNavigate={navigateTo} />;
+    }
+
+    // Blog article pages
+    if (cleanHash.startsWith('blog/')) {
+      const slug = cleanHash.replace('blog/', '');
+      return <BlogArticlePage articleSlug={slug} onNavigate={navigateTo} />;
+    }
+
     // Default to Home
     return <HomePage onNavigate={navigateTo} />;
   };
@@ -127,7 +189,9 @@ export default function AppRouter() {
       <OrganizationJsonLd />
       {!isPaidLanding && <Navbar currentPath={currentRoute.replace('#', '/')} onNavigate={navigateTo} />}
       <main className="main-content-area">
-        {renderCurrentView()}
+        <Suspense fallback={<div className="page-loader">Loading...</div>}>
+          {renderCurrentView()}
+        </Suspense>
       </main>
       {!isPaidLanding && <Footer onNavigate={navigateTo} />}
       <WhatsAppButton />
