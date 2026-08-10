@@ -70,6 +70,14 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
     }
   };
 
+  const isRouteActive = (targetPath) => {
+    if (!currentPath) return false;
+    const cleanTarget = targetPath.replace('/', '').replace('#', '');
+    const cleanCurrent = currentPath.replace('/', '').replace('#', '').split('?')[0].split('/')[0];
+    if (cleanTarget === '' && (cleanCurrent === '' || cleanCurrent === 'home')) return true;
+    return cleanCurrent === cleanTarget;
+  };
+
   return (
     <header className={`navbar-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
@@ -99,32 +107,50 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
                       <span className="col-subtitle">WHAT WE DO</span>
                       <h4>Engineering & Staffing Services</h4>
                     </div>
-                    <div className="services-list-items">
+                    <div className="mega-menu-list">
                       {SERVICES_DATA.map((srv) => (
                         <div
                           key={srv.id}
-                          className="mega-service-card"
-                          onClick={() => handleLinkClick(srv.id === 'it-staffing-dedicated-teams' ? '/it-staffing' : '/services')}
+                          className="mega-menu-item"
+                          onClick={() => {
+                            if (srv.id === 'it-staffing-dedicated-teams') {
+                              handleLinkClick('/it-staffing');
+                            } else if (srv.id === 'ai-agents-llm') {
+                              handleLinkClick('/services/ai-agents');
+                            } else if (srv.id === 'custom-software-development') {
+                              handleLinkClick('/services/enterprise-software');
+                            } else if (srv.id === 'saas-product-engineering') {
+                              handleLinkClick('/services/web-development');
+                            } else if (srv.id === 'mobile-app-engineering') {
+                              handleLinkClick('/services/mobile-app-development');
+                            } else if (srv.id === 'enterprise-backend-cloud') {
+                              handleLinkClick('/services/cloud-devops');
+                            } else {
+                              handleLinkClick('/services');
+                            }
+                          }}
                         >
-                          <div className="service-card-icon" style={{ color: srv.color }}>
-                            {getServiceIcon(srv.id)}
-                          </div>
-                          <div className="service-card-info">
-                            <span className="service-title">{srv.title}</span>
-                            <span className="service-desc">{srv.businessOutcome}</span>
+                          <div className="mega-icon-box">{getServiceIcon(srv.id)}</div>
+                          <div className="mega-item-text">
+                            <h5>{srv.title}</h5>
+                            <p>{srv.shortDesc}</p>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="mega-menu-col featured-highlight">
-                    <div className="featured-box-card">
-                      <span className="badge-neon"><Users size={12} /> Staffing</span>
-                      <h5>Dedicated Engineering Teams</h5>
-                      <p>Hire individual developers or full engineering pods. Fast onboarding, flexible engagement, senior talent.</p>
+                  <div className="mega-menu-col featured-box">
+                    <div className="col-header">
+                      <span className="col-subtitle">SPOTLIGHT</span>
+                      <h4>Dedicated Talent</h4>
+                    </div>
+                    <div className="featured-box-card glass-panel">
+                      <Users size={28} className="text-cyan mb-2" />
+                      <h5>Hire Dedicated Engineers</h5>
+                      <p>Scale your tech team in 7 days with vetted senior software architects & AI developers.</p>
                       <button className="btn-inline-link" onClick={() => handleLinkClick('/it-staffing')}>
-                        Learn About IT Staffing <ArrowRight size={14} />
+                        Explore Staffing Models <ArrowRight size={14} />
                       </button>
                     </div>
                   </div>
@@ -149,39 +175,39 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
             <span>Case Studies</span>
           </button>
 
-          {/* Products */}
+          {/* Products Dropdown */}
           <div
             className="nav-item-wrapper"
             onMouseEnter={() => setActiveMenu('products')}
             onMouseLeave={() => setActiveMenu(null)}
           >
-            <button className={`nav-link ${currentPath.startsWith('/products') || currentPath.startsWith('/product') ? 'active' : ''}`}>
+            <button className={`nav-link ${currentPath.startsWith('/products') ? 'active' : ''}`}>
               <span>Products</span>
               <ChevronDown size={14} className={`chevron-icon ${activeMenu === 'products' ? 'open' : ''}`} />
             </button>
 
             {activeMenu === 'products' && (
-              <div className="mega-menu-dropdown glass-mega-panel animate-fade-down products-mega">
+              <div className="mega-menu-dropdown glass-mega-panel products-mega animate-fade-down">
                 <div className="products-mega-header">
                   <div>
-                    <span className="col-subtitle">OUR PRODUCTS</span>
-                    <h4>Products We Built & Operate</h4>
+                    <span className="col-subtitle">PROPRIETARY PRODUCTS</span>
+                    <h4>Our Portfolio of Live Applications</h4>
                   </div>
                   <button className="btn-secondary-sm" onClick={() => handleLinkClick('/products')}>
-                    View All Products <ArrowRight size={14} />
+                    View All Products ({PRODUCTS_DATA.length}) <ArrowRight size={14} />
                   </button>
                 </div>
-                <div className="products-grid-mega">
+                <div className="products-mega-grid">
                   {PRODUCTS_DATA.slice(0, 6).map((app) => (
                     <div
                       key={app.id}
-                      className="mega-product-item"
+                      className="mega-product-card"
                       onClick={() => handleLinkClick(`/product/${app.id}`)}
                     >
-                      <img src={app.iconPath} alt={app.name} className="mega-app-icon" />
+                      <img src={app.iconUrl} alt={app.name} className="mega-app-icon" />
                       <div className="mega-product-meta">
                         <span className="mega-product-name">{app.name}</span>
-                        <span className="mega-product-badge">{app.badge}</span>
+                        <span className="mega-product-badge">{app.category}</span>
                       </div>
                     </div>
                   ))}
@@ -192,7 +218,7 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
 
           {/* Blog / Insights */}
           <button
-            className={`nav-link ${currentPath === '/insights' || currentPath.startsWith('/blog') ? 'active' : ''}`}
+            className={`nav-link ${currentPath === '/insights' ? 'active' : ''}`}
             onClick={() => handleLinkClick('/insights')}
           >
             <span>Blog Articles</span>
@@ -257,50 +283,43 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
       {mobileDrawerOpen && (
         <div className="mobile-drawer-overlay animate-fade-in" role="dialog" aria-label="Navigation menu">
           <div className="mobile-drawer-top-bar">
-            <div className="navbar-brand" onClick={() => handleLinkClick('/')}>
-              <img src="/assets/logo_tagline.png" alt="CypherEdge" className="nav-logo-img" />
-            </div>
+            <span className="mobile-drawer-title">Navigation</span>
             <button className="mobile-close-btn" onClick={() => setMobileDrawerOpen(false)} aria-label="Close menu">
-              <X size={24} />
+              <X size={22} />
             </button>
           </div>
 
           <div className="mobile-drawer-content">
-            <div className="mobile-drawer-header">
-              <span className="col-subtitle">NAVIGATION</span>
-              <h4>Explore CypherEdge</h4>
-            </div>
-
             <div className="mobile-nav-grid">
-              <button className="mobile-grid-card" onClick={() => handleLinkClick('/')}>
+              <button className={`mobile-grid-card ${isRouteActive('/') ? 'highlight-card' : ''}`} onClick={() => handleLinkClick('/')}>
                 <Sparkles size={18} className="icon-cyan" />
                 <span>Home</span>
               </button>
-              <button className="mobile-grid-card" onClick={() => handleLinkClick('/services')}>
+              <button className={`mobile-grid-card ${isRouteActive('/services') ? 'highlight-card' : ''}`} onClick={() => handleLinkClick('/services')}>
                 <Layers size={18} className="icon-cyan" />
                 <span>Services</span>
               </button>
-              <button className="mobile-grid-card highlight-card" onClick={() => handleLinkClick('/it-staffing')}>
+              <button className={`mobile-grid-card ${isRouteActive('/it-staffing') ? 'highlight-card' : ''}`} onClick={() => handleLinkClick('/it-staffing')}>
                 <Users size={18} className="icon-cyan" />
                 <span>IT Staffing</span>
               </button>
-              <button className="mobile-grid-card" onClick={() => handleLinkClick('/products')}>
+              <button className={`mobile-grid-card ${isRouteActive('/products') ? 'highlight-card' : ''}`} onClick={() => handleLinkClick('/products')}>
                 <Smartphone size={18} className="icon-cyan" />
                 <span>Products</span>
               </button>
-              <button className="mobile-grid-card" onClick={() => handleLinkClick('/case-studies')}>
+              <button className={`mobile-grid-card ${isRouteActive('/case-studies') ? 'highlight-card' : ''}`} onClick={() => handleLinkClick('/case-studies')}>
                 <ShieldCheck size={18} className="icon-cyan" />
                 <span>Case Studies</span>
               </button>
-              <button className="mobile-grid-card" onClick={() => handleLinkClick('/insights')}>
+              <button className={`mobile-grid-card ${isRouteActive('/insights') ? 'highlight-card' : ''}`} onClick={() => handleLinkClick('/insights')}>
                 <Code2 size={18} className="icon-cyan" />
                 <span>Blog Articles</span>
               </button>
-              <button className="mobile-grid-card" onClick={() => handleLinkClick('/technologies')}>
+              <button className={`mobile-grid-card ${isRouteActive('/technologies') ? 'highlight-card' : ''}`} onClick={() => handleLinkClick('/technologies')}>
                 <Cpu size={18} className="icon-cyan" />
                 <span>Technologies</span>
               </button>
-              <button className="mobile-grid-card" onClick={() => handleLinkClick('/company')}>
+              <button className={`mobile-grid-card ${isRouteActive('/company') ? 'highlight-card' : ''}`} onClick={() => handleLinkClick('/company')}>
                 <Server size={18} className="icon-cyan" />
                 <span>Company</span>
               </button>

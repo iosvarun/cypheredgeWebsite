@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as LucideIcons from 'lucide-react';
 import Breadcrumb from '../components/shared/Breadcrumb';
 import RelatedLinks from '../components/shared/RelatedLinks';
@@ -14,6 +14,12 @@ const getIcon = (iconName) => {
 };
 
 const ServiceDetailPage = ({ serviceSlug, onNavigate }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [serviceSlug]);
+
   const service = SERVICE_DETAILS_DATA?.find(s => s.slug === serviceSlug);
 
   if (!service) {

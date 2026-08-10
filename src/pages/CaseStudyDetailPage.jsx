@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as LucideIcons from 'lucide-react';
 import Breadcrumb from '../components/shared/Breadcrumb';
 import RelatedLinks from '../components/shared/RelatedLinks';
@@ -7,6 +7,12 @@ import './CaseStudyDetailPage.css';
 import { CASE_STUDIES_DATA } from '../data/caseStudiesData';
 
 const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [caseStudySlug]);
+
   const cs = CASE_STUDIES_DATA?.find(c => 
     c.id === caseStudySlug || 
     c.slug === caseStudySlug ||
