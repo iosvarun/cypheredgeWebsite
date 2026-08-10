@@ -64,7 +64,8 @@ export default function AppRouter() {
       window.scrollTo(0, 0);
 
       // Dynamic document title
-      const cleanHash = hash.replace('#', '').split('/')[0];
+      const baseHash = hash.replace('#', '').split('?')[0];
+      const cleanHash = baseHash.split('/')[0];
       const newTitle = PAGE_TITLES[cleanHash] || PAGE_TITLES.home;
       document.title = newTitle;
 
@@ -102,12 +103,18 @@ export default function AppRouter() {
   }, []);
 
   const navigateTo = (path) => {
-    const targetHash = path === '/' ? '#home' : `#${path.replace('/', '').replace('#', '')}`;
-    window.location.hash = targetHash;
+    if (path === '/') {
+      window.location.hash = '#home';
+    } else if (path.startsWith('#')) {
+      window.location.hash = path;
+    } else {
+      window.location.hash = `#${path.replace(/^\//, '')}`;
+    }
   };
 
   const renderCurrentView = () => {
-    const cleanHash = currentRoute.replace('#', '');
+    const routePath = currentRoute.replace('#', '');
+    const cleanHash = routePath.split('?')[0];
 
     // Existing pages
     if (cleanHash === 'services') return <ServicesPage onNavigate={navigateTo} />;

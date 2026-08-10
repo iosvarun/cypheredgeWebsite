@@ -54,7 +54,7 @@ export default function ITStaffingPage({ onNavigate }) {
             Fast onboarding, flexible engagement, zero administrative overhead.
           </p>
           <div className="hero-actions">
-            <button className="btn-glow" onClick={() => onNavigate('#contact')}>
+            <button className="btn-glow" onClick={() => onNavigate && onNavigate('/contact?service=IT%20Staffing')}>
               Build Your Team
               <ArrowRight size={18} />
             </button>
