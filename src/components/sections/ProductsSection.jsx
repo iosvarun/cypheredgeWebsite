@@ -41,13 +41,25 @@ export default function ProductsSection({ onNavigate }) {
       {/* Products Grid */}
       <div className="products-grid">
         {filteredApps.map((app) => (
-          <div key={app.id} className="product-card glass-panel">
+          <div key={app.id} id={`product-${app.id}`} className="product-card glass-panel">
             <div>
               <div className="product-card-top">
-                <img src={app.iconPath} alt={app.name} className="product-app-icon" />
+                <img 
+                  src={app.iconPath} 
+                  alt={app.name} 
+                  className="product-app-icon" 
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => onNavigate && onNavigate(`/product/${app.id}`)}
+                />
                 <div className="product-card-meta">
                   <span className="product-badge-chip">{app.badge}</span>
-                  <h3 className="product-name">{app.name}</h3>
+                  <h3 
+                    className="product-name" 
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => onNavigate && onNavigate(`/product/${app.id}`)}
+                  >
+                    {app.name}
+                  </h3>
                   <span className="product-tagline">{app.tagline}</span>
                 </div>
               </div>

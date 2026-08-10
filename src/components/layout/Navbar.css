@@ -155,9 +155,16 @@
   left: 50%;
   transform: translateX(-50%);
   min-width: 680px;
-  padding: 1.5rem;
-  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem 1.5rem 1.5rem;
+  padding-top: 0.75rem;
   z-index: 100;
+}
+
+/* Bridge the gap between nav-link and dropdown to prevent mouseLeave */
+.nav-item-wrapper {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: -0.5rem;
 }
 
 .glass-mega-panel {

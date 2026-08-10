@@ -142,7 +142,7 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
             onMouseEnter={() => setActiveMenu('products')}
             onMouseLeave={() => setActiveMenu(null)}
           >
-            <button className={`nav-link ${currentPath.startsWith('/products') ? 'active' : ''}`}>
+            <button className={`nav-link ${currentPath.startsWith('/products') || currentPath.startsWith('/product') ? 'active' : ''}`}>
               <span>Products</span>
               <ChevronDown size={14} className={`chevron-icon ${activeMenu === 'products' ? 'open' : ''}`} />
             </button>
@@ -163,7 +163,7 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
                     <div
                       key={app.id}
                       className="mega-product-item"
-                      onClick={() => handleLinkClick('/products')}
+                      onClick={() => handleLinkClick(`/product/${app.id}`)}
                     >
                       <img src={app.iconPath} alt={app.name} className="mega-app-icon" />
                       <div className="mega-product-meta">
@@ -176,6 +176,14 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
               </div>
             )}
           </div>
+
+          {/* Blog / Insights */}
+          <button
+            className={`nav-link ${currentPath === '/insights' || currentPath.startsWith('/blog') ? 'active' : ''}`}
+            onClick={() => handleLinkClick('/insights')}
+          >
+            <span>Blog Articles</span>
+          </button>
 
           {/* Technologies */}
           <button

@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
   location: 'India & Global Remote Delivery',
 
   // WhatsApp — set VITE_WHATSAPP_NUMBER in .env (format: country code + number, e.g. 919876543210)
-  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || '',
+  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || '919999598474',
   whatsappMessage: "Hi CypherEdge, I'd like to discuss a project.",
 
   // Calendar booking — set VITE_CALENDLY_URL in .env

@@ -1,1 +1,0 @@
-import"./rolldown-runtime-QTnfLwEv.js";import{ht as e}from"./vendor-icons-Dcf5l4zT.js";import{t}from"./vendor-react-BVh1d4Z0.js";import{t as n}from"./ProductsSection-B7weoDqn.js";e();var r=t();function i({onNavigate:e}){return(0,r.jsx)(`div`,{className:`page-wrapper`,style:{paddingTop:`5rem`},children:(0,r.jsx)(n,{onNavigate:e})})}export{i as default};

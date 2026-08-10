@@ -68,6 +68,29 @@ const BlogArticlePage = ({ articleSlug, onNavigate }) => {
             <p>{block.content}</p>
           </div>
         );
+      case 'diagram':
+        return (
+          <div key={idx} className="article-diagram-card glass-panel">
+            {block.title && <h4 className="diagram-title"><LucideIcons.Layers size={16} className="icon-cyan" /> {block.title}</h4>}
+            <div className="diagram-steps-flow">
+              {block.steps?.map((step, sIdx) => (
+                <React.Fragment key={sIdx}>
+                  <div className="diagram-step-box">
+                    <span className="diagram-step-num">{sIdx + 1}</span>
+                    <span className="diagram-step-label">{step.label || step}</span>
+                    {step.desc && <span className="diagram-step-desc">{step.desc}</span>}
+                  </div>
+                  {sIdx < block.steps.length - 1 && (
+                    <div className="diagram-arrow">
+                      <LucideIcons.ArrowRight size={18} className="icon-cyan" />
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+            {block.caption && <p className="diagram-caption">{block.caption}</p>}
+          </div>
+        );
       default:
         return <p key={idx}>{block.content}</p>;
     }

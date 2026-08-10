@@ -1,34 +1,38 @@
 import { useState } from 'react';
-import { ArrowRight, Clock, Calendar } from 'lucide-react';
+import { ArrowRight, Clock, Calendar, BookOpen } from 'lucide-react';
 import WhatsAppButton from '../components/shared/WhatsAppButton';
+import { BLOG_ARTICLES_DATA } from '../data/blogArticlesData';
 import './InsightsPage.css';
 
-const INSIGHTS_CATEGORIES = ['All', 'Engineering', 'AI/ML', 'Cloud', 'Business'];
-
-const INSIGHTS_DATA = [
-  { id: 1, title: 'Migrating to a Micro-Frontend Architecture', desc: 'A deep dive into why enterprise teams are adopting micro-frontends to scale their UI development.', cat: 'Engineering', date: 'Oct 12, 2023', readTime: '8 min read', featured: true },
-  { id: 2, title: 'Evaluating LLMs for Corporate Data Security', desc: 'How to safely implement Large Language Models without exposing proprietary IP.', cat: 'AI/ML', date: 'Nov 05, 2023', readTime: '6 min read', featured: false },
-  { id: 3, title: 'Optimizing AWS Costs in 2024', desc: 'Practical strategies for reducing cloud spend without compromising performance or reliability.', cat: 'Cloud', date: 'Dec 01, 2023', readTime: '5 min read', featured: false },
-  { id: 4, title: 'The ROI of Nearshore Augmentation', desc: 'Comparing time-zone overlap benefits versus traditional offshore models for US companies.', cat: 'Business', date: 'Jan 15, 2024', readTime: '7 min read', featured: false }
-];
+const INSIGHTS_CATEGORIES = ['All', 'AI & ML', 'Mobile', 'iOS & SwiftUI', 'Android', 'Architecture', 'DevOps & Cloud'];
 
 export default function InsightsPage({ onNavigate }) {
   const [activeCat, setActiveCat] = useState('All');
 
   const filtered = activeCat === 'All' 
-    ? INSIGHTS_DATA 
-    : INSIGHTS_DATA.filter(i => i.cat === activeCat);
+    ? BLOG_ARTICLES_DATA 
+    : BLOG_ARTICLES_DATA.filter(i => {
+        if (activeCat === 'AI & ML') return i.category === 'AI & ML' || i.category === 'AI Agents';
+        if (activeCat === 'iOS & SwiftUI') return i.category === 'iOS' || i.category === 'Mobile' || i.title.includes('SwiftUI');
+        if (activeCat === 'Android') return i.category === 'Android' || i.title.includes('Android');
+        if (activeCat === 'Mobile') return i.category === 'Mobile' || i.category === 'iOS' || i.category === 'Android';
+        if (activeCat === 'Architecture') return i.category === 'Architecture' || i.category === 'Engineering';
+        if (activeCat === 'DevOps & Cloud') return i.category === 'DevOps' || i.category === 'Cloud';
+        return i.category === activeCat;
+      });
 
-  const handleArticleClick = (e) => {
-    e.preventDefault();
-    alert('This is a preview template. Full article content will be available soon.');
+  const handleArticleClick = (slug) => {
+    if (onNavigate) {
+      onNavigate(`/blog/${slug}`);
+    }
   };
 
   return (
-    <div className="insights-page">
+    <div className="insights-page page-wrapper" style={{ paddingTop: '5rem' }}>
       <section className="insights-hero container">
-        <h1 className="hero-title">Insights & <span className="text-gradient-neon">Resources</span></h1>
-        <p className="hero-subtitle">Engineering best practices, architectural teardowns, and technology leadership.</p>
+        <span className="badge-neon"><BookOpen size={13} /> Knowledge Hub</span>
+        <h1 className="hero-title">Engineering <span className="text-gradient-neon">Blog &amp; Architecture Insights</span></h1>
+        <p className="hero-subtitle">Deep dives into SwiftUI 6, AI Agent Architectures, Jetpack Compose, Microservices, and Enterprise DevOps.</p>
         
         <div className="category-filters">
           {INSIGHTS_CATEGORIES.map(cat => (
@@ -43,21 +47,26 @@ export default function InsightsPage({ onNavigate }) {
         </div>
       </section>
 
-      <section className="insights-grid-section container section-padding">
+      <section className="insights-grid-section container">
         <div className="insights-grid">
           {filtered.map(article => (
-            <article key={article.id} className="insight-card glass-panel" onClick={handleArticleClick}>
+            <article 
+              key={article.slug} 
+              className="insight-card glass-panel" 
+              onClick={() => handleArticleClick(article.slug)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="card-header">
-                <span className="badge-neon small">{article.cat}</span>
+                <span className="badge-neon small">{article.category}</span>
                 {article.featured && <span className="badge-featured">Featured</span>}
               </div>
               <h3>{article.title}</h3>
-              <p>{article.desc}</p>
+              <p>{article.metaDescription || article.content?.[0]?.content?.substring(0, 120) + '...'}</p>
               <div className="card-meta">
-                <span><Calendar size={14}/> {article.date}</span>
-                <span><Clock size={14}/> {article.readTime}</span>
+                <span><Calendar size={14}/> {article.publishDate || 'Recent'}</span>
+                <span><Clock size={14}/> {article.readingTime || '8 min read'}</span>
               </div>
-              <div className="read-more">Read Article <ArrowRight size={16}/></div>
+              <div className="read-more">Read Full Article <ArrowRight size={16}/></div>
             </article>
           ))}
         </div>

@@ -57,7 +57,7 @@ export default function CaseStudiesSection({ onNavigate }) {
 
                 <button 
                   className="btn-secondary btn-sm"
-                  onClick={() => onNavigate && onNavigate('/case-studies')}
+                  onClick={() => onNavigate && onNavigate(`/case-study/${cs.id}`)}
                 >
                   Read Full Case Study <ArrowRight size={14} />
                 </button>

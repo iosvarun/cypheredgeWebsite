@@ -26,7 +26,7 @@ export default function ContactPage({ onNavigate }) {
     trackForm(TRACK_EVENTS.FORM_FIELD_FOCUS, 'contact_form', { field: fieldName });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const utmParams = getStoredUtmParams();
     trackForm(TRACK_EVENTS.FORM_SUBMIT, 'contact_form', {
@@ -35,6 +35,32 @@ export default function ContactPage({ onNavigate }) {
       timeline: formData.timeline,
       ...utmParams,
     });
+
+    // Send email to techcypheredge@gmail.com via AJAX
+    try {
+      await fetch('https://formsubmit.co/ajax/techcypheredge@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Project Inquiry from ${formData.name} (${formData.company || 'Individual'})`,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || 'N/A',
+          company: formData.company || 'N/A',
+          service: formData.service,
+          budget: formData.budget || 'Not specified',
+          timeline: formData.timeline || 'Not specified',
+          message: formData.message,
+          ...utmParams
+        })
+      });
+    } catch (err) {
+      console.warn('FormSubmit AJAX fallback triggered mailto', err);
+    }
+
     setSubmitted(true);
   };
 

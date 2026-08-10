@@ -378,5 +378,116 @@ CMD ["dist/main.js"]` },
     relatedServices: ['dedicated-development-team', 'product-engineering'],
     relatedTechnologies: ['react', 'python', 'aws'],
     relatedArticles: ['what-is-product-engineering']
+  },
+  {
+    slug: 'whats-new-in-swiftui-6',
+    title: "What's New in SwiftUI 6: Observation, CoreHaptics & High-Performance iOS Engineering",
+    metaTitle: "What's New in SwiftUI 6 & iOS Engineering | CypherEdge",
+    metaDescription: "An in-depth technical analysis of SwiftUI 6 features: @Observable macro, StoreKit 2 integration, CoreHaptics physics engine, and native iOS performance optimization.",
+    category: "iOS & SwiftUI",
+    author: "CypherEdge iOS Architecture Team",
+    publishDate: "2026-08-05",
+    readingTime: "11 min",
+    featured: true,
+    content: [
+      { type: 'paragraph', content: 'SwiftUI 6 represents a landmark shift in iOS application architecture. With the complete deprecation of ObservableObject in favor of Swift 5.9+ @Observable macro, state management is faster, cleaner, and eliminates unnecessary view re-renders.' },
+      { type: 'heading', level: 2, content: '1. The @Observable Macro Architecture' },
+      { type: 'paragraph', content: 'Previously, @Published properties invalidated the entire view hierarchy whenever any property on an ObservableObject changed. The new @Observable framework tracks field access at a granular level using Swift macros.' },
+      { type: 'diagram', title: 'SwiftUI 6 State Observation Flow', steps: [
+        { label: '@Observable State', desc: 'Property mutated in ViewModel' },
+        { label: 'Access Tracking', desc: 'Swift macro intercepts getter' },
+        { label: 'Granular Diff', desc: 'Only affected View subtree invalidated' },
+        { label: '60/120 FPS Render', desc: 'Metal/Render thread executes update' }
+      ], caption: 'Fine-grained observation pipeline in SwiftUI 6 reducing memory overhead by up to 35%.' },
+      { type: 'code', language: 'swift', content: `import SwiftUI
+import Observation
+
+@Observable
+final class AppStateViewModel {
+    var userProfile: UserProfile?
+    var isProcessing: Bool = false
+    
+    @ObservationIgnored
+    private var internalAnalyticsCache: [String: Any] = [:]
+    
+    func fetchProfile(id: String) async {
+        isProcessing = true
+        defer { isProcessing = false }
+        userProfile = await UserAPI.fetch(id: id)
+    }
+}` },
+      { type: 'heading', level: 2, content: '2. CoreHaptics Physics Integration' },
+      { type: 'paragraph', content: 'In high-conversion consumer apps like our Truth or Dare party game, tactile feedback plays a crucial role in user retention. SwiftUI 6 combined with CoreHaptics enables custom vibration patterns synchronized with SwiftUI animations.' },
+      { type: 'callout', content: 'Pro Tip: Always pre-warm the CHHapticEngine during view appearance (.onAppear) to eliminate the 50ms latency cold-start delay during interactive touch events.' }
+    ],
+    relatedServices: ['mobile-app-development'],
+    relatedTechnologies: ['swift', 'ios'],
+    relatedArticles: ['flutter-vs-native-ios']
+  },
+  {
+    slug: 'ai-agent-architecture-guide',
+    title: 'Engineering Multi-Agent AI Systems: RAG Pipelines, Tool Calling & Human-in-the-Loop',
+    metaTitle: 'Multi-Agent AI Architecture Guide 2026 | CypherEdge',
+    metaDescription: 'Learn how to architect autonomous AI agents with LangChain, LlamaIndex, pgvector, and tool-calling execution loops for enterprise automation.',
+    category: 'AI Agents',
+    author: 'CypherEdge AI Division',
+    publishDate: '2026-08-08',
+    readingTime: '15 min',
+    featured: true,
+    content: [
+      { type: 'paragraph', content: 'Single LLM prompts fail when applied to complex business workflows. Enterprise automation requires multi-agent systems where specialized agents collaborate, execute tools, query knowledge bases, and hand off tasks.' },
+      { type: 'heading', level: 2, content: '1. Multi-Agent Orchestration Flow' },
+      { type: 'paragraph', content: 'Rather than a monolithic prompt, our architecture decomposes business operations into a Planner Agent, Execution Agents, and a Validator Agent.' },
+      { type: 'diagram', title: 'Enterprise AI Agent Workflow', steps: [
+        { label: 'User Request', desc: 'Natural language input' },
+        { label: 'Router Agent', desc: 'Intent classification & task routing' },
+        { label: 'RAG Retriever', desc: 'Semantic search in pgvector' },
+        { label: 'Tool Executor', desc: 'API calls & DB queries' },
+        { label: 'Human Review', desc: 'Approval for critical actions' }
+      ], caption: 'Multi-agent orchestration architecture for secure enterprise process automation.' },
+      { type: 'code', language: 'python', content: `from langchain.agents import AgentExecutor, create_openai_tools_agent
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_community.vectorstores import PGVector
+
+# Initialize Vector Retriever
+vector_store = PGVector.from_existing_index(
+    embedding_function=embeddings,
+    collection_name="enterprise_docs",
+    connection_string="postgresql+psycopg://user:pass@localhost:5432/vector_db"
+)
+
+# Tool execution loop definition
+tools = [search_kb, execute_sql, send_webhook]` },
+      { type: 'heading', level: 2, content: '2. Deterministic Tool Calling & Security' },
+      { type: 'paragraph', content: 'AI agents must never execute arbitrary code. Enforcing strict JSON schema validation and sandboxed Docker tool execution guarantees that model output stays safely bound within defined operational guardrails.' }
+    ],
+    relatedServices: ['ai-development', 'ai-agents'],
+    relatedTechnologies: ['python', 'openai', 'postgresql'],
+    relatedArticles: ['cost-to-build-ai-product']
+  },
+  {
+    slug: 'whats-new-in-android-15-jetpack-compose',
+    title: "What's New in Android 15 & Jetpack Compose: Performance, Kotlin 2.0 & Modern Architecture",
+    metaTitle: 'Android 15 & Jetpack Compose Architecture Guide | CypherEdge',
+    metaDescription: 'Explore Android 15 APIs, Jetpack Compose Compiler 2.0, KMP (Kotlin Multiplatform), and offline-first database synchronization strategies.',
+    category: 'Android',
+    author: 'CypherEdge Android Division',
+    publishDate: '2026-08-04',
+    readingTime: '12 min',
+    featured: false,
+    content: [
+      { type: 'paragraph', content: 'Android 15 introduces edge-to-edge default layouts, enhanced background activity restrictions, and major performance optimizations in the Jetpack Compose runtime with Kotlin 2.0 Strong Skipping mode.' },
+      { type: 'heading', level: 2, content: '1. Offline-First Architecture Pattern' },
+      { type: 'paragraph', content: 'In enterprise utility apps like Digital Dukaan, network connectivity is unreliable. Building an offline-first architecture requires Room local caching paired with WorkManager background sync.' },
+      { type: 'diagram', title: 'Android Offline-First Sync Architecture', steps: [
+        { label: 'UI State', desc: 'Collects StateFlow from Repository' },
+        { label: 'Room DB', desc: 'Single source of truth (SQLite)' },
+        { label: 'WorkManager', desc: 'Scheduled background sync' },
+        { label: 'Ktor Client', desc: 'HTTPS REST API to Cloud' }
+      ], caption: 'Offline-first data sync pipeline ensuring zero transaction loss.' }
+    ],
+    relatedServices: ['mobile-app-development'],
+    relatedTechnologies: ['kotlin', 'android'],
+    relatedArticles: ['flutter-vs-native-ios']
   }
 ];
