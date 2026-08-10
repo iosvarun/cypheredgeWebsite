@@ -196,7 +196,12 @@ export default function AppRouter() {
     return <HomePage onNavigate={navigateTo} />;
   };
 
-  // Determine if current route is a paid landing page (stripped nav)
+const FullPageLoader = () => (
+  <div className="full-page-loader-screen">
+    <div className="loader-glow-ring" />
+  </div>
+);
+
   const isPaidLanding = currentRoute.replace('#', '').startsWith('landing/');
 
   return (
@@ -204,7 +209,7 @@ export default function AppRouter() {
       <OrganizationJsonLd />
       {!isPaidLanding && <Navbar currentPath={currentRoute.replace('#', '/')} onNavigate={navigateTo} />}
       <main className="main-content-area">
-        <Suspense fallback={<div className="page-loader">Loading...</div>}>
+        <Suspense fallback={<FullPageLoader />}>
           {renderCurrentView()}
         </Suspense>
       </main>
