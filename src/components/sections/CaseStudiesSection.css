@@ -1,13 +1,13 @@
 .case-studies-section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .case-studies-list {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  margin-top: 3rem;
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
 .case-study-card {
