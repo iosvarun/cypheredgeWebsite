@@ -3,7 +3,7 @@ export const APP_DETAILS = {
     name: "Digital Dukaan",
     effectiveDate: "June 29, 2026",
     badge: "Business Utility",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "Digital Dukaan is a simple, secure, and easy-to-use business management application designed for shop owners, retailers, wholesalers, and small businesses. It helps you manage your business digitally, save time, reduce paperwork, and keep your business records organized.",
       features: [
@@ -72,7 +72,7 @@ export const APP_DETAILS = {
     name: "WA Direct Message",
     effectiveDate: "July 1, 2026",
     badge: "Social Utility",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "WA Direct Message is a privacy-first utility application designed to let you send direct messages on WhatsApp without adding the recipient to your phonebook contacts. Maintain a clean address book and message instantly.",
       features: [
@@ -152,7 +152,7 @@ export const APP_DETAILS = {
     name: "WhatsBackup",
     effectiveDate: "July 1, 2026",
     badge: "Security Utility",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "WhatsBackup is a secure utility that automates and manages cloud backups for your chats, documents, and media records. Prevent data loss and access files securely.",
       features: [
@@ -209,7 +209,7 @@ export const APP_DETAILS = {
     name: "ShrinkLab",
     effectiveDate: "July 1, 2026",
     badge: "Media Utility",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "ShrinkLab is an advanced media compressor tool designed to reduce photo and video sizes up to 90% without sacrificing visual resolution or quality.",
       features: [
@@ -266,7 +266,7 @@ export const APP_DETAILS = {
     name: "Truth or Dare",
     effectiveDate: "July 1, 2026",
     badge: "Casual Game",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "Truth or Dare is a fun, interactive party game featuring multiple categories, interactive spin wheels, and cards designed to build social connections.",
       features: [
@@ -322,7 +322,7 @@ export const APP_DETAILS = {
     name: "Gym Workout",
     effectiveDate: "July 1, 2026",
     badge: "Fitness Coach",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "Gym Workout is a professional fitness coach and routine builder designed to help you track weights, count sets, plan exercises, and log nutrition.",
       features: [
@@ -380,7 +380,7 @@ export const APP_DETAILS = {
     name: "PDF Pulse",
     effectiveDate: "July 1, 2026",
     badge: "Office Tool",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "PDF Pulse is a comprehensive mobile scanning and document toolkit that lets you merge, split, compress, sign, and convert PDF files securely.",
       features: [
@@ -437,7 +437,7 @@ export const APP_DETAILS = {
     name: "Nyayaconnect",
     effectiveDate: "July 1, 2026",
     badge: "Civic Tech",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "Nyayaconnect is a civic-tech application engineered to empower citizens with legal access, simplified documentation templates, legal consultation tools, and judicial resources in India.",
       features: [
@@ -494,7 +494,7 @@ export const APP_DETAILS = {
     name: "Aurikaa Jewels",
     effectiveDate: "July 1, 2026",
     badge: "E-Commerce",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "Aurikaa Jewels is a premium B2C e-commerce platform showcasing luxury imitation and American Diamond jewelry, complete with secure payment gateways, cart flows, and real-time inventory management.",
       features: [
@@ -551,7 +551,7 @@ export const APP_DETAILS = {
     name: "Calculator+ Photo Vault",
     effectiveDate: "August 2, 2026",
     badge: "Privacy & Security",
-    email: "techcypheredge@gmail.com",
+    email: "admin@cypheredge.in",
     about: {
       intro: "Calculator+ Photo Vault is an advanced privacy and file encryption application disguised as a fully functional calculator. It allows users to hide photos, videos, notes, and confidential documents behind a secret passcode.",
       features: [

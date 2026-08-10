@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   companyName: 'CypherEdge Private Limited',
   companyShortName: 'CypherEdge',
   siteUrl: 'https://www.cypheredge.in',
-  email: 'techcypheredge@gmail.com',
+  email: 'admin@cypheredge.in',
   location: 'India & Global Remote Delivery',
 
   // WhatsApp — set VITE_WHATSAPP_NUMBER in .env (format: country code + number, e.g. 919876543210)

@@ -4,7 +4,7 @@ import './CompanyPage.css';
 
 export default function CompanyPage({ onNavigate }) {
   return (
-    <div className="company-page-wrap container" style={{ paddingTop: '8rem', paddingBottom: '5rem' }}>
+    <div className="company-page-wrap container" style={{ paddingTop: '2.5rem', paddingBottom: '2rem' }}>
       <div className="section-header-center">
         <span className="badge-neon"><Sparkles size={13} /> Company Vision &amp; Identity</span>
         <h1 className="section-title">

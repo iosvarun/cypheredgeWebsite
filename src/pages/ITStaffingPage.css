@@ -1,15 +1,15 @@
 .it-staffing-page {
-  padding-top: 5rem;
+  padding-top: 2rem;
   background-color: var(--bg-dark);
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .section-padding {
-  padding: 6rem 0;
+  padding: 2.5rem 0;
 }
 
 .staffing-hero {
-  padding: 8rem 0 4rem;
+  padding: 3rem 0 2rem;
   text-align: center;
 }
 

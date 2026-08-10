@@ -1,8 +1,8 @@
 .hero-master-section {
   position: relative;
-  padding-top: 8rem;
-  padding-bottom: 5rem;
-  min-height: 85vh;
+  padding-top: 6.5rem;
+  padding-bottom: 2rem;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;

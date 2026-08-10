@@ -19,10 +19,28 @@ export default function ServicesSection({ onNavigate }) {
 
   const handleCardClick = (id) => {
     if (!onNavigate) return;
-    if (id === 'it-staffing-dedicated-teams') {
-      onNavigate('/it-staffing');
-    } else {
-      onNavigate('/services');
+    switch (id) {
+      case 'ai-agents-llm':
+        onNavigate('/services/ai-agents');
+        break;
+      case 'custom-software-development':
+        onNavigate('/services/enterprise-software');
+        break;
+      case 'saas-product-engineering':
+        onNavigate('/services/web-development');
+        break;
+      case 'mobile-app-engineering':
+        onNavigate('/services/mobile-app-development');
+        break;
+      case 'enterprise-backend-cloud':
+        onNavigate('/services/cloud-devops');
+        break;
+      case 'it-staffing-dedicated-teams':
+        onNavigate('/it-staffing');
+        break;
+      default:
+        onNavigate('/services');
+        break;
     }
   };
 

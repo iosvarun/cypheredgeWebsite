@@ -165,10 +165,10 @@ export default function AppRouter() {
       return <CaseStudyDetailPage caseStudySlug={slug} onNavigate={navigateTo} />;
     }
 
-    // Product detail pages
+    // Product pages (renders View All Products page and scrolls to the specific product)
     if (cleanHash.startsWith('product/')) {
       const slug = cleanHash.replace('product/', '');
-      return <ProductDetailPage productSlug={slug} onNavigate={navigateTo} />;
+      return <ProductsPage targetProductId={slug} onNavigate={navigateTo} />;
     }
 
     // Blog article pages

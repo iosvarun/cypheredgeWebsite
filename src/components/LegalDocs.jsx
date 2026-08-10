@@ -264,7 +264,7 @@ export default function LegalDocs({ path }) {
             <div className="doc-section">
               <h3>5. Contact Us</h3>
               <p>If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:</p>
-              <p className="contact-email">Email: <a href="mailto:techcypheredge@gmail.com">techcypheredge@gmail.com</a></p>
+              <p className="contact-email">Email: <a href="mailto:admin@cypheredge.in">admin@cypheredge.in</a></p>
             </div>
           </div>
         );
@@ -306,7 +306,7 @@ export default function LegalDocs({ path }) {
             <div className="doc-section">
               <h3>6. Contact Us</h3>
               <p>For any questions or support regarding our Terms & Conditions, please reach out to us:</p>
-              <p className="contact-email">Email: <a href="mailto:techcypheredge@gmail.com">techcypheredge@gmail.com</a></p>
+              <p className="contact-email">Email: <a href="mailto:admin@cypheredge.in">admin@cypheredge.in</a></p>
             </div>
           </div>
         );

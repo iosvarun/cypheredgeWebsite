@@ -36,9 +36,9 @@ export default function ContactPage({ onNavigate }) {
       ...utmParams,
     });
 
-    // Send email to techcypheredge@gmail.com via AJAX
+    // Send email to admin@cypheredge.in via AJAX
     try {
-      await fetch('https://formsubmit.co/ajax/techcypheredge@gmail.com', {
+      await fetch('https://formsubmit.co/ajax/admin@cypheredge.in', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ export default function ContactPage({ onNavigate }) {
   }, []);
 
   return (
-    <div className="contact-page-wrap container" style={{ paddingTop: '8rem', paddingBottom: '5rem' }}>
+    <div className="contact-page-wrap container" style={{ paddingTop: '2.5rem', paddingBottom: '2rem' }}>
       <div className="section-header-center">
         <span className="badge-neon"><Calendar size={13} /> Start a Conversation</span>
         <h1 className="section-title">
