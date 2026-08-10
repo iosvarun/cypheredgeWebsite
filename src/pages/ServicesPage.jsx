@@ -4,7 +4,7 @@ import EstimatorSection from '../components/sections/EstimatorSection';
 
 export default function ServicesPage({ onNavigate }) {
   return (
-    <div className="page-wrapper" style={{ paddingTop: '2.5rem' }}>
+    <div className="page-wrapper">
       <ServicesSection onNavigate={onNavigate} />
       <EstimatorSection onNavigate={onNavigate} />
     </div>

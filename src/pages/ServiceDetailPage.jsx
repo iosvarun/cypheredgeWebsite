@@ -41,7 +41,12 @@ const ServiceDetailPage = ({ serviceSlug, onNavigate }) => {
           <h1 className="service-headline">{service.title}</h1>
           <p className="service-subtext">{service.subtext}</p>
           <div className="service-hero-actions">
-            <button className="btn-glow">Get a Free Consultation</button>
+            <button 
+              className="btn-glow"
+              onClick={() => onNavigate && onNavigate(`/contact?service=${encodeURIComponent(service.title)}`)}
+            >
+              Get a Free Consultation
+            </button>
           </div>
           <div className="trust-pill">
             <LucideIcons.ShieldCheck size={16} />

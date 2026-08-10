@@ -66,10 +66,20 @@ export default function ContactPage({ onNavigate }) {
 
   useEffect(() => {
     trackForm(TRACK_EVENTS.FORM_START, 'contact_form');
+
+    // Parse service param from query string or hash
+    const searchParams = new URLSearchParams(window.location.search);
+    let sParam = searchParams.get('service');
+    if (!sParam && window.location.hash.includes('?service=')) {
+      sParam = decodeURIComponent(window.location.hash.split('?service=')[1]);
+    }
+    if (sParam) {
+      setFormData(prev => ({ ...prev, service: decodeURIComponent(sParam) }));
+    }
   }, []);
 
   return (
-    <div className="contact-page-wrap container" style={{ paddingTop: '2.5rem', paddingBottom: '2rem' }}>
+    <div className="page-wrapper contact-page-wrap container">
       <div className="section-header-center">
         <span className="badge-neon"><Calendar size={13} /> Start a Conversation</span>
         <h1 className="section-title">

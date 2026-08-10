@@ -3,7 +3,7 @@ import EstimatorSection from '../components/sections/EstimatorSection';
 
 export default function EstimatorPage({ onNavigate }) {
   return (
-    <div className="page-wrapper" style={{ paddingTop: '2rem' }}>
+    <div className="page-wrapper">
       <EstimatorSection onNavigate={onNavigate} />
     </div>
   );

@@ -3,7 +3,7 @@ import LegalDocs from '../components/LegalDocs';
 
 export default function LegalDocsPage({ path = 'privacypolicy' }) {
   return (
-    <div className="page-wrapper" style={{ paddingTop: '2.5rem' }}>
+    <div className="page-wrapper">
       <LegalDocs path={path} />
     </div>
   );

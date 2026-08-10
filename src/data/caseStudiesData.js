@@ -1,6 +1,7 @@
 export const CASE_STUDIES_DATA = [
   {
     id: "wa-direct-message-architecture",
+    slug: "wa-direct-message-architecture",
     title: "WA Direct Message: Privacy-First Utility Reaching 50,000+ Users",
     client: "CypherEdge Products Division",
     category: "Mobile Utility & Privacy",
@@ -26,6 +27,7 @@ export const CASE_STUDIES_DATA = [
   },
   {
     id: "digital-dukaan-pos",
+    slug: "digital-dukaan-pos",
     title: "Digital Dukaan: POS Platform Serving 30,000+ Merchants",
     client: "CypherEdge Products Division",
     category: "Business & Enterprise",
@@ -51,6 +53,7 @@ export const CASE_STUDIES_DATA = [
   },
   {
     id: "truth-or-dare-game-engine",
+    slug: "truth-or-dare-game-engine",
     title: "Truth or Dare: Viral Party Game Reaching 100,000+ Players",
     client: "CypherEdge Gaming",
     category: "Mobile Gaming & Haptics",

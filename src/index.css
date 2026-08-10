@@ -61,9 +61,24 @@ body {
   padding: 0 1.5rem;
 }
 
+.page-wrapper {
+  padding-top: 6.5rem;
+  padding-bottom: 2.5rem;
+  min-height: 70vh;
+}
+
+body.menu-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
+  }
+  .page-wrapper {
+    padding-top: 5.5rem;
+    padding-bottom: 2rem;
   }
 }
 

@@ -38,7 +38,7 @@ const EngineeringStories = ({ onNavigate }) => {
                 <span className="outcome-metric text-cyan">{cs.results[0]?.metric} {cs.results[0]?.label}</span>
                 <button 
                   className="read-more-link text-cyan"
-                  onClick={() => onNavigate && onNavigate(`case-study/${cs.id}`)}
+                  onClick={() => onNavigate && onNavigate(`/case-study/${cs.id}`)}
                 >
                   Read Full Case Study <ArrowRight size={16} />
                 </button>

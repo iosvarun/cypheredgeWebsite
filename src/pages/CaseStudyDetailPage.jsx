@@ -7,16 +7,12 @@ import './CaseStudyDetailPage.css';
 import { CASE_STUDIES_DATA } from '../data/caseStudiesData';
 
 const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
-  const cs = CASE_STUDIES_DATA?.find(c => c.slug === caseStudySlug);
-
-  if (!cs) {
-    return (
-      <div className="page-wrapper container">
-        <h1 style={{ color: '#fff' }}>Case Study not found</h1>
-        <button className="btn-glow" onClick={() => onNavigate('/')}>Return Home</button>
-      </div>
-    );
-  }
+  const cs = CASE_STUDIES_DATA?.find(c => 
+    c.id === caseStudySlug || 
+    c.slug === caseStudySlug ||
+    (c.id && caseStudySlug && (c.id.includes(caseStudySlug) || caseStudySlug.includes(c.id))) ||
+    (c.slug && caseStudySlug && (c.slug.includes(caseStudySlug) || caseStudySlug.includes(c.slug)))
+  ) || CASE_STUDIES_DATA?.[0];
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },

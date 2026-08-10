@@ -6,6 +6,7 @@ import './WhatsAppButton.css';
 
 export default function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // Entrance animation after 1 second
@@ -14,6 +15,18 @@ export default function WhatsAppButton() {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const checkMenu = () => {
+      setIsMenuOpen(document.body.classList.contains('menu-open'));
+    };
+    checkMenu();
+    const observer = new MutationObserver(checkMenu);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
+  if (isMenuOpen) return null;
 
   const handleWhatsAppClick = () => {
     trackCTA(TRACK_EVENTS?.WHATSAPP_CLICK || 'whatsapp_click');

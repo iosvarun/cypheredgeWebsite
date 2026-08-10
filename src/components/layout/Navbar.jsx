@@ -18,10 +18,23 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      if (mobileDrawerOpen && window.scrollY > 40) {
+        setMobileDrawerOpen(false);
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mobileDrawerOpen]);
+
+  // Lock body scrolling when mobile drawer is open
+  useEffect(() => {
+    if (mobileDrawerOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    return () => document.body.classList.remove('menu-open');
+  }, [mobileDrawerOpen]);
 
   // Close mobile drawer on escape key
   useEffect(() => {
@@ -242,7 +255,16 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
 
       {/* Mobile Drawer Menu */}
       {mobileDrawerOpen && (
-        <div className="mobile-drawer-overlay glass-panel animate-fade-in" role="dialog" aria-label="Navigation menu">
+        <div className="mobile-drawer-overlay animate-fade-in" role="dialog" aria-label="Navigation menu">
+          <div className="mobile-drawer-top-bar">
+            <div className="navbar-brand" onClick={() => handleLinkClick('/')}>
+              <img src="/assets/logo_tagline.png" alt="CypherEdge" className="nav-logo-img" />
+            </div>
+            <button className="mobile-close-btn" onClick={() => setMobileDrawerOpen(false)} aria-label="Close menu">
+              <X size={24} />
+            </button>
+          </div>
+
           <div className="mobile-drawer-content">
             <div className="mobile-drawer-header">
               <span className="col-subtitle">NAVIGATION</span>
