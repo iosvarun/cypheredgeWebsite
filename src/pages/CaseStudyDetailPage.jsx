@@ -88,15 +88,15 @@ const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
         )}
 
         {/* Results Section */}
-        {cs.metrics && (
+        {cs.results && (
           <section className="cs-section">
             <div className="section-header-center">
               <h2>The Results</h2>
             </div>
             <div className="cs-metrics-grid">
-              {cs.metrics.map((metric, i) => (
+              {cs.results.map((metric, i) => (
                 <div key={i} className="cs-metric-card glass-panel">
-                  <div className="metric-value">{metric.value}</div>
+                  <div className="metric-value">{metric.metric}</div>
                   <div className="metric-label">{metric.label}</div>
                 </div>
               ))}
@@ -105,11 +105,11 @@ const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
         )}
 
         {/* Measurable Outcome */}
-        {cs.outcome && (
+        {cs.measurableOutcome && (
           <section className="cs-section">
             <div className="cs-outcome-block glass-panel">
               <LucideIcons.TrendingUp size={32} className="icon-cyan" />
-              <p>{cs.outcome}</p>
+              <p>{cs.measurableOutcome}</p>
             </div>
           </section>
         )}

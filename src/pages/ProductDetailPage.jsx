@@ -12,7 +12,7 @@ const getIcon = (iconName) => {
 };
 
 const ProductDetailPage = ({ productSlug, onNavigate }) => {
-  const product = PRODUCTS_DATA?.find(p => p.slug === productSlug);
+  const product = PRODUCTS_DATA?.find(p => p.id === productSlug);
 
   if (!product) {
     return (

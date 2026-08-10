@@ -5,9 +5,12 @@ import RelatedLinks from '../components/shared/RelatedLinks';
 import './BlogArticlePage.css';
 
 import { INSIGHTS_DATA } from '../data/insightsData';
+import { BLOG_ARTICLES_DATA } from '../data/blogArticlesData';
 
 const BlogArticlePage = ({ articleSlug, onNavigate }) => {
-  const article = INSIGHTS_DATA?.find(a => a.slug === articleSlug);
+  // Check both data sources — full blog articles first, then insights stubs
+  const article = BLOG_ARTICLES_DATA?.find(a => a.slug === articleSlug) 
+    || INSIGHTS_DATA?.find(a => a.slug === articleSlug);
 
   if (!article) {
     return (
@@ -37,6 +40,9 @@ const BlogArticlePage = ({ articleSlug, onNavigate }) => {
 
   const renderContentBlock = (block, idx) => {
     switch (block.type) {
+      case 'heading':
+        if (block.level === 3) return <h3 key={idx}>{block.content}</h3>;
+        return <h2 key={idx}>{block.content}</h2>;
       case 'heading2':
         return <h2 key={idx}>{block.content}</h2>;
       case 'heading3':
@@ -66,6 +72,10 @@ const BlogArticlePage = ({ articleSlug, onNavigate }) => {
         return <p key={idx}>{block.content}</p>;
     }
   };
+
+  // Support both 'content' (blogArticlesData) and 'contentBlocks' (insightsData) field names
+  const contentBlocks = article.content || article.contentBlocks;
+  const headingBlocks = contentBlocks?.filter(b => b.type === 'heading2' || b.type === 'heading') || [];
 
   return (
     <div className="page-wrapper">
@@ -98,8 +108,8 @@ const BlogArticlePage = ({ articleSlug, onNavigate }) => {
         <div className="article-layout">
           {/* Main Content */}
           <article className="article-content">
-            {article.contentBlocks ? (
-              article.contentBlocks.map((block, idx) => renderContentBlock(block, idx))
+            {contentBlocks ? (
+              contentBlocks.map((block, idx) => renderContentBlock(block, idx))
             ) : (
               <p className="article-placeholder-text">{article.excerpt || "Full article content coming soon."}</p>
             )}
@@ -123,7 +133,7 @@ const BlogArticlePage = ({ articleSlug, onNavigate }) => {
             <div className="toc-card glass-panel sticky-sidebar">
               <h3>Table of Contents</h3>
               <ul className="toc-list">
-                {article.contentBlocks?.filter(b => b.type === 'heading2').map((b, i) => (
+              {headingBlocks.map((b, i) => (
                   <li key={i}>
                     <a href="#!">{b.content}</a>
                   </li>
