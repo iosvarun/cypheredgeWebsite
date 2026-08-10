@@ -204,10 +204,10 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
                       className="mega-product-card"
                       onClick={() => handleLinkClick(`/product/${app.id}`)}
                     >
-                      <img src={app.iconUrl} alt={app.name} className="mega-app-icon" />
+                      <img src={app.iconPath || app.image} alt={app.name} className="mega-app-icon" />
                       <div className="mega-product-meta">
                         <span className="mega-product-name">{app.name}</span>
-                        <span className="mega-product-badge">{app.category}</span>
+                        <span className="mega-product-badge">{app.badge || app.category}</span>
                       </div>
                     </div>
                   ))}
