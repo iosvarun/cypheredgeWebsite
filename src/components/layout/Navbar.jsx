@@ -107,11 +107,11 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
                       <span className="col-subtitle">WHAT WE DO</span>
                       <h4>Engineering & Staffing Services</h4>
                     </div>
-                    <div className="mega-menu-list">
+                    <div className="services-list-items">
                       {SERVICES_DATA.map((srv) => (
                         <div
                           key={srv.id}
-                          className="mega-menu-item"
+                          className="mega-service-card"
                           onClick={() => {
                             if (srv.id === 'it-staffing-dedicated-teams') {
                               handleLinkClick('/it-staffing');
@@ -130,27 +130,25 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
                             }
                           }}
                         >
-                          <div className="mega-icon-box">{getServiceIcon(srv.id)}</div>
-                          <div className="mega-item-text">
-                            <h5>{srv.title}</h5>
-                            <p>{srv.shortDesc}</p>
+                          <div className="service-card-icon" style={{ color: srv.color }}>
+                            {getServiceIcon(srv.id)}
+                          </div>
+                          <div className="service-card-info">
+                            <span className="service-title">{srv.title}</span>
+                            <span className="service-desc">{srv.businessOutcome}</span>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="mega-menu-col featured-box">
-                    <div className="col-header">
-                      <span className="col-subtitle">SPOTLIGHT</span>
-                      <h4>Dedicated Talent</h4>
-                    </div>
-                    <div className="featured-box-card glass-panel">
-                      <Users size={28} className="text-cyan mb-2" />
-                      <h5>Hire Dedicated Engineers</h5>
-                      <p>Scale your tech team in 7 days with vetted senior software architects & AI developers.</p>
+                  <div className="mega-menu-col featured-highlight">
+                    <div className="featured-box-card">
+                      <span className="badge-neon mb-2"><Users size={12} /> Staffing</span>
+                      <h5>Dedicated Engineering Teams</h5>
+                      <p>Hire individual developers or full engineering pods. Fast onboarding, flexible engagement, senior talent.</p>
                       <button className="btn-inline-link" onClick={() => handleLinkClick('/it-staffing')}>
-                        Explore Staffing Models <ArrowRight size={14} />
+                        Learn About IT Staffing <ArrowRight size={14} />
                       </button>
                     </div>
                   </div>
