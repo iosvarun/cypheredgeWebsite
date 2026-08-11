@@ -2,7 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import WhatsAppButton from '../components/shared/WhatsAppButton';
-import { OrganizationJsonLd } from '../components/shared/JsonLd';
+import { OrganizationJsonLd, WebSiteJsonLd } from '../components/shared/JsonLd';
 import { trackPageView } from '../utils/analytics';
 import { captureUtmParams } from '../data/siteConfig';
 
@@ -223,6 +223,7 @@ const FullPageLoader = () => (
   return (
     <div className="cypheredge-app-container">
       <OrganizationJsonLd />
+      <WebSiteJsonLd />
       {!isPaidLanding && <Navbar currentPath={currentRoute.replace('#', '/')} onNavigate={navigateTo} />}
       <main className="main-content-area">
         <Suspense fallback={<FullPageLoader />}>

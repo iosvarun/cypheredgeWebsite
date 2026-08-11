@@ -1,30 +1,59 @@
-import { SITE_CONFIG } from '../../data/siteConfig.js';
+import React from 'react';
+import { SITE_CONFIG } from '../../data/siteConfig';
+
+const BASE_URL = 'https://www.cypheredge.in';
 
 export function OrganizationJsonLd() {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: SITE_CONFIG?.name || 'CypherEdge',
-    url: SITE_CONFIG?.url || 'https://cypheredge.com',
-    logo: `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
-    email: SITE_CONFIG?.email || 'contact@cypheredge.com',
+    name: SITE_CONFIG?.companyName || 'CypherEdge Private Limited',
+    alternateName: 'CypherEdge',
+    url: BASE_URL,
+    logo: `${BASE_URL}/assets/logo_tagline.png`,
+    email: SITE_CONFIG?.email || 'admin@cypheredge.in',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Ahmedabad',
       addressCountry: 'India'
     },
-    foundingDate: '2023',
-    numberOfEmployees: {
-      '@type': 'QuantitativeValue',
-      minValue: 10,
-      maxValue: 50
-    },
-    knowsAbout: ['AI', 'Software Engineering', 'Mobile Development', 'Web Development', 'Cloud DevOps', 'Product Engineering'],
+    knowsAbout: [
+      'AI software development',
+      'AI engineering company',
+      'agentic AI development',
+      'iOS app development',
+      'mobile app development',
+      'software product engineering',
+      'SaaS development',
+      'backend engineering',
+      'cloud engineering',
+      'AI product development'
+    ],
     sameAs: [
-      SITE_CONFIG?.social?.linkedin,
-      SITE_CONFIG?.social?.twitter,
-      SITE_CONFIG?.social?.github
+      SITE_CONFIG?.socialLinks?.linkedin,
+      SITE_CONFIG?.socialLinks?.github,
+      SITE_CONFIG?.socialLinks?.twitter
     ].filter(Boolean)
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function WebSiteJsonLd() {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'CypherEdge',
+    url: BASE_URL,
+    publisher: {
+      '@type': 'Organization',
+      name: 'CypherEdge Private Limited',
+      logo: `${BASE_URL}/assets/logo_tagline.png`
+    }
   };
 
   return (
@@ -39,9 +68,9 @@ export function ServiceJsonLd({ services = [] }) {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: SITE_CONFIG?.name || 'CypherEdge Engineering',
-    url: SITE_CONFIG?.url || 'https://cypheredge.com',
-    image: `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
+    name: 'CypherEdge Engineering Services',
+    url: `${BASE_URL}/services`,
+    image: `${BASE_URL}/assets/logo_tagline.png`,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Engineering Services',
@@ -50,7 +79,7 @@ export function ServiceJsonLd({ services = [] }) {
         itemOffered: {
           '@type': 'Service',
           name: service.title,
-          description: service.description
+          description: service.businessOutcome || service.shortDesc
         },
         position: index + 1
       }))
@@ -96,8 +125,8 @@ export function BreadcrumbJsonLd({ items = [] }) {
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: item.name,
-      item: item.url
+      name: item.label || item.name,
+      item: item.path ? `${BASE_URL}${item.path}` : BASE_URL
     }))
   };
 
@@ -109,72 +138,18 @@ export function BreadcrumbJsonLd({ items = [] }) {
   );
 }
 
-export function ArticleJsonLd({ title, description, author, datePublished, dateModified, image, url }) {
-  const data = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: title,
-    description: description,
-    author: {
-      '@type': 'Person',
-      name: author || 'CypherEdge Engineering'
-    },
-    datePublished: datePublished,
-    dateModified: dateModified || datePublished,
-    image: image || `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
-    url: url
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
-}
-
-export function ProductJsonLd({ name, description, image, url, rating, ratingCount }) {
+export function SoftwareApplicationJsonLd({ name, description, category, operatingSystem, url }) {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: name,
     description: description,
-    image: image || `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
-    url: url,
-    applicationCategory: 'BusinessApplication',
-    aggregateRating: rating ? {
-      '@type': 'AggregateRating',
-      ratingValue: rating,
-      ratingCount: ratingCount || 1
-    } : undefined
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
-}
-
-export function LocalBusinessJsonLd() {
-  const data = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: SITE_CONFIG?.name || 'CypherEdge',
-    image: `${SITE_CONFIG?.url || 'https://cypheredge.com'}/logo.png`,
-    '@id': SITE_CONFIG?.url || 'https://cypheredge.com',
-    url: SITE_CONFIG?.url || 'https://cypheredge.com',
-    telephone: SITE_CONFIG?.phone || '',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Ahmedabad',
-      addressCountry: 'IN'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 23.0225,
-      longitude: 72.5714
+    applicationCategory: category || 'BusinessApplication',
+    operatingSystem: operatingSystem || 'iOS, Android, Web',
+    url: url || BASE_URL,
+    publisher: {
+      '@type': 'Organization',
+      name: 'CypherEdge Private Limited'
     }
   };
 
