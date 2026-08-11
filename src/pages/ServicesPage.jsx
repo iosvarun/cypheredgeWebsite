@@ -262,7 +262,7 @@ export default function ServicesPage({ onNavigate }) {
                           className="btn-glow sp-pillar-cta"
                           onClick={() => onNavigate && onNavigate('/contact')}
                         >
-                          Discuss This Service <ArrowRight size={15} />
+                          Discuss Your Architecture <ArrowRight size={15} />
                         </button>
                       </div>
                     </div>

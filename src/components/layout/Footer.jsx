@@ -125,7 +125,7 @@ export default function Footer({ onNavigate }) {
           <p>Ready to discuss your next project?</p>
           <div className="footer-cta-actions">
             <button className="btn-glow btn-sm" onClick={() => handleLink('/contact')}>
-              Book a Discovery Call <ArrowRight size={14} />
+              Start a Project <ArrowRight size={14} />
             </button>
             {whatsappUrl && (
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="footer-wa-link">

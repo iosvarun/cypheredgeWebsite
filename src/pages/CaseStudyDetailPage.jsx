@@ -132,7 +132,7 @@ const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
           <h2>Have a Similar Engineering Challenge?</h2>
           <p>Talk directly with our technical team to discuss architecture, timeline, and scope.</p>
           <button className="btn-glow" onClick={() => onNavigate && onNavigate('/contact')}>
-            Book a Discovery Call
+            Build Something Similar <LucideIcons.ArrowRight size={16} />
           </button>
         </section>
 
