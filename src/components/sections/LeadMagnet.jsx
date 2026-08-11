@@ -25,8 +25,7 @@ export default function LeadMagnet() {
       if (typeof trackForm === 'function') {
         trackForm('lead_magnet_assessment', formData);
       }
-      // Submit to formsubmit.co
-      await fetch('https://formsubmit.co/ajax/admin@cypheredge.in', {
+      const res = await fetch('https://formsubmit.co/ajax/admin@cypheredge.in', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,11 +40,14 @@ export default function LeadMagnet() {
           _source: 'LeadMagnet - AI Readiness Assessment',
         })
       });
-      setIsSubmitted(true);
+      if (res.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert('Unable to submit your request at this time. Please email us directly at admin@cypheredge.in.');
+      }
     } catch (error) {
       console.error('Form submission failed:', error);
-      // Still show success to user even if network fails
-      setIsSubmitted(true);
+      alert('Network error connecting to the submission server. Please email us directly at admin@cypheredge.in.');
     } finally {
       setIsSubmitting(false);
     }

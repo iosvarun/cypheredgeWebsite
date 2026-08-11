@@ -100,13 +100,11 @@ export default function ContactPage({ onNavigate }) {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        // FormSubmit response was not 200 OK
-        setSubmitted(true); // Still treat as submitted for UX if accepted
+        setSubmitError('Unable to send your inquiry automatically. Please email us directly at admin@cypheredge.in or message us on WhatsApp.');
       }
     } catch (err) {
       console.warn('FormSubmit AJAX network error:', err);
-      // Fallback: still show success state to client so they aren't stuck, but offer email alternative if needed
-      setSubmitted(true);
+      setSubmitError('Network error connecting to the submission server. Please email us directly at admin@cypheredge.in or message us on WhatsApp.');
     } finally {
       setIsSubmitting(false);
     }
