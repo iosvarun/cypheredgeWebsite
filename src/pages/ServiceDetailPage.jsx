@@ -51,7 +51,7 @@ const ServiceDetailPage = ({ serviceSlug, onNavigate }) => {
               className="btn-glow"
               onClick={() => onNavigate && onNavigate(`/contact?service=${encodeURIComponent(service.title)}`)}
             >
-              Get a Free Consultation
+              Discuss Your Architecture <LucideIcons.ArrowRight size={16} />
             </button>
           </div>
           <div className="trust-pill">
@@ -173,9 +173,14 @@ const ServiceDetailPage = ({ serviceSlug, onNavigate }) => {
 
         {/* CTA Section */}
         <section className="service-cta-section glass-panel">
-          <h2>Ready to get started?</h2>
-          <p>{service.ctaText || "Let's build something great together."}</p>
-          <button className="btn-glow">Contact Us</button>
+          <h2>Ready to Build Your System?</h2>
+          <p>{service.ctaText || "Talk directly with our senior engineers to discuss your scope and architecture."}</p>
+          <button
+            className="btn-glow"
+            onClick={() => onNavigate && onNavigate(`/contact?service=${encodeURIComponent(service.title)}`)}
+          >
+            Discuss Your Architecture <LucideIcons.ArrowRight size={16} />
+          </button>
         </section>
 
         {/* Related Services */}

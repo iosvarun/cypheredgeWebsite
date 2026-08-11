@@ -144,7 +144,8 @@ const ENGAGEMENT_MODELS = [
 
 // ─── Component ─────────────────────────────────────────────────────────────
 export default function ServicesPage({ onNavigate }) {
-  const [expanded, setExpanded] = useState(null);
+  // Open first pillar by default so content is immediately visible
+  const [expanded, setExpanded] = useState('ai-agentic');
 
   const toggleExpand = (id) => {
     setExpanded((prev) => (prev === id ? null : id));
@@ -159,7 +160,7 @@ export default function ServicesPage({ onNavigate }) {
           <span className="badge-neon">Engineering Services</span>
           <h1 className="sp-hero-title">
             We Build Software That<br />
-            <span className="text-gradient-neon">Ships, Scales & Performs.</span>
+            <span className="text-gradient-neon">Ships, Scales &amp; Performs.</span>
           </h1>
           <p className="sp-hero-subtitle">
             CypherEdge is a technology product company that designs, engineers, and operates
@@ -167,8 +168,12 @@ export default function ServicesPage({ onNavigate }) {
             thinking at the core.
           </p>
           <div className="sp-hero-actions">
-            <button className="btn-glow" onClick={() => onNavigate && onNavigate('/contact')}>
-              Book a Discovery Call <ArrowRight size={16} />
+            <button
+              className="btn-glow"
+              onClick={() => onNavigate && onNavigate('/contact')}
+              aria-label="Discuss Your Architecture"
+            >
+              Discuss Your Architecture <ArrowRight size={16} />
             </button>
             <button className="btn-secondary" onClick={() => onNavigate && onNavigate('/case-studies')}>
               View Case Studies
@@ -220,8 +225,20 @@ export default function ServicesPage({ onNavigate }) {
                       <p className="sp-pillar-tagline">{pillar.tagline}</p>
                     </div>
                   </div>
-                  <div className="sp-pillar-toggle">
-                    {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+
+                  <div className="sp-pillar-right-actions">
+                    <button
+                      className="btn-glow-sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (onNavigate) onNavigate(`/contact?service=${encodeURIComponent(pillar.title)}`);
+                      }}
+                    >
+                      Discuss Your Architecture <ArrowRight size={13} />
+                    </button>
+                    <div className="sp-pillar-toggle">
+                      {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    </div>
                   </div>
                 </div>
 
@@ -260,7 +277,7 @@ export default function ServicesPage({ onNavigate }) {
                         </div>
                         <button
                           className="btn-glow sp-pillar-cta"
-                          onClick={() => onNavigate && onNavigate('/contact')}
+                          onClick={() => onNavigate && onNavigate(`/contact?service=${encodeURIComponent(pillar.title)}`)}
                         >
                           Discuss Your Architecture <ArrowRight size={15} />
                         </button>
@@ -321,17 +338,17 @@ export default function ServicesPage({ onNavigate }) {
       {/* ── CTA ── */}
       <section className="sp-cta container">
         <div className="sp-cta-card glass-panel">
-          <h2 className="sp-cta-title">Ready to Start?</h2>
+          <h2 className="sp-cta-title">Discuss Your Architecture</h2>
           <p className="sp-cta-sub">
             Tell us what you're building. We'll respond within 24 hours with a clear
             technical recommendation — no sales pitch, no fluff.
           </p>
           <div className="sp-cta-actions">
             <button className="btn-glow" onClick={() => onNavigate && onNavigate('/contact')}>
-              Book a Free Discovery Call <ArrowRight size={16} />
+              Discuss Your Architecture <ArrowRight size={16} />
             </button>
             <button className="btn-secondary" onClick={() => onNavigate && onNavigate('/it-staffing')}>
-              IT Staffing & Dedicated Teams
+              IT Staffing &amp; Dedicated Teams
             </button>
           </div>
           <p className="sp-cta-nda">

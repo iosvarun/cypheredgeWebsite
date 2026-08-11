@@ -86,13 +86,22 @@ export default function CaseStudiesSection({ onNavigate }) {
                   ))}
                 </div>
 
-                <button
-                  className="btn-secondary btn-sm"
-                  onClick={() => onNavigate && onNavigate(`/case-study/${cs.slug || cs.id}`)}
-                  aria-label={`Read full case study: ${cs.title}`}
-                >
-                  View Case Study Details <ArrowRight size={14} />
-                </button>
+                <div className="case-card-actions">
+                  <button
+                    className="btn-glow btn-sm"
+                    onClick={() => onNavigate && onNavigate(`/contact?project=${encodeURIComponent(cs.title)}`)}
+                    aria-label={`Build Something Similar for ${cs.title}`}
+                  >
+                    Build Something Similar <ArrowRight size={14} />
+                  </button>
+                  <button
+                    className="btn-secondary btn-sm"
+                    onClick={() => onNavigate && onNavigate(`/case-study/${cs.slug || cs.id}`)}
+                    aria-label={`Read full case study: ${cs.title}`}
+                  >
+                    View Details →
+                  </button>
+                </div>
               </div>
 
               {/* Image Side */}

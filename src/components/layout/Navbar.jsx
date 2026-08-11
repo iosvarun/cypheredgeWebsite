@@ -94,7 +94,10 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
             onMouseEnter={() => setActiveMenu('services')}
             onMouseLeave={() => setActiveMenu(null)}
           >
-            <button className={`nav-link ${currentPath.startsWith('/services') ? 'active' : ''}`}>
+            <button
+              className={`nav-link ${currentPath.startsWith('/services') ? 'active' : ''}`}
+              onClick={() => handleLinkClick('/services')}
+            >
               <span>Services</span>
               <ChevronDown size={14} className={`chevron-icon ${activeMenu === 'services' ? 'open' : ''}`} />
             </button>
@@ -179,7 +182,10 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
             onMouseEnter={() => setActiveMenu('products')}
             onMouseLeave={() => setActiveMenu(null)}
           >
-            <button className={`nav-link ${currentPath.startsWith('/products') ? 'active' : ''}`}>
+            <button
+              className={`nav-link ${currentPath.startsWith('/products') ? 'active' : ''}`}
+              onClick={() => handleLinkClick('/products')}
+            >
               <span>Products</span>
               <ChevronDown size={14} className={`chevron-icon ${activeMenu === 'products' ? 'open' : ''}`} />
             </button>

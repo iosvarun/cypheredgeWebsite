@@ -39,6 +39,14 @@ const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
           </div>
           <h1 className="cs-title">{cs.title}</h1>
           {cs.summary && <p className="cs-summary-text">{cs.summary}</p>}
+          <div className="cs-hero-actions mt-3">
+            <button
+              className="btn-glow"
+              onClick={() => onNavigate && onNavigate(`/contact?project=${encodeURIComponent(cs.title)}`)}
+            >
+              Build Something Similar <LucideIcons.ArrowRight size={16} />
+            </button>
+          </div>
         </section>
 
         {/* 1. Problem Section */}
