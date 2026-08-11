@@ -23,6 +23,7 @@ const ITStaffingPage = React.lazy(() => import('../pages/ITStaffingPage'));
 const IndustryPage = React.lazy(() => import('../pages/IndustryPage'));
 const ComparisonPage = React.lazy(() => import('../pages/ComparisonPage'));
 const InsightsPage = React.lazy(() => import('../pages/InsightsPage'));
+const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'));
 const LeadMagnetPage = React.lazy(() => import('../pages/LeadMagnetPage'));
 const PaidLandingPage = React.lazy(() => import('../pages/PaidLandingPage'));
 
@@ -206,6 +207,11 @@ export default function AppRouter() {
     if (cleanHash.startsWith('blog/')) {
       const slug = cleanHash.replace('blog/', '');
       return <BlogArticlePage articleSlug={slug} onNavigate={navigateTo} />;
+    }
+
+    // 404 Not Found for unrecognized subpaths
+    if (cleanHash.includes('/') || (cleanHash !== '' && cleanHash !== 'home')) {
+      return <NotFoundPage onNavigate={navigateTo} />;
     }
 
     // Default to Home
