@@ -101,6 +101,7 @@ const APPS = [
     category: "Legal & Enterprise",
     iconPath: "/assets/media__1780777474356.png", // Gavel icon
     urlString: "https://apps.apple.com/us/app/nyayaconnect/id6752890135",
+    urlStringAndroid: "https://play.google.com/store/apps/details?id=com.nyayaconnect.legal",
     fallbackTint: "#3B82F6",
     fallbackSymbol: Scale,
     description: "Empowering citizens with legal access, simplified documentation templates, legal consultation tools, and judicial resources in India.",

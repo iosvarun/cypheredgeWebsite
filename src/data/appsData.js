@@ -242,6 +242,7 @@ export const PRODUCTS_DATA = [
     category: "Legal & Enterprise",
     iconPath: "/assets/media__1780777474356.png",
     urlString: "https://apps.apple.com/us/app/nyayaconnect/id6752890135",
+    urlStringAndroid: "https://play.google.com/store/apps/details?id=com.nyayaconnect.legal",
     color: "#06B6D4",
     rating: "4.9 ★",
     downloads: "15K+ Citizens",
