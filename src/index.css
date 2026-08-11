@@ -218,6 +218,12 @@ button {
 .text-emerald { color: var(--accent-emerald); }
 .text-muted { color: var(--text-muted); }
 .text-main { color: var(--text-main); }
+.text-dim { color: var(--text-dim); }
+
+/* Icon color utilities */
+.icon-cyan { color: var(--primary-cyan); }
+.icon-blue { color: var(--primary-blue); }
+.icon-emerald { color: var(--accent-emerald); }
 
 /* ==========================================================================
    GLASSMORPHISM & GLOW CONTAINERS
