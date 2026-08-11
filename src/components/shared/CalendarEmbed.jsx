@@ -3,7 +3,7 @@ import { trackCTA, TRACK_EVENTS } from '../../utils/analytics.js';
 
 export default function CalendarEmbed({ inline = false }) {
   const calendlyUrl = SITE_CONFIG?.calendlyUrl;
-  const email = SITE_CONFIG?.email || 'contact@cypheredge.com';
+  const email = SITE_CONFIG?.email || 'admin@cypheredge.in';
 
   const handleFallbackClick = () => {
     trackCTA(TRACK_EVENTS?.CALENDAR_FALLBACK_CLICK || 'calendar_fallback_click');
