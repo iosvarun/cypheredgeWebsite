@@ -47,6 +47,10 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [mobileDrawerOpen]);
 
+  const toggleDropdown = (menuName) => {
+    setActiveMenu(prev => (prev === menuName ? null : menuName));
+  };
+
   const handleLinkClick = (path) => {
     setActiveMenu(null);
     setMobileDrawerOpen(false);
@@ -96,7 +100,7 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
           >
             <button
               className={`nav-link ${currentPath.startsWith('/services') ? 'active' : ''}`}
-              onClick={() => handleLinkClick('/services')}
+              onClick={() => toggleDropdown('services')}
             >
               <span>Services</span>
               <ChevronDown size={14} className={`chevron-icon ${activeMenu === 'services' ? 'open' : ''}`} />
@@ -184,7 +188,7 @@ export default function Navbar({ currentPath = '/', onNavigate }) {
           >
             <button
               className={`nav-link ${currentPath.startsWith('/products') ? 'active' : ''}`}
-              onClick={() => handleLinkClick('/products')}
+              onClick={() => toggleDropdown('products')}
             >
               <span>Products</span>
               <ChevronDown size={14} className={`chevron-icon ${activeMenu === 'products' ? 'open' : ''}`} />
