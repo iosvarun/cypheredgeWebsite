@@ -230,41 +230,103 @@ export default function LegalDocs({ path }) {
               <span className="date">Effective Date: July 1, 2026</span>
             </div>
             <h2>Privacy Policy</h2>
-            <p className="intro">CypherEdge Pvt. Ltd. ("Company," "we," "us," or "CypherEdge") is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you visit our website (www.cypheredge.in) and use our custom applications, services, or mobile apps.</p>
-            
+            <p className="intro">
+              CypherEdge Private Limited ("Company," "we," "us," or "CypherEdge") is committed
+              to protecting your privacy. This Privacy Policy describes how we collect, use,
+              disclose, and safeguard your information when you visit our website
+              (www.cypheredge.in) and use our services, mobile applications, or engage with us
+              as a business client.
+            </p>
+
             <div className="doc-section">
               <h3>1. Information We Collect</h3>
-              <p>We may collect personal identification information from you in a variety of ways, including, but not limited to, when you visit our site, register on the site, fill out the Request for Service form, or in connection with other activities, services, features, or resources we make available.</p>
+              <p>We may collect information from you in a variety of ways when you visit our site, submit a form, or use our services:</p>
               <ul>
-                <li><strong>Contact Data:</strong> Name, business email address, phone number, and message descriptions.</li>
-                <li><strong>Usage Data:</strong> Technical logs, browser types, IP addresses, and page navigation behaviors to enhance system performance.</li>
+                <li><strong>Contact Data:</strong> Name, business email address, phone number, company name, and project description when you submit a contact or inquiry form.</li>
+                <li><strong>Usage Data:</strong> Technical information such as browser type, IP address, device type, referring URL, and page navigation patterns collected via analytics tools to improve our website and services.</li>
+                <li><strong>Communication Data:</strong> Messages, attachments, or information you share with us during email, WhatsApp, or video consultations.</li>
+                <li><strong>Cookies &amp; Tracking:</strong> We may use cookies and similar tracking technologies to improve your experience. You may disable cookies in your browser settings, though this may affect site functionality.</li>
               </ul>
             </div>
-            
+
             <div className="doc-section">
               <h3>2. How We Use Collected Information</h3>
-              <p>CypherEdge may collect and use user personal information for the following purposes:</p>
+              <p>CypherEdge may use the information we collect for the following purposes:</p>
               <ul>
-                <li>To improve customer service and respond to service requests.</li>
-                <li>To customize the user experience and analyze client demands.</li>
-                <li>To communicate project proposals, technical status, and service delivery parameters.</li>
+                <li>To respond to service requests, proposals, and project inquiries.</li>
+                <li>To communicate project status, technical recommendations, and delivery updates.</li>
+                <li>To improve our website and customise user experience based on usage patterns.</li>
+                <li>To send periodic communications about services, case studies, or updates — only if you have opted in or contacted us directly. You may unsubscribe at any time.</li>
+                <li>To comply with legal obligations.</li>
               </ul>
             </div>
-            
+
             <div className="doc-section">
-              <h3>3. Data Protection</h3>
-              <p>We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information, username, password, transaction information, and data stored on our Site.</p>
+              <h3>3. Data Protection &amp; Security</h3>
+              <p>
+                We adopt appropriate technical and organisational security measures to protect your
+                personal information against unauthorised access, alteration, disclosure, or
+                destruction. All data transmission via our website uses industry-standard
+                encryption (HTTPS/TLS).
+              </p>
             </div>
-            
+
             <div className="doc-section">
               <h3>4. Sharing Personal Information</h3>
-              <p>We do not sell, trade, or rent users' personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates, and advertisers for the purposes outlined above.</p>
+              <p>
+                We do not sell, trade, or rent your personal information to third parties.
+                We may share information with trusted service providers who assist in operating
+                our website or delivering our services (e.g., email delivery, analytics tools),
+                subject to confidentiality obligations. We may also disclose information when
+                required by law or to protect the rights and safety of CypherEdge or others.
+              </p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>5. Contact Us</h3>
-              <p>If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:</p>
-              <p className="contact-email">Email: <a href="mailto:admin@cypheredge.in">admin@cypheredge.in</a></p>
+              <h3>5. Data Retention</h3>
+              <p>
+                We retain personal information only for as long as necessary to fulfil the
+                purpose for which it was collected or as required by applicable laws and
+                contractual obligations. Project-related data is retained as agreed in the
+                individual service agreement with each client.
+              </p>
+            </div>
+
+            <div className="doc-section">
+              <h3>6. Your Rights</h3>
+              <p>
+                You have the right to access, correct, or request deletion of your personal
+                information held by us. To exercise these rights, please contact us at the
+                email address below. We will respond to your request within a reasonable
+                timeframe.
+              </p>
+            </div>
+
+            <div className="doc-section">
+              <h3>7. Third-Party Links</h3>
+              <p>
+                Our website may contain links to third-party websites or services. CypherEdge
+                is not responsible for the privacy practices or content of those sites.
+                We encourage you to review their privacy policies independently.
+              </p>
+            </div>
+
+            <div className="doc-section">
+              <h3>8. Changes to This Privacy Policy</h3>
+              <p>
+                We may update this Privacy Policy from time to time. We will indicate the
+                date of the latest revision at the top of this document. Continued use of our
+                website after updates are published constitutes acceptance of the revised policy.
+              </p>
+            </div>
+
+            <div className="doc-section">
+              <h3>9. Contact Us</h3>
+              <p>If you have any questions about this Privacy Policy or your personal data, please contact us:</p>
+              <p className="contact-email">
+                Email: <a href="mailto:admin@cypheredge.in">admin@cypheredge.in</a>
+              </p>
+              <p>Website: <a href="https://www.cypheredge.in" target="_blank" rel="noopener noreferrer">www.cypheredge.in</a></p>
             </div>
           </div>
         );
@@ -276,37 +338,105 @@ export default function LegalDocs({ path }) {
               <span className="badge">CypherEdge</span>
               <span className="date">Effective Date: July 1, 2026</span>
             </div>
-            <h2>Terms & Conditions</h2>
-            
+            <h2>Terms &amp; Conditions</h2>
+            <p className="intro">
+              Please read these Terms &amp; Conditions carefully before accessing or using any
+              services provided by CypherEdge Private Limited ("Company," "CypherEdge," "we,"
+              "us"). By accessing our website at www.cypheredge.in or engaging our services,
+              you agree to be bound by these Terms. If you do not agree, please do not use
+              our website or services.
+            </p>
+
             <div className="doc-section">
-              <h3>1. Agreement to Terms</h3>
-              <p>By accessing or using our services at CypherEdge Pvt. Ltd., you agree to be bound by these Terms & Conditions. If you do not agree to all of these terms, please do not use our services or website.</p>
+              <h3>1. Services</h3>
+              <p>
+                CypherEdge provides technology product engineering services including, but not
+                limited to: AI systems development, mobile application engineering (iOS &amp;
+                Android), web platform and SaaS development, backend and cloud infrastructure,
+                and dedicated engineering team staffing. Details, fees, scope, and delivery
+                schedules for specific engagements are governed by separate project agreements
+                or contracts signed with each client.
+              </p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>2. Service Scope</h3>
-              <p>CypherEdge offers digital systems engineering, mobile app development (iOS & Android), custom cloud backend architecture, and AI workflow automation consulting. Details, fees, and delivery schedules are governed by separate project contracts signed with each client.</p>
+              <h3>2. Use of Website</h3>
+              <p>
+                You may use our website for lawful purposes only. You must not use it in any
+                way that breaches applicable local, national, or international laws, causes
+                harm or disruption to CypherEdge or third parties, or transmits unsolicited
+                commercial communications.
+              </p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>3. Intellectual Property Rights</h3>
-              <p>Unless otherwise stated, all intellectual property in the custom software, applications, and source code engineered by CypherEdge remains our property until all invoices and project fees are paid in full by the client. Upon final payment, the relevant ownership and source code licenses transfer to the client as outlined in the service agreement.</p>
+              <h3>3. Intellectual Property</h3>
+              <p>
+                All content on this website — including text, graphics, logos, and code — is
+                the property of CypherEdge Private Limited and protected by applicable
+                intellectual property laws. You may not reproduce, distribute, or create
+                derivative works without our express written permission.
+              </p>
+              <p style={{ marginTop: '0.75rem' }}>
+                For client projects: all intellectual property in custom software, applications,
+                and source code engineered by CypherEdge remains our property until all project
+                fees are paid in full. Upon final payment, full ownership and source code licences
+                transfer to the client as outlined in the individual service agreement.
+              </p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>4. Disclaimer & Limitation of Liability</h3>
-              <p>Our consulting, website, and services are provided "as is" and "as available." CypherEdge Pvt. Ltd. makes no warranties, expressed or implied. In no event shall CypherEdge be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the custom software or services.</p>
+              <h3>4. Confidentiality</h3>
+              <p>
+                CypherEdge treats all client project details, technical specifications, and
+                business information as confidential. We are willing to sign Non-Disclosure
+                Agreements (NDAs) prior to any project discussion. Specific confidentiality
+                obligations are governed by the project agreement with each client.
+              </p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>5. Changes to Terms</h3>
-              <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will indicate the date of the latest revisions at the top of this document.</p>
+              <h3>5. Disclaimer &amp; Limitation of Liability</h3>
+              <p>
+                Our website and publicly available content are provided "as is" without
+                warranties of any kind, expressed or implied. CypherEdge Private Limited makes
+                no representations regarding accuracy, completeness, or fitness for a particular
+                purpose. To the fullest extent permitted by law, CypherEdge shall not be liable
+                for any indirect, incidental, or consequential damages arising from the use of
+                our website or services.
+              </p>
+              <p style={{ marginTop: '0.75rem' }}>
+                Liability for specific service engagements is governed by the individual
+                project contract or service agreement with each client.
+              </p>
             </div>
-            
+
             <div className="doc-section">
-              <h3>6. Contact Us</h3>
-              <p>For any questions or support regarding our Terms & Conditions, please reach out to us:</p>
-              <p className="contact-email">Email: <a href="mailto:admin@cypheredge.in">admin@cypheredge.in</a></p>
+              <h3>6. Governing Law &amp; Jurisdiction</h3>
+              <p>
+                These Terms &amp; Conditions are governed by and construed in accordance with
+                the laws of India. Any disputes arising from these Terms or our services shall
+                be subject to the exclusive jurisdiction of the courts of India.
+              </p>
+            </div>
+
+            <div className="doc-section">
+              <h3>7. Changes to These Terms</h3>
+              <p>
+                We reserve the right to modify these Terms at any time. We will indicate the
+                date of the latest revisions at the top of this document. Your continued use
+                of our website or services after changes are published constitutes acceptance
+                of the revised Terms.
+              </p>
+            </div>
+
+            <div className="doc-section">
+              <h3>8. Contact Us</h3>
+              <p>For questions or concerns regarding these Terms &amp; Conditions, please contact us:</p>
+              <p className="contact-email">
+                Email: <a href="mailto:admin@cypheredge.in">admin@cypheredge.in</a>
+              </p>
+              <p>Website: <a href="https://www.cypheredge.in" target="_blank" rel="noopener noreferrer">www.cypheredge.in</a></p>
             </div>
           </div>
         );

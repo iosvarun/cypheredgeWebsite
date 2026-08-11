@@ -157,8 +157,24 @@ export default function AppRouter() {
       return <PaidLandingPage variant={variant} onNavigate={navigateTo} />;
     }
 
-    // Legal docs
-    if (cleanHash.includes('privacypolicy') || cleanHash.includes('terms') || cleanHash.includes('aboutus')) {
+    // Legal docs — support all route variants
+    if (
+      cleanHash.includes('privacypolicy') ||
+      cleanHash.includes('privacy-policy') ||
+      cleanHash.includes('privacy_policy') ||
+      cleanHash === 'legal'
+    ) {
+      return <LegalDocsPage path="privacypolicy" />;
+    }
+    if (
+      cleanHash.includes('termsandcondition') ||
+      cleanHash.includes('terms-and-condition') ||
+      cleanHash.includes('terms') ||
+      cleanHash.includes('termscondition')
+    ) {
+      return <LegalDocsPage path="termsandcondition" />;
+    }
+    if (cleanHash.includes('aboutus')) {
       return <LegalDocsPage path={cleanHash} />;
     }
 

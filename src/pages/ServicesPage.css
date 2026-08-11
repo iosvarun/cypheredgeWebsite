@@ -1,0 +1,448 @@
+/* ==========================================================================
+   SERVICES PAGE — Premium Full-Page Treatment
+   ========================================================================== */
+
+.services-page {
+  padding-top: 0;
+}
+
+/* ── Hero ── */
+.sp-hero {
+  padding: 7rem 0 5rem;
+  text-align: center;
+}
+
+.sp-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sp-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.sp-hero-subtitle {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0;
+}
+
+.sp-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* ── Service Pillars ── */
+.sp-pillars {
+  padding: 4rem 0 5rem;
+}
+
+.sp-pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.sp-pillar-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(10, 10, 24, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.3s ease;
+}
+
+.sp-pillar-card.is-open {
+  border-color: var(--pillar-color, rgba(6, 182, 212, 0.3));
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Pillar Header */
+.sp-pillar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 2rem;
+  cursor: pointer;
+  gap: 1rem;
+  user-select: none;
+}
+
+.sp-pillar-header:hover .sp-pillar-title {
+  color: #ffffff;
+}
+
+.sp-pillar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.sp-pillar-number {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--pillar-color, #06b6d4);
+  opacity: 0.5;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+}
+
+.sp-pillar-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sp-pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0 0 0.2rem 0;
+  transition: color 0.2s ease;
+}
+
+.sp-pillar-tagline {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.sp-pillar-toggle {
+  color: #475569;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.sp-pillar-card.is-open .sp-pillar-toggle {
+  color: var(--pillar-color, #06b6d4);
+}
+
+/* Pillar Body */
+.sp-pillar-body {
+  padding: 0 2rem 2rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 0;
+  animation: pillarOpen 0.25s ease;
+}
+
+@keyframes pillarOpen {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sp-pillar-desc {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1.75rem;
+}
+
+.sp-pillar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.sp-sub-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+.sp-capabilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.sp-capabilities-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+/* Pillar Meta Column */
+.sp-pillar-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sp-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sp-tech-pill {
+  padding: 0.25rem 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.sp-outcome-box {
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+}
+
+.sp-outcome-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sp-outcome-text {
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+.sp-pillar-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── Why CypherEdge ── */
+.sp-why {
+  padding: 4rem 0 5rem;
+}
+
+.sp-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.sp-why-card {
+  padding: 2rem;
+  border-radius: 18px;
+  background: rgba(10, 10, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.sp-why-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+.sp-why-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-why-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.sp-why-desc {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Engagement Models ── */
+.sp-engagement {
+  padding: 4rem 0 5rem;
+}
+
+.sp-engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.sp-engagement-card {
+  padding: 2rem;
+  border-radius: 18px;
+  background: rgba(10, 10, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sp-engagement-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #06b6d4;
+  opacity: 0.25;
+  line-height: 1;
+}
+
+.sp-engagement-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.sp-engagement-desc {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sp-engagement-ideal {
+  font-size: 0.78rem;
+  color: #475569;
+  font-style: italic;
+}
+
+/* ── CTA ── */
+.sp-cta {
+  padding: 4rem 0 6rem;
+}
+
+.sp-cta-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3.5rem;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(10, 10, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.6), rgba(139, 92, 246, 0.5), transparent);
+}
+
+.sp-cta-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.75rem;
+}
+
+.sp-cta-sub {
+  font-size: 1rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin: 0 0 2rem;
+}
+
+.sp-cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sp-cta-nda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #475569;
+  margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .sp-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .sp-pillar-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .sp-engagement-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sp-hero { padding: 5rem 0 3rem; }
+  .sp-pillar-header { padding: 1.25rem 1.25rem; }
+  .sp-pillar-left { gap: 0.75rem; }
+  .sp-pillar-number { font-size: 1rem; min-width: 2rem; }
+  .sp-pillar-icon-circle { width: 40px; height: 40px; }
+  .sp-pillar-body { padding: 0 1.25rem 1.5rem; }
+  .sp-why-grid { grid-template-columns: 1fr; }
+  .sp-cta-card { padding: 2rem 1.5rem; }
+  .sp-cta-title { font-size: 1.5rem; }
+  .sp-hero-actions { flex-direction: column; width: 100%; }
+  .sp-hero-actions > button, .sp-hero-actions > a { width: 100%; justify-content: center; }
+}

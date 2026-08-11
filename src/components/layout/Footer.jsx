@@ -113,8 +113,8 @@ export default function Footer({ onNavigate }) {
             <li><button onClick={() => handleLink('/company')}>About CypherEdge</button></li>
             <li><button onClick={() => handleLink('/careers')}>Careers</button></li>
             <li><button onClick={() => handleLink('/contact')}>Contact</button></li>
-            <li><button onClick={() => handleLink('/legal')}>Privacy Policy</button></li>
-            <li><button onClick={() => handleLink('/legal')}>Terms & Conditions</button></li>
+            <li><button onClick={() => handleLink('/privacypolicy')}>Privacy Policy</button></li>
+            <li><button onClick={() => handleLink('/termsandcondition')}>Terms &amp; Conditions</button></li>
           </ul>
         </div>
       </div>
@@ -143,9 +143,9 @@ export default function Footer({ onNavigate }) {
       <div className="footer-bottom-bar container">
         <p>&copy; {new Date().getFullYear()} CypherEdge Private Limited. All rights reserved.</p>
         <div className="footer-bottom-links">
-          <button onClick={() => handleLink('/legal')}>Privacy Policy</button>
+          <button onClick={() => handleLink('/privacypolicy')}>Privacy Policy</button>
           <span>•</span>
-          <button onClick={() => handleLink('/legal')}>Terms & Conditions</button>
+          <button onClick={() => handleLink('/termsandcondition')}>Terms &amp; Conditions</button>
         </div>
       </div>
     </footer>
