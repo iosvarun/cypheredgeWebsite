@@ -25,11 +25,27 @@ export default function LeadMagnet() {
       if (typeof trackForm === 'function') {
         trackForm('lead_magnet_assessment', formData);
       }
-      // Simulate API call for form submission
-      await new Promise(resolve => setTimeout(resolve, 800));
+      // Submit to formsubmit.co
+      await fetch('https://formsubmit.co/ajax/admin@cypheredge.in', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `AI Readiness Assessment Request from ${formData.name} (${formData.company || 'Individual'})`,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || 'N/A',
+          interest: formData.interest,
+          _source: 'LeadMagnet - AI Readiness Assessment',
+        })
+      });
       setIsSubmitted(true);
     } catch (error) {
       console.error('Form submission failed:', error);
+      // Still show success to user even if network fails
+      setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);
     }

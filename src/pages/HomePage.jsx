@@ -4,60 +4,44 @@ import TrustStrip from '../components/sections/TrustStrip';
 import ServicesSection from '../components/sections/ServicesSection';
 import WhyCypherEdge from '../components/sections/WhyCypherEdge';
 import CaseStudiesSection from '../components/sections/CaseStudiesSection';
-import EngineeringStories from '../components/sections/EngineeringStories';
 import TrustSignals from '../components/sections/TrustSignals';
 import EngagementProcess from '../components/sections/EngagementProcess';
-import Testimonials from '../components/sections/Testimonials';
 import ProductsSection from '../components/sections/ProductsSection';
 import LeadMagnet from '../components/sections/LeadMagnet';
-import EstimatorSection from '../components/sections/EstimatorSection';
 import FinalCTA from '../components/sections/FinalCTA';
-import WhatHappensNext from '../components/sections/WhatHappensNext';
 
 export default function HomePage({ onNavigate }) {
   return (
     <div className="home-page-wrap">
-      {/* 1. HeroSection */}
+      {/* 1. Hero — Primary value proposition */}
       <HeroSection onNavigate={onNavigate} />
 
-      {/* 2. TrustStrip */}
+      {/* 2. TrustStrip — Credibility metrics immediately below hero */}
       <TrustStrip />
 
-      {/* 3. ServicesSection */}
+      {/* 3. Services — What we do */}
       <ServicesSection onNavigate={onNavigate} />
 
-      {/* 4. WhyCypherEdge */}
-      <WhyCypherEdge />
-
-      {/* 5. CaseStudiesSection */}
+      {/* 4. Case Studies — Social proof with real results */}
       <CaseStudiesSection onNavigate={onNavigate} />
 
-      {/* 6. EngineeringStories */}
-      <EngineeringStories onNavigate={onNavigate} />
+      {/* 5. WhyCypherEdge — Differentiators */}
+      <WhyCypherEdge />
 
-      {/* 7. TrustSignals */}
+      {/* 6. Trust Signals — Commitments */}
       <TrustSignals />
 
-      {/* 8. EngagementProcess */}
+      {/* 7. Engagement Process — How we work */}
       <EngagementProcess onNavigate={onNavigate} />
 
-      {/* 9. Testimonials */}
-      <Testimonials onNavigate={onNavigate} />
-
-      {/* 10. LeadMagnet */}
-      <LeadMagnet />
-
-      {/* 11. ProductsSection */}
+      {/* 8. Products — Product portfolio (unique differentiator) */}
       <ProductsSection onNavigate={onNavigate} />
 
-      {/* 12. EstimatorSection */}
-      <EstimatorSection onNavigate={onNavigate} />
+      {/* 9. Lead Magnet — Capture interest */}
+      <LeadMagnet />
 
-      {/* 13. FinalCTA */}
+      {/* 10. Final CTA — Last conversion opportunity */}
       <FinalCTA onNavigate={onNavigate} />
-
-      {/* 14. WhatHappensNext */}
-      <WhatHappensNext />
     </div>
   );
 }

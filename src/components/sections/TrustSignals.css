@@ -1,54 +1,62 @@
+/* ==========================================================================
+   TRUST SIGNALS V2 — COMMITMENT GRID
+   ========================================================================== */
+
 .trust-signals {
-  padding: 3rem 0;
+  /* padding controlled by index.css */
 }
 
 .trust-signals-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
+  gap: 1.25rem;
 }
 
 .trust-card {
-  padding: 2rem;
-  background: rgba(12, 12, 28, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.6rem;
+  background: rgba(10, 10, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  gap: 0;
+  transition: all 0.3s ease;
 }
 
 .trust-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(6, 182, 212, 0.5); /* brightens to cyan */
+  border-color: rgba(6, 182, 212, 0.2);
+  transform: translateY(-3px);
 }
 
 .trust-icon-container {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(6, 182, 212, 0.1);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  margin-bottom: 1rem;
 }
 
 .trust-title {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin: 0;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
   line-height: 1.3;
 }
 
 .trust-desc {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.6;
 }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
 
 @media (max-width: 1024px) {
   .trust-signals-grid {
@@ -56,7 +64,15 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .trust-signals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .trust-card { padding: 1.25rem; }
+}
+
+@media (max-width: 400px) {
   .trust-signals-grid {
     grid-template-columns: 1fr;
   }

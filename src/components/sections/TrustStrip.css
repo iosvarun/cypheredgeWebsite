@@ -1,94 +1,133 @@
+/* ==========================================================================
+   TRUST STRIP V2 — METRICS BANNER
+   ========================================================================== */
+
 .trust-strip-section {
-  padding: 5rem 0;
-  background: var(--bg-card);
-  border-top: 1px solid var(--border-glass);
-  border-bottom: 1px solid var(--border-glass);
+  padding: 4rem 0;
+  background: rgba(8, 8, 20, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
 }
+
 .trust-metrics-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
-  margin-bottom: 4rem;
+  gap: 0;
+  margin-bottom: 3rem;
 }
+
 .trust-metric-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  padding: 0 2.5rem;
 }
+
 .trust-metric-icon {
-  color: var(--text-muted);
-  margin-bottom: 0.25rem;
+  color: var(--primary-cyan);
   opacity: 0.7;
+  margin-bottom: 0.25rem;
 }
+
 .trust-metric-value-wrapper {
   display: flex;
   align-items: baseline;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 800;
   line-height: 1.1;
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
 .metric-prefix, .metric-suffix {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 800;
 }
+
 .metric-label {
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  color: #64748b;
+  font-size: 0.82rem;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
+
 .trust-metric-divider {
   width: 1px;
-  height: 50px;
-  background: var(--border-glass);
+  height: 45px;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
 }
+
 .trust-logos {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
+
 .trust-subtitle {
-  color: var(--text-dim);
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
+  color: #475569;
+  font-size: 0.85rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
+  font-weight: 500;
 }
+
 .reviews-links {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .review-link {
-  padding: 0.75rem 1.5rem;
-  color: var(--text-main);
+  padding: 0.6rem 1.35rem;
+  color: var(--text-muted);
   text-decoration: none;
-  border-radius: 2rem;
-  font-size: 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: all 0.2s ease;
-  border: 1px solid var(--border-glass);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
 }
+
 .review-link:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--primary-cyan);
+  background: rgba(6, 182, 212, 0.08);
+  border-color: rgba(6, 182, 212, 0.3);
+  color: #38bdf8;
 }
-@media (max-width: 768px) {
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 900px) {
   .trust-metrics-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .trust-metric-divider { display: none; }
+  .trust-metric-item { padding: 0; }
+}
+
+@media (max-width: 640px) {
+  .trust-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 1rem;
+    gap: 1.75rem;
   }
-  .trust-metric-divider {
-    display: none;
-  }
-  .trust-strip-section {
-    padding: 4rem 0;
-  }
+  .trust-strip-section { padding: 3rem 0; }
+  .trust-metric-value-wrapper { font-size: 2rem; }
+  .metric-prefix, .metric-suffix { font-size: 2rem; }
 }

@@ -5,7 +5,7 @@ import './ServicesSection.css';
 
 export default function ServicesSection({ onNavigate }) {
   const getServiceIcon = (id, color) => {
-    const props = { size: 24, style: { color } };
+    const props = { size: 22, style: { color } };
     switch (id) {
       case 'ai-agents-llm': return <Bot {...props} />;
       case 'mobile-app-engineering': return <Smartphone {...props} />;
@@ -20,27 +20,13 @@ export default function ServicesSection({ onNavigate }) {
   const handleCardClick = (id) => {
     if (!onNavigate) return;
     switch (id) {
-      case 'ai-agents-llm':
-        onNavigate('/services/ai-agents');
-        break;
-      case 'custom-software-development':
-        onNavigate('/services/enterprise-software');
-        break;
-      case 'saas-product-engineering':
-        onNavigate('/services/web-development');
-        break;
-      case 'mobile-app-engineering':
-        onNavigate('/services/mobile-app-development');
-        break;
-      case 'enterprise-backend-cloud':
-        onNavigate('/services/cloud-devops');
-        break;
-      case 'it-staffing-dedicated-teams':
-        onNavigate('/it-staffing');
-        break;
-      default:
-        onNavigate('/services');
-        break;
+      case 'ai-agents-llm': onNavigate('/services/ai-agents'); break;
+      case 'custom-software-development': onNavigate('/services/enterprise-software'); break;
+      case 'saas-product-engineering': onNavigate('/services/web-development'); break;
+      case 'mobile-app-engineering': onNavigate('/services/mobile-app-development'); break;
+      case 'enterprise-backend-cloud': onNavigate('/services/cloud-devops'); break;
+      case 'it-staffing-dedicated-teams': onNavigate('/it-staffing'); break;
+      default: onNavigate('/services'); break;
     }
   };
 
@@ -48,9 +34,7 @@ export default function ServicesSection({ onNavigate }) {
     <section className="services-section-wrap container">
       <div className="section-header-center">
         <span className="badge-neon">Our Services</span>
-        <h2 className="section-title">
-          What We Build
-        </h2>
+        <h2 className="section-title">What We Build</h2>
         <p className="section-subtitle">
           Full-stack product engineering and dedicated teams for startups and enterprises.
         </p>
@@ -60,29 +44,34 @@ export default function ServicesSection({ onNavigate }) {
         {SERVICES_DATA.slice(0, 6).map((srv) => {
           const isStaffing = srv.id === 'it-staffing-dedicated-teams';
           return (
-            <div 
-              key={srv.id} 
-              className="service-card glass-panel"
+            <div
+              key={srv.id}
+              className="service-card"
+              style={{ '--service-color': srv.color }}
               onClick={() => handleCardClick(srv.id)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && handleCardClick(srv.id)}
+              aria-label={`Learn more about ${srv.title}`}
             >
               {isStaffing && (
                 <span className="popular-badge">Popular</span>
               )}
-              
-              <div 
+
+              <div
                 className="service-icon-circle"
-                style={{ background: `${srv.color}1E` }} // 12% is ~1E hex
+                style={{ background: `${srv.color}18` }}
               >
                 {getServiceIcon(srv.id, srv.color)}
               </div>
-              
+
               <h3 className="service-card-title">{srv.title}</h3>
               <p className="service-card-outcome">
                 {srv.businessOutcome || srv.shortDesc}
               </p>
-              
-              <button className="service-card-link">
-                Learn More <ArrowRight size={16} />
+
+              <button className="service-card-link" tabIndex={-1}>
+                Learn More <ArrowRight size={15} />
               </button>
             </div>
           );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CASE_STUDIES_DATA } from '../../data/caseStudiesData';
-import { Sparkles, ArrowRight, CheckCircle2, AlertTriangle, Lightbulb } from 'lucide-react';
+import { Sparkles, ArrowRight, CheckCircle2, AlertTriangle, Lightbulb, BarChart3 } from 'lucide-react';
 import './CaseStudiesSection.css';
 
 export default function CaseStudiesSection({ onNavigate }) {
@@ -9,7 +9,7 @@ export default function CaseStudiesSection({ onNavigate }) {
       <div className="section-header-center">
         <span className="badge-neon">Business Impact</span>
         <h2 className="section-title">
-          How We Solved Real <br />
+          How We Solved Real{' '}
           <span className="text-gradient-neon">Engineering Problems</span>
         </h2>
         <p className="section-subtitle">
@@ -19,15 +19,28 @@ export default function CaseStudiesSection({ onNavigate }) {
 
       <div className="case-studies-list">
         {CASE_STUDIES_DATA.map((cs) => (
-          <div key={cs.id} className="case-study-card glass-panel">
+          <div key={cs.id} className="case-study-card">
             <div className="case-card-grid">
+              {/* Content Side */}
               <div className="case-card-content">
                 <span className="case-cat-chip">{cs.category}</span>
                 <h3 className="case-title">{cs.title}</h3>
 
+                {/* Results Metrics Strip */}
+                {cs.results && cs.results.length > 0 && (
+                  <div className="case-results-strip">
+                    {cs.results.map((r, idx) => (
+                      <div key={idx} className="case-result-metric">
+                        <span className="case-metric-value">{r.metric}</span>
+                        <span className="case-metric-label">{r.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 <div className="case-challenge-block">
                   <div className="case-block-header">
-                    <AlertTriangle size={14} />
+                    <AlertTriangle size={13} />
                     <span className="case-block-label">Challenge</span>
                   </div>
                   <p className="case-block-text">{cs.challenge}</p>
@@ -35,10 +48,18 @@ export default function CaseStudiesSection({ onNavigate }) {
 
                 <div className="case-solution-block">
                   <div className="case-block-header">
-                    <Lightbulb size={14} />
+                    <Lightbulb size={13} />
                     <span className="case-block-label">Solution</span>
                   </div>
                   <p className="case-block-text">{cs.solution}</p>
+                </div>
+
+                <div className="case-result-block">
+                  <div className="case-block-header">
+                    <CheckCircle2 size={13} />
+                    <span className="case-block-label">Business Result</span>
+                  </div>
+                  <p className="case-block-text">{cs.measurableOutcome}</p>
                 </div>
 
                 <div className="case-tech-tags">
@@ -47,24 +68,23 @@ export default function CaseStudiesSection({ onNavigate }) {
                   ))}
                 </div>
 
-                <div className="case-result-block">
-                  <div className="case-block-header">
-                    <CheckCircle2 size={14} />
-                    <span className="case-block-label">Business Result</span>
-                  </div>
-                  <p className="case-block-text">{cs.measurableOutcome}</p>
-                </div>
-
-                <button 
+                <button
                   className="btn-secondary btn-sm"
                   onClick={() => onNavigate && onNavigate(`/case-study/${cs.id}`)}
+                  aria-label={`Read full case study: ${cs.title}`}
                 >
                   Read Full Case Study <ArrowRight size={14} />
                 </button>
               </div>
 
+              {/* Image Side */}
               <div className="case-card-image-box">
-                <img src={cs.image} alt={cs.title} className="case-img" />
+                <img
+                  src={cs.image}
+                  alt={cs.title}
+                  className="case-img"
+                  loading="lazy"
+                />
                 <div className="case-img-glow" style={{ background: cs.color }} />
               </div>
             </div>

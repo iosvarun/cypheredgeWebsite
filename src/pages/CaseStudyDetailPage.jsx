@@ -120,7 +120,7 @@ const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
         <section className="cs-cta glass-panel">
           <h2>Have a Similar Challenge?</h2>
           <p>Let's discuss how we can build a scalable solution for your business.</p>
-          <button className="btn-glow">Book a Strategy Call</button>
+          <button className="btn-glow" onClick={() => onNavigate && onNavigate('/contact')}>Book a Discovery Call</button>
         </section>
 
         {/* Related */}
