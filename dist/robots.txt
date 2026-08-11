@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.cypheredge.in/sitemap.xml
-
-# CypherEdge - AI Products, Custom Software & Dedicated Engineering Teams
