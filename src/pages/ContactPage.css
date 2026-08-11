@@ -193,9 +193,38 @@
   resize: vertical;
 }
 
-.form-select option {
-  background: #0e0e22;
-  color: #ffffff;
+.form-input.input-error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.04);
+}
+
+.field-error-text {
+  font-size: 0.75rem;
+  color: #f87171;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+.form-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 
