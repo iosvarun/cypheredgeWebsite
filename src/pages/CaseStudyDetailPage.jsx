@@ -35,51 +35,89 @@ const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
         <section className="cs-hero">
           <div className="cs-hero-meta">
             <span className="badge-neon">{cs.category}</span>
-            <span className="cs-client">Client: {cs.client}</span>
+            <span className="cs-client">Division: {cs.client}</span>
           </div>
           <h1 className="cs-title">{cs.title}</h1>
+          {cs.summary && <p className="cs-summary-text">{cs.summary}</p>}
         </section>
 
-        {/* Challenge Section */}
+        {/* 1. Problem Section */}
         <section className="cs-section">
           <div className="cs-highlight-block glass-panel">
-            <span className="badge-neon">The Challenge</span>
-            <p>{cs.challenge}</p>
+            <div className="cs-block-badge">
+              <LucideIcons.AlertTriangle size={16} className="text-amber" />
+              <span>Problem</span>
+            </div>
+            <p>{cs.problem || cs.challenge}</p>
           </div>
         </section>
 
-        {/* Solution Section */}
+        {/* 2. Solution Section */}
         <section className="cs-section">
-          <div className="section-header-center">
-            <h2>The Solution</h2>
+          <div className="section-header-left">
+            <span className="badge-neon">02 — Solution</span>
+            <h2>What We Built</h2>
           </div>
-          <div className="cs-text-content">
+          <div className="cs-text-content glass-panel">
             <p>{cs.solution}</p>
           </div>
         </section>
 
-        {/* Architecture Section */}
-        {cs.architecture && (
-          <section className="cs-section">
-            <div className="section-header-center">
-              <h2>Architecture</h2>
+        {/* 3. Engineering & Architecture Section */}
+        <section className="cs-section">
+          <div className="section-header-left">
+            <span className="badge-neon">03 — Engineering</span>
+            <h2>Architecture &amp; Technical Implementation</h2>
+          </div>
+          {cs.engineering && (
+            <div className="cs-text-content glass-panel mb-4">
+              <p>{cs.engineering}</p>
             </div>
+          )}
+          {cs.architecture && (
             <ul className="cs-architecture-list glass-panel">
               {cs.architecture.map((item, i) => (
                 <li key={i}>
-                  <LucideIcons.Check size={20} className="icon-cyan" />
+                  <LucideIcons.CheckCircle2 size={18} className="icon-cyan" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-          </section>
-        )}
+          )}
+        </section>
 
-        {/* Tech Stack */}
+        {/* 4. Outcome & Measurable Results */}
+        <section className="cs-section">
+          <div className="section-header-left">
+            <span className="badge-neon">04 — Outcome</span>
+            <h2>Results &amp; Impact</h2>
+          </div>
+
+          {cs.results && (
+            <div className="cs-metrics-grid">
+              {cs.results.map((metric, i) => (
+                <div key={i} className="cs-metric-card glass-panel">
+                  <div className="metric-value text-gradient-neon">{metric.metric}</div>
+                  <div className="metric-label">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {(cs.outcome || cs.measurableOutcome) && (
+            <div className="cs-outcome-block glass-panel">
+              <LucideIcons.TrendingUp size={28} className="icon-cyan" />
+              <p>{cs.outcome || cs.measurableOutcome}</p>
+            </div>
+          )}
+        </section>
+
+        {/* 5. Technology Stack */}
         {cs.techStack && (
           <section className="cs-section">
-            <div className="section-header-center">
-              <h2>Technologies Used</h2>
+            <div className="section-header-left">
+              <span className="badge-neon">05 — Technology</span>
+              <h2>Tech Stack</h2>
             </div>
             <div className="cs-tech-grid">
               {cs.techStack.map((tech, i) => (
@@ -89,38 +127,13 @@ const CaseStudyDetailPage = ({ caseStudySlug, onNavigate }) => {
           </section>
         )}
 
-        {/* Results Section */}
-        {cs.results && (
-          <section className="cs-section">
-            <div className="section-header-center">
-              <h2>The Results</h2>
-            </div>
-            <div className="cs-metrics-grid">
-              {cs.results.map((metric, i) => (
-                <div key={i} className="cs-metric-card glass-panel">
-                  <div className="metric-value">{metric.metric}</div>
-                  <div className="metric-label">{metric.label}</div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Measurable Outcome */}
-        {cs.measurableOutcome && (
-          <section className="cs-section">
-            <div className="cs-outcome-block glass-panel">
-              <LucideIcons.TrendingUp size={32} className="icon-cyan" />
-              <p>{cs.measurableOutcome}</p>
-            </div>
-          </section>
-        )}
-
         {/* CTA */}
         <section className="cs-cta glass-panel">
-          <h2>Have a Similar Challenge?</h2>
-          <p>Let's discuss how we can build a scalable solution for your business.</p>
-          <button className="btn-glow" onClick={() => onNavigate && onNavigate('/contact')}>Book a Discovery Call</button>
+          <h2>Have a Similar Engineering Challenge?</h2>
+          <p>Talk directly with our technical team to discuss architecture, timeline, and scope.</p>
+          <button className="btn-glow" onClick={() => onNavigate && onNavigate('/contact')}>
+            Book a Discovery Call
+          </button>
         </section>
 
         {/* Related */}

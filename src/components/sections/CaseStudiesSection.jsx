@@ -1,19 +1,19 @@
 import React from 'react';
 import { CASE_STUDIES_DATA } from '../../data/caseStudiesData';
-import { Sparkles, ArrowRight, CheckCircle2, AlertTriangle, Lightbulb, BarChart3 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, AlertTriangle, Lightbulb, Cpu } from 'lucide-react';
 import './CaseStudiesSection.css';
 
 export default function CaseStudiesSection({ onNavigate }) {
   return (
     <section className="case-studies-section container">
       <div className="section-header-center">
-        <span className="badge-neon">Business Impact</span>
+        <span className="badge-neon">Product Case Studies</span>
         <h2 className="section-title">
-          How We Solved Real{' '}
-          <span className="text-gradient-neon">Engineering Problems</span>
+          Engineering Solutions for{' '}
+          <span className="text-gradient-neon">Real Products</span>
         </h2>
         <p className="section-subtitle">
-          Every project starts with a business challenge. Here's how we engineered the solutions.
+          How we architected, engineered, and delivered measurable outcomes for flagship products.
         </p>
       </div>
 
@@ -23,10 +23,13 @@ export default function CaseStudiesSection({ onNavigate }) {
             <div className="case-card-grid">
               {/* Content Side */}
               <div className="case-card-content">
-                <span className="case-cat-chip">{cs.category}</span>
+                <div className="case-header-row">
+                  <span className="case-cat-chip">{cs.category}</span>
+                  <span className="case-client-tag">{cs.client}</span>
+                </div>
                 <h3 className="case-title">{cs.title}</h3>
 
-                {/* Results Metrics Strip */}
+                {/* Empirical Results Strip */}
                 {cs.results && cs.results.length > 0 && (
                   <div className="case-results-strip">
                     {cs.results.map((r, idx) => (
@@ -38,15 +41,17 @@ export default function CaseStudiesSection({ onNavigate }) {
                   </div>
                 )}
 
-                <div className="case-challenge-block">
+                {/* Problem */}
+                <div className="case-block case-challenge-block">
                   <div className="case-block-header">
                     <AlertTriangle size={13} />
-                    <span className="case-block-label">Challenge</span>
+                    <span className="case-block-label">Problem</span>
                   </div>
-                  <p className="case-block-text">{cs.challenge}</p>
+                  <p className="case-block-text">{cs.problem || cs.challenge}</p>
                 </div>
 
-                <div className="case-solution-block">
+                {/* Solution */}
+                <div className="case-block case-solution-block">
                   <div className="case-block-header">
                     <Lightbulb size={13} />
                     <span className="case-block-label">Solution</span>
@@ -54,14 +59,27 @@ export default function CaseStudiesSection({ onNavigate }) {
                   <p className="case-block-text">{cs.solution}</p>
                 </div>
 
-                <div className="case-result-block">
+                {/* Engineering / Architecture */}
+                {cs.engineering && (
+                  <div className="case-block case-engineering-block">
+                    <div className="case-block-header">
+                      <Cpu size={13} />
+                      <span className="case-block-label">Engineering &amp; Architecture</span>
+                    </div>
+                    <p className="case-block-text">{cs.engineering}</p>
+                  </div>
+                )}
+
+                {/* Outcome */}
+                <div className="case-block case-result-block">
                   <div className="case-block-header">
                     <CheckCircle2 size={13} />
-                    <span className="case-block-label">Business Result</span>
+                    <span className="case-block-label">Outcome</span>
                   </div>
-                  <p className="case-block-text">{cs.measurableOutcome}</p>
+                  <p className="case-block-text">{cs.outcome || cs.measurableOutcome}</p>
                 </div>
 
+                {/* Tech Tags */}
                 <div className="case-tech-tags">
                   {cs.techStack.map((tech, idx) => (
                     <span key={idx} className="case-tag-pill">{tech}</span>
@@ -70,10 +88,10 @@ export default function CaseStudiesSection({ onNavigate }) {
 
                 <button
                   className="btn-secondary btn-sm"
-                  onClick={() => onNavigate && onNavigate(`/case-study/${cs.id}`)}
+                  onClick={() => onNavigate && onNavigate(`/case-study/${cs.slug || cs.id}`)}
                   aria-label={`Read full case study: ${cs.title}`}
                 >
-                  Read Full Case Study <ArrowRight size={14} />
+                  View Case Study Details <ArrowRight size={14} />
                 </button>
               </div>
 

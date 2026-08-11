@@ -58,9 +58,23 @@
   line-height: 1.3;
 }
 
+.case-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.case-client-tag {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
 /* Blocks */
 .case-challenge-block,
 .case-solution-block,
+.case-engineering-block,
 .case-result-block {
   padding: 0.9rem 1rem 0.9rem 1.1rem;
   margin-bottom: 1rem;
@@ -78,6 +92,12 @@
   border-left: 3px solid rgba(59, 130, 246, 0.45);
 }
 .case-solution-block .case-block-header { color: rgba(99, 166, 255, 0.9); }
+
+.case-engineering-block {
+  background: rgba(139, 92, 246, 0.04);
+  border-left: 3px solid rgba(139, 92, 246, 0.45);
+}
+.case-engineering-block .case-block-header { color: rgba(167, 139, 250, 0.9); }
 
 .case-result-block {
   background: rgba(16, 185, 129, 0.06);
